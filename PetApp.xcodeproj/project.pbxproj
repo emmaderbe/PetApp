@@ -9,19 +9,35 @@
 /* Begin PBXBuildFile section */
 		C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD322A40D0900082FE4E /* AppDelegate.swift */; };
 		C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD342A40D0900082FE4E /* SceneDelegate.swift */; };
-		C50BAD372A40D0900082FE4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD362A40D0900082FE4E /* ViewController.swift */; };
 		C50BAD3C2A40D0950082FE4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD3B2A40D0950082FE4E /* Assets.xcassets */; };
 		C50BAD3F2A40D0950082FE4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD3D2A40D0950082FE4E /* LaunchScreen.storyboard */; };
+		C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD4D2A40D9AD0082FE4E /* UIScrollView + Extension.swift */; };
+		C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD4F2A40D9B50082FE4E /* UIColor + Extensions.swift */; };
+		C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD512A40D9BE0082FE4E /* UIFont + Extensions.swift */; };
+		C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */; };
+		C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD552A40DA160082FE4E /* OnboardingView.swift */; };
+		C50BAD7A2A40DE900082FE4E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD762A40DE900082FE4E /* Montserrat-Light.ttf */; };
+		C50BAD7B2A40DE900082FE4E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD772A40DE900082FE4E /* Montserrat-SemiBold.ttf */; };
+		C50BAD7C2A40DE900082FE4E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD782A40DE900082FE4E /* Montserrat-Regular.ttf */; };
+		C50BAD7D2A40DE900082FE4E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C50BAD792A40DE900082FE4E /* Montserrat-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C50BAD2F2A40D0900082FE4E /* PetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50BAD322A40D0900082FE4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C50BAD342A40D0900082FE4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C50BAD362A40D0900082FE4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C50BAD3B2A40D0950082FE4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C50BAD3E2A40D0950082FE4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C50BAD402A40D0950082FE4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C50BAD4D2A40D9AD0082FE4E /* UIScrollView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extension.swift"; sourceTree = "<group>"; };
+		C50BAD4F2A40D9B50082FE4E /* UIColor + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		C50BAD512A40D9BE0082FE4E /* UIFont + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
+		C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		C50BAD552A40DA160082FE4E /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C50BAD762A40DE900082FE4E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		C50BAD772A40DE900082FE4E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		C50BAD782A40DE900082FE4E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		C50BAD792A40DE900082FE4E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +107,7 @@
 		C50BAD492A40D1B60082FE4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,7 +115,7 @@
 		C50BAD4A2A40D1E00082FE4E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD362A40D0900082FE4E /* ViewController.swift */,
+				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -106,6 +123,9 @@
 		C50BAD4B2A40D1EA0082FE4E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C50BAD4D2A40D9AD0082FE4E /* UIScrollView + Extension.swift */,
+				C50BAD4F2A40D9B50082FE4E /* UIColor + Extensions.swift */,
+				C50BAD512A40D9BE0082FE4E /* UIFont + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,11 +133,23 @@
 		C50BAD4C2A40D1F30082FE4E /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				C50BAD6D2A40DD860082FE4E /* Font */,
 				C50BAD402A40D0950082FE4E /* Info.plist */,
 				C50BAD3D2A40D0950082FE4E /* LaunchScreen.storyboard */,
 				C50BAD3B2A40D0950082FE4E /* Assets.xcassets */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		C50BAD6D2A40DD860082FE4E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD792A40DE900082FE4E /* Montserrat-Bold.ttf */,
+				C50BAD762A40DE900082FE4E /* Montserrat-Light.ttf */,
+				C50BAD782A40DE900082FE4E /* Montserrat-Regular.ttf */,
+				C50BAD772A40DE900082FE4E /* Montserrat-SemiBold.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +210,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50BAD7A2A40DE900082FE4E /* Montserrat-Light.ttf in Resources */,
 				C50BAD3F2A40D0950082FE4E /* LaunchScreen.storyboard in Resources */,
+				C50BAD7D2A40DE900082FE4E /* Montserrat-Bold.ttf in Resources */,
+				C50BAD7B2A40DE900082FE4E /* Montserrat-SemiBold.ttf in Resources */,
+				C50BAD7C2A40DE900082FE4E /* Montserrat-Regular.ttf in Resources */,
 				C50BAD3C2A40D0950082FE4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,9 +226,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C50BAD372A40D0900082FE4E /* ViewController.swift in Sources */,
+				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
+				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
+				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
+				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
+				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
