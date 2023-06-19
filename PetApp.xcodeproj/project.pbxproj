@@ -27,6 +27,7 @@
 		C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */; };
 		C50BAD8B2A40EF6E0082FE4E /* CellConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8A2A40EF6E0082FE4E /* CellConstants.swift */; };
 		C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */; };
+		C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		C50BAD8A2A40EF6E0082FE4E /* CellConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConstants.swift; sourceTree = "<group>"; };
 		C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
 				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
+				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
 				C50BAD8B2A40EF6E0082FE4E /* CellConstants.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,
+				C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
 				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 				C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */,
