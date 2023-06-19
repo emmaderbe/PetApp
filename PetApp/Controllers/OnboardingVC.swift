@@ -117,10 +117,10 @@ extension OnboardingVC {
         if Int(pageIndex) < views.count - 1 {
             scrollView.scrollTo(horizotalPage: Int(pageIndex) + 1, animated: true)
         } else {
-//            let mainVC = MainVC()
-//            mainVC.modalPresentationStyle = .fullScreen
-//            mainVC.modalTransitionStyle = .crossDissolve
-//            present(mainVC, animated: true)
+            let mainVC = MainVC()
+            mainVC.modalPresentationStyle = .fullScreen
+            mainVC.modalTransitionStyle = .crossDissolve
+            present(mainVC, animated: true)
         }
     }
 }
