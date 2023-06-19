@@ -28,6 +28,7 @@
 		C50BAD8B2A40EF6E0082FE4E /* CellConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8A2A40EF6E0082FE4E /* CellConstants.swift */; };
 		C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */; };
 		C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */; };
+		C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD902A40F2630082FE4E /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C50BAD8A2A40EF6E0082FE4E /* CellConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConstants.swift; sourceTree = "<group>"; };
 		C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		C50BAD902A40F2630082FE4E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,9 @@
 		C50BAD4A2A40D1E00082FE4E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
 				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
+				C50BAD902A40F2630082FE4E /* TabBarController.swift */,
+				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
 				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
 			);
 			path = Controllers;
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
+				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
 				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
