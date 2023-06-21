@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
+class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
 
     // MARK: - init
     init() {
@@ -8,13 +8,13 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = 24
+        layout.minimumLineSpacing = 16
         contentInset = UIEdgeInsets(top: 0, left: CellConstants.leftDestination, bottom: 0, right: CellConstants.rightDestination)
         
         backgroundColor = .accentBackground
         delegate = self
         dataSource = self
-        register(CategoryViewCell.self, forCellWithReuseIdentifier: StringConstants.reuseIdCategoryViewCell)
+        register(FoodMarkViewCell.self, forCellWithReuseIdentifier: StringConstants.reuseIdFoodMarkViewCell)
     }
     
     required init?(coder: NSCoder) {
@@ -28,14 +28,15 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdCategoryViewCell, for: indexPath) as! CategoryViewCell
+        let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodMarkViewCell, for: indexPath) as! FoodMarkViewCell
         return cell
     }
 }
 
 //MARK: - sizeForItem
-extension CategoryCollectionView: UICollectionViewDelegateFlowLayout {
+extension FoodMarkCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  CGSize(width: 72, height: 95)
+        return  CGSize(width: 96, height: 31)
     }
 }
+

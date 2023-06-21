@@ -32,7 +32,7 @@ extension TabBarController {
 // MARK: - setTabBarAppearance()
 extension TabBarController {
     private func setTabBarAppearance() {
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .accentBackground
         tabBar.itemPositioning = .centered
         tabBar.tintColor = .accentOrange
         tabBar.barStyle = .default

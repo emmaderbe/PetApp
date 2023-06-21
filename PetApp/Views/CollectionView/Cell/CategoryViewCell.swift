@@ -1,9 +1,9 @@
 import UIKit
 
-// MARK: - Properties and init()
+// MARK: - Properties
 class CategoryViewCell: UICollectionViewCell {
 
-    let categoryCellImage: UIImageView = {
+    private let categoryCellImage: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -12,7 +12,7 @@ class CategoryViewCell: UICollectionViewCell {
         return image
     }()
 
-    let categoryCellLabel: UILabel = {
+    private let categoryCellLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratSemiBold12()
         label.textColor = .accentText
@@ -23,7 +23,7 @@ class CategoryViewCell: UICollectionViewCell {
         return label
     }()
     
-    let stackCell: UIStackView = {
+    private let stackCell: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 8
@@ -32,7 +32,7 @@ class CategoryViewCell: UICollectionViewCell {
         return stack
     }()
 
-
+// MARK: - init()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()

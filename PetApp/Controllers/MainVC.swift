@@ -94,9 +94,9 @@ extension MainVC {
             allFoodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
             foodCollectionView.topAnchor.constraint(equalTo: allFoodLabel.bottomAnchor, constant: 13),
-            foodCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            foodCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
     }
