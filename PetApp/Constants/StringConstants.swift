@@ -3,6 +3,7 @@ import Foundation
 struct StringConstants {
     static let reuseIdCategoryViewCell = "categoryViewCell"
     static let reuseIdFoodViewCell = "foodViewCell"
+    static let reuseIdFoodMarkViewCell = "foodMarkViewCell"
     
     static let iconMainVCTabBarSystemName = "mainVC"
     static let iconFavouritesVCTabBarSystemName = "favouritesVC"

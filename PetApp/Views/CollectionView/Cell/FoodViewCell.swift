@@ -1,9 +1,9 @@
 import UIKit
 
-// MARK: - Properties and init()
+// MARK: - Properties
 class FoodViewCell: UICollectionViewCell {
     
-    let foodCellImage: UIImageView = {
+   private let foodCellImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.contentMode = .scaleAspectFill
@@ -13,7 +13,7 @@ class FoodViewCell: UICollectionViewCell {
         return image
     }()
     
-    let foodIndicatorImage: UIImageView = {
+    private let foodIndicatorImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .red
         image.layer.cornerRadius = 5
@@ -22,7 +22,7 @@ class FoodViewCell: UICollectionViewCell {
         return image
     }()
     
-    let foodNameLabel: UILabel = {
+    private let foodNameLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratRegular16()
         label.textColor = .accentText
@@ -32,8 +32,7 @@ class FoodViewCell: UICollectionViewCell {
         return label
     }()
     
-    //    var foodLikeButton = LikeButton()
-    
+// MARK: - init()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -46,26 +45,23 @@ class FoodViewCell: UICollectionViewCell {
     
 }
 
-//MARK: - setupCellConstraints
+//MARK: - setupCell()
 extension FoodViewCell {
     func setupCell() {
         backgroundColor = .accentBackground
         addSubview(foodCellImage)
-//        foodCellImage.addSubview(foodIndicatorImage)
         addSubview(foodIndicatorImage)
         addSubview(foodNameLabel)
-        //        addSubview(recieptLikeButton)
     }
 }
 
-//MARK: - setupCellConstraints
+//MARK: - setupCellConstraints()
 extension FoodViewCell {
     func setupCellConstraints() {
         NSLayoutConstraint.activate([
             foodCellImage.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             foodCellImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: -16),
-    //        foodCellImage.heightAnchor.constraint(equalToConstant: 32).isActive = true
             foodCellImage.widthAnchor.constraint(equalToConstant: 32),
             foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
                 
@@ -77,13 +73,6 @@ extension FoodViewCell {
             
             foodNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             foodNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            //        foodNameLabel.trailingAnchor.constraint(equalTo: recieptLikeButton.leadingAnchor, constant: -16).isActive = true
         ])
-        
-//        recieptLikeButton.translatesAutoresizingMaskIntoConstraints = false
-//        recieptLikeButton.heightAnchor.constraint(equalTo: foodCellImage.heightAnchor, multiplier: 0.75).isActive = true
-//        recieptLikeButton.widthAnchor.constraint((equalTo: foodCellImage.widthAnchor, multiplier: 0.75).isActive = true
-//        recieptLikeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        recieptLikeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         }
 }

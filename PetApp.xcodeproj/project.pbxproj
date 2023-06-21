@@ -29,6 +29,10 @@
 		C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */; };
 		C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */; };
 		C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD902A40F2630082FE4E /* TabBarController.swift */; };
+		C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD922A41CAC80082FE4E /* DetailView.swift */; };
+		C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD942A41DDD30082FE4E /* DetailVC.swift */; };
+		C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */; };
+		C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		C50BAD902A40F2630082FE4E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C50BAD922A41CAC80082FE4E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C50BAD942A41DDD30082FE4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkViewCell.swift; sourceTree = "<group>"; };
+		C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 			children = (
 				C50BAD802A40EF5A0082FE4E /* CollectionView */,
 				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
+				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +149,7 @@
 				C50BAD902A40F2630082FE4E /* TabBarController.swift */,
 				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
 				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
+				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,6 +192,7 @@
 				C50BAD812A40EF5A0082FE4E /* Cell */,
 				C50BAD842A40EF5A0082FE4E /* FoodCollectionView.swift */,
 				C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */,
+				C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 			children = (
 				C50BAD822A40EF5A0082FE4E /* FoodViewCell.swift */,
 				C50BAD832A40EF5A0082FE4E /* CategoryViewCell.swift */,
+				C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -270,9 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
+				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
 				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
+				C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */,
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
 				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
+				C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
@@ -282,6 +297,7 @@
 				C50BAD8B2A40EF6E0082FE4E /* CellConstants.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,
 				C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */,
+				C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
 				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 				C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */,

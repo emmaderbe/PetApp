@@ -13,6 +13,10 @@ extension UIFont {
     static func montserratSemiBold12() -> UIFont? {
         return UIFont.init(name: "Montserrat-SemiBold", size: 12)
     }
+    
+    static func montserratSemiBold16() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 16)
+    }
 
     static func montserratSemiBold17() -> UIFont? {
         return UIFont.init(name: "Montserrat-SemiBold", size: 17)
