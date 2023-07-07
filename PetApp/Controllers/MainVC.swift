@@ -3,17 +3,6 @@ import UIKit
 // MARK: - Properties
 class MainVC: UIViewController {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Cписок продуктов"
-        label.font = .montserratSemiBold17()
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .accentText
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let searchBar: UISearchBar = {
         let search = UISearchBar()
         search.searchBarStyle = .minimal
@@ -47,7 +36,7 @@ class MainVC: UIViewController {
         return label
     }()
     
-    private var foodCollectionView = FoodCollectionView()
+    private var foodCollectionView: FoodCollectionView!
     
 // MARK: - viewDidLoad()
     override func viewDidLoad() {
@@ -60,8 +49,11 @@ class MainVC: UIViewController {
 // MARK: - setupView()
 extension MainVC {
     func setupView() {
+        foodCollectionView = FoodCollectionView(navigationController: navigationController)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
+        
         view.backgroundColor = .accentBackground
-        view.addSubview(titleLabel)
         view.addSubview(searchBar)
         view.addSubview(categoryLabel)
         view.addSubview(categoryCollectionView)
@@ -75,10 +67,7 @@ extension MainVC {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             
@@ -97,8 +86,7 @@ extension MainVC {
             foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
+        ])        
     }
 }
 

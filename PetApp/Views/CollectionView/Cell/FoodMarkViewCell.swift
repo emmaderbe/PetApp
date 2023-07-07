@@ -3,7 +3,7 @@ import UIKit
 // MARK: - Properties
 class FoodMarkViewCell: UICollectionViewCell {
 
-    private let categoryCellBackground: UIImageView = {
+    lazy var categoryCellBackground: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 16
         image.clipsToBounds = true
@@ -12,7 +12,7 @@ class FoodMarkViewCell: UICollectionViewCell {
         return image
     }()
 
-    private let categoryCellLabel: UILabel = {
+    lazy var categoryCellLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratSemiBold16()
         label.textColor = .accentText

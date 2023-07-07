@@ -13,19 +13,27 @@ class TabBarController: UITabBarController {
 extension TabBarController {
     private func generateTabBar() {
         viewControllers = [
-            generateVC(viewController: MainVC(), image: UIImage(named: StringConstants.iconMainVCTabBarSystemName), title: StringConstants.titleMainVCTabBarSystemName),
-            generateVC(viewController: FavouritesVC(), image: UIImage(named: StringConstants.iconFavouritesVCTabBarSystemName), title: StringConstants.titleFavoriteVCTabBarSystemName)
+            generateVC(viewController: MainVC(),
+                       image: UIImage(named: StringConstants.iconMainVCTabBarSystemName),
+                       title: StringConstants.titleMainVCTabBarSystemName),
+            generateVC(viewController: FavouritesVC(),
+                       image: UIImage(named: StringConstants.iconFavouritesVCTabBarSystemName),
+                       title: StringConstants.titleFavoriteVCTabBarSystemName)
         ]
     }
 }
 
 // MARK: - generateVC()
 extension TabBarController {
-    private func generateVC(viewController: UIViewController, image: UIImage?,
-                            title: String) -> UIViewController {
+    private func generateVC(viewController: UIViewController,
+                            image: UIImage?,
+                            title: String) -> UINavigationController {
         viewController.tabBarItem.image = image
         viewController.tabBarItem.title = title
-        return viewController
+        let navVC = UINavigationController(rootViewController: viewController)
+        navVC.navigationBar.tintColor = .accentOrange
+        viewController.navigationItem.title = title
+        return navVC
     }
 }
 

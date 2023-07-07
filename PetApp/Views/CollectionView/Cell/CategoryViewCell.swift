@@ -3,7 +3,7 @@ import UIKit
 // MARK: - Properties
 class CategoryViewCell: UICollectionViewCell {
 
-    private let categoryCellImage: UIImageView = {
+    lazy var  categoryCellImage: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 12
         image.clipsToBounds = true
@@ -12,7 +12,7 @@ class CategoryViewCell: UICollectionViewCell {
         return image
     }()
 
-    private let categoryCellLabel: UILabel = {
+    lazy var  categoryCellLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratSemiBold12()
         label.textColor = .accentText
