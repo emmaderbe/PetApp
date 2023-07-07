@@ -3,7 +3,7 @@ import UIKit
 // MARK: - Properties
 class FoodViewCell: UICollectionViewCell {
     
-   private let foodCellImage: UIImageView = {
+    lazy var foodCellImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.contentMode = .scaleAspectFill
@@ -13,7 +13,7 @@ class FoodViewCell: UICollectionViewCell {
         return image
     }()
     
-    private let foodIndicatorImage: UIImageView = {
+    lazy var foodIndicatorImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .red
         image.layer.cornerRadius = 5
@@ -22,11 +22,10 @@ class FoodViewCell: UICollectionViewCell {
         return image
     }()
     
-    private let foodNameLabel: UILabel = {
+     lazy var foodNameLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratRegular16()
         label.textColor = .accentText
-        label.text = "Огурец"
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -2,7 +2,6 @@ import UIKit
 
 // MARK: - Properties
 class DetailVC: UIViewController {
-
     private var detailView = DetailView()
     private var foodMarkView = FoodMarkCollectionView()
 
@@ -32,7 +31,7 @@ extension DetailVC {
             detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            foodMarkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 273),
+            foodMarkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 229),
             foodMarkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodMarkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             foodMarkView.heightAnchor.constraint(equalToConstant: 31),

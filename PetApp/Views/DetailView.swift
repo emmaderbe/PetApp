@@ -3,17 +3,6 @@ import UIKit
 // MARK: - Properties
 class DetailView: UIView {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Ананас"
-        label.font = .montserratSemiBold17()
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .accentText
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let mainImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "heart-icon-fill"))
         image.backgroundColor = .accentGrey
@@ -82,8 +71,7 @@ class DetailView: UIView {
 // MARK: - setupView()
 extension DetailView {
     func setupView() {
-        backgroundColor = .white
-        addSubview(titleLabel)
+        backgroundColor = .accentBackground
         addSubview(mainImage)
         addSubview(descriptionTitleLabel)
         addSubview(descriptionLabel)
@@ -95,16 +83,11 @@ extension DetailView {
 // MARK: - setupConstraints()
 extension DetailView {
     func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 64),
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            mainImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 31),
+            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 19),
             mainImage.heightAnchor.constraint(equalToConstant: 189),
             mainImage.widthAnchor.constraint(equalToConstant: 352),
-            
 
             descriptionTitleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 83),
             descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -122,7 +105,6 @@ extension DetailView {
             restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             restrictionsLabel.widthAnchor.constraint(equalToConstant: 358),
         ])
-        
     }
 }
 

@@ -3,18 +3,7 @@ import UIKit
 // MARK: - Properties
 class FavouritesVC: UIViewController {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Избранное"
-        label.font = .montserratSemiBold17()
-        label.numberOfLines = 1
-        label.textAlignment = .center
-        label.textColor = .accentText
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private var foodCollectionView = FoodCollectionView()
+    private var foodCollectionView: FoodCollectionView!
     
 // MARK: - viewDidLoad()
     override func viewDidLoad() {
@@ -27,8 +16,11 @@ class FavouritesVC: UIViewController {
 // MARK: - setupView()
 extension FavouritesVC {
     func setupView() {
+        foodCollectionView = FoodCollectionView(navigationController: navigationController)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
+        
         view.backgroundColor = .accentBackground
-        view.addSubview(titleLabel)
         view.addSubview(foodCollectionView)
     }
 }
@@ -38,10 +30,7 @@ extension FavouritesVC {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 64),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            foodCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 11),
+            foodCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             foodCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
