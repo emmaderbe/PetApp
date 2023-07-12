@@ -6,7 +6,7 @@ class MainVC: UIViewController {
     private let searchBar: UISearchBar = {
         let search = UISearchBar()
         search.searchBarStyle = .minimal
-        search.placeholder = "Поиск"
+        search.placeholder = NSLocalizedString("searchBarMainVC", comment: "")
         search.translatesAutoresizingMaskIntoConstraints = false
         search.returnKeyType = .go
         return search
@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     
     private let categoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Категории"
+        label.text = NSLocalizedString("categoryLabelMainVC", comment: "")
         label.font = .montserratBold16()
         label.numberOfLines = 0
         label.textAlignment = .left
@@ -27,7 +27,7 @@ class MainVC: UIViewController {
     
     private let allFoodLabel: UILabel = {
         let label = UILabel()
-        label.text = "Все продукты"
+        label.text = NSLocalizedString("allFoodLabelMainVC", comment: "")
         label.font = .montserratBold16()
         label.numberOfLines = 0
         label.textAlignment = .left

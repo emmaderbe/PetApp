@@ -14,7 +14,7 @@ class DetailView: UIView {
     
     private let descriptionTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Описание продукта"
+        label.text = NSLocalizedString("descriptionTitleLabelDetailView", comment: "")
         label.font = .montserratBold16()
         label.numberOfLines = 0
         label.textAlignment = .left
@@ -36,7 +36,7 @@ class DetailView: UIView {
     
     private let restrictionsTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Все продукты"
+        label.text = NSLocalizedString("restrictionsTitleLabelDetailView", comment: "")
         label.font = .montserratBold16()
         label.numberOfLines = 0
         label.textAlignment = .left

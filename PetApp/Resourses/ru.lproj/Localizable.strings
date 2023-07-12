@@ -1,0 +1,28 @@
+
+//MARK: - Onboarding VC
+
+//first view
+"onboardingTitleLabelFirstView" = "Привет, друг!";
+"onboardingDescriptionLabelFirstView" = "Наше приложение поможет разобраться, какие продукты безопасны  для вашего питомца от собак до кроликов";
+
+//second view
+"onboardingTitleLabelSecondView" = "Удобное пользование";
+"onboardingDescriptionLabelSecondView" = "Используй избранное, категории и фильтры  для создания список продуктов под своего питомца";
+
+//third view
+"onboardingTitleLabelThirdView" = "Отвественный подход";
+"onboardingDescriptionLabelThirdView" = "Представленная информация носит рекомендательный характер! Обязательно консультируйся с врачом ";
+
+// continueButton
+"continueButton" = "Продолжить";
+
+//MARK: - Detail View
+"descriptionTitleLabelDetailView" = "Описание продукта";
+"restrictionsTitleLabelDetailView" = "Ограничения";
+
+//MARK: - Main VC
+"searchBarMainVC" = "Поиск";
+"categoryLabelMainVC" = "Категории";
+"allFoodLabelMainVC" = "Все продукты";
+
+

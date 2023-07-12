@@ -3,9 +3,9 @@ import UIKit
 // MARK: - Properties
 class OnboardingVC: UIViewController {
     
-    private lazy var firstView = generateOnboardingView(textLabel: "Привет, друг!", descriprionLabel: "Наше приложение поможет разобраться, какие продукты безопасны  для вашего питомца от собак до кроликов", image: UIImage(named: "heart-icon-fill"))
-    private lazy var secondView = generateOnboardingView(textLabel: "Удобное пользование", descriprionLabel: "Используй избранное, категории и фильтры  для создания список продуктов под своего питомца", image: UIImage(named: "heart-icon-fill"))
-    private lazy var  thirdView = generateOnboardingView(textLabel: "Ответственный подход", descriprionLabel: "Представленная информация носит рекомендательный характер! \nОбязательно консультируйся с врачом", image: UIImage(named: "heart-icon-fill"))
+    private lazy var firstView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelFirstView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelFirstView", comment: ""), image: UIImage(named: "heart-icon-fill"))
+    private lazy var secondView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelSecondView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelSecondView", comment: ""), image: UIImage(named: "heart-icon-fill"))
+    private lazy var  thirdView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelThirdView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelThirdView", comment: ""), image: UIImage(named: "heart-icon-fill"))
     
     lazy var views = [firstView, secondView, thirdView]
     
@@ -26,7 +26,7 @@ class OnboardingVC: UIViewController {
         let button = UIButton(type: .custom)
         button.backgroundColor = .accentOrange
         button.layer.cornerRadius = 16
-        button.setTitle("Продолжить", for: .normal)
+        button.setTitle(NSLocalizedString("continueButton", comment: ""), for: .normal)
         button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -82,9 +82,9 @@ extension OnboardingVC {
 
 // MARK: - OnboardingViewController()
 extension OnboardingVC {
-    private func generateOnboardingView(textLabel: String, descriprionLabel: String, image: UIImage?) -> OnboardingView {
+    private func generateOnboardingView(titleLabel: String, descriprionLabel: String, image: UIImage?) -> OnboardingView {
         let onboardingView = OnboardingView()
-        onboardingView.titleLabel.text = textLabel
+        onboardingView.titleLabel.text = titleLabel
         onboardingView.descriptionLabel.text = descriprionLabel
         onboardingView.mainImage.image = image
         return onboardingView
