@@ -34,6 +34,9 @@
 		C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */; };
 		C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */; };
 		C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F182A5EF90E001A0844 /* Localizable.strings */; };
+		C5AF6F1B2A604FEF001A0844 /* DogProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */; };
+		C5AF6F1D2A605213001A0844 /* DogProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */; };
+		C5C0D7112A605DF600E21FDD /* dogProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F192A600ACB001A0844 /* dogProducts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionView.swift; sourceTree = "<group>"; };
 		C5AF6F132A5EF8D8001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5AF6F172A5EF90E001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
+		C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProduct.swift; sourceTree = "<group>"; };
+		C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,8 @@
 		C50BAD482A40D1990082FE4E /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */,
+				C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -137,9 +145,8 @@
 		C50BAD492A40D1B60082FE4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD802A40EF5A0082FE4E /* CollectionView */,
-				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
-				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
+				C5C8AB0B2A6AF1FB002F6AEF /* Additional */,
+				C5C8AB0A2A6AF1F6002F6AEF /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,11 +154,8 @@
 		C50BAD4A2A40D1E00082FE4E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
-				C50BAD902A40F2630082FE4E /* TabBarController.swift */,
-				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
-				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
-				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
+				C5C8AB082A6AF1AA002F6AEF /* Main */,
+				C5C8AB092A6AF1D2002F6AEF /* Additional */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,6 +178,7 @@
 				C50BAD3D2A40D0950082FE4E /* LaunchScreen.storyboard */,
 				C50BAD3B2A40D0950082FE4E /* Assets.xcassets */,
 				C5AF6F182A5EF90E001A0844 /* Localizable.strings */,
+				C5AF6F192A600ACB001A0844 /* dogProducts.json */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -189,17 +194,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		C50BAD802A40EF5A0082FE4E /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				C50BAD812A40EF5A0082FE4E /* Cell */,
-				C50BAD842A40EF5A0082FE4E /* FoodCollectionView.swift */,
-				C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */,
-				C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */,
-			);
-			path = CollectionView;
-			sourceTree = "<group>";
-		};
 		C50BAD812A40EF5A0082FE4E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +202,53 @@
 				C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C5C8AB082A6AF1AA002F6AEF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
+				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
+				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
+				C5C8AB0C2A6AF24A002F6AEF /* CollectionViews */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C5C8AB092A6AF1D2002F6AEF /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
+				C50BAD902A40F2630082FE4E /* TabBarController.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		C5C8AB0A2A6AF1F6002F6AEF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
+				C50BAD812A40EF5A0082FE4E /* Cell */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C5C8AB0B2A6AF1FB002F6AEF /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		C5C8AB0C2A6AF24A002F6AEF /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD842A40EF5A0082FE4E /* FoodCollectionView.swift */,
+				C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */,
+				C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */,
+			);
+			path = CollectionViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +316,7 @@
 				C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */,
 				C50BAD7B2A40DE900082FE4E /* Montserrat-SemiBold.ttf in Resources */,
 				C50BAD7C2A40DE900082FE4E /* Montserrat-Regular.ttf in Resources */,
+				C5C0D7112A605DF600E21FDD /* dogProducts.json in Resources */,
 				C50BAD3C2A40D0950082FE4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5AF6F1D2A605213001A0844 /* DogProductStorage.swift in Sources */,
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
 				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
 				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
@@ -296,6 +339,7 @@
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
+				C5AF6F1B2A604FEF001A0844 /* DogProduct.swift in Sources */,
 				C50BAD862A40EF5B0082FE4E /* FoodViewCell.swift in Sources */,
 				C50BAD7F2A40EF430082FE4E /* MainVC.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
