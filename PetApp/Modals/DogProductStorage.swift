@@ -1,5 +1,6 @@
 import Foundation
 
+// MARK: - load and parsing JSON-file
 struct DogProductStorage {
     func load() -> [DogProduct]? {
             if let url = Bundle.main.url(forResource: "dogProducts", withExtension: "json") {
@@ -15,3 +16,4 @@ struct DogProductStorage {
             return nil
         }
     }
+

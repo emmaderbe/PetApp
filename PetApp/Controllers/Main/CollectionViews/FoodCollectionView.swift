@@ -3,14 +3,17 @@ import UIKit
 // MARK: - Properties
 class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private lazy var dogProduct: [DogProduct] = {
-        let storage = DogProductStorage()
-        return storage.load() ?? []
-    }()
-    
+    var showFavouritesOnly: Bool = false {
+            didSet {
+                reloadData()
+            }
+        }
+
+    private var dogProduct: [DogProduct] = []
+
     private var navigationController: UINavigationController?
     
-// MARK: - init
+    // MARK: - init
     init(navigationController: UINavigationController?) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -26,23 +29,35 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         register(FoodViewCell.self, forCellWithReuseIdentifier: StringConstants.reuseIdFoodViewCell)
         
         self.navigationController = navigationController
+        
+        loadProducts()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-// MARK: - numberOFItemsInSection
+                
+    // MARK: - numberOFItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dogProduct.count
     }
     
-// MARK: - cellForItemAt
+    // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
-        cell.foodCellImage.image = UIImage(named: dogProduct[indexPath.row].photo)
-        cell.foodIndicatorImage.image = UIImage(named: dogProduct[indexPath.row].indicator)
-        cell.foodNameLabel.text = dogProduct[indexPath.row].product
+        let product = dogProduct[indexPath.row]
+        cell.foodCellImage.image = UIImage(named: product.photo)
+        cell.foodIndicatorImage.image = UIImage(named: product.indicator)
+        cell.foodNameLabel.text = product.product
+        cell.likeButton.onTap = { [weak self] isLiked in
+            if isLiked {
+                FavouritesManager.shared.addFavourite(product: product)
+            } else {
+                FavouritesManager.shared.removeFavourite(product: product)
+            }
+            self?.reloadData()
+        }
+        cell.likeButton.isLiked = FavouritesManager.shared.isFavourite(product: product)
         return cell
     }
     
@@ -51,6 +66,8 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
 //MARK: - sizeForItem
 extension FoodCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let insets = collectionView.contentInset
+        _ = collectionView.frame.width - insets.left - insets.right
         return  CGSize(width: 390, height: 56)
     }
 }
@@ -62,5 +79,22 @@ extension FoodCollectionView {
         detailVC.title = dogProduct[indexPath.row].product
         detailVC.product = dogProduct[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+//MARK: - loadProducts()
+extension FoodCollectionView {
+    func loadProducts() {
+            let storage = DogProductStorage()
+            let products = storage.load() ?? []
+            dogProduct = showFavouritesOnly ? products.filter { FavouritesManager.shared.isFavourite(product: $0) } : products
+        }
+}
+
+//MARK: - reloadData()
+extension FoodCollectionView {
+    override func reloadData() {
+        loadProducts()
+        super.reloadData()
     }
 }

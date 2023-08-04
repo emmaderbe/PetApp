@@ -37,6 +37,8 @@
 		C5AF6F1B2A604FEF001A0844 /* DogProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */; };
 		C5AF6F1D2A605213001A0844 /* DogProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */; };
 		C5C0D7112A605DF600E21FDD /* dogProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F192A600ACB001A0844 /* dogProducts.json */; };
+		C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */; };
+		C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A442A7D7BDD00F3466F /* LikeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
 		C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProduct.swift; sourceTree = "<group>"; };
 		C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductStorage.swift; sourceTree = "<group>"; };
+		C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
+		C5F76A442A7D7BDD00F3466F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			children = (
 				C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */,
 				C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */,
+				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
+				C5F76A442A7D7BDD00F3466F /* LikeButton.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -332,10 +338,12 @@
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
 				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
 				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
+				C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */,
 				C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */,
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
 				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
 				C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */,
+				C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
