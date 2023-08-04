@@ -8,7 +8,7 @@ class DetailVC: UIViewController {
     var product: DogProduct? {
             didSet {
                 detailView.mainImage.image = UIImage(named: product!.photo)
-                detailView.descriptionLabel.text = product?.description
+                detailView.descriptionLabel.text = product?.descriptions
                 detailView.restrictionsLabel.text = product?.restriction        
                 foodMarkView.dogProduct = [product].compactMap { $0 }
             }

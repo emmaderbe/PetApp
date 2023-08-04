@@ -20,7 +20,7 @@ class FoodViewCell: UICollectionViewCell {
         return image
     }()
     
-     lazy var foodNameLabel: UILabel = {
+    lazy var foodNameLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratRegular16()
         label.textColor = .accentText
@@ -29,7 +29,13 @@ class FoodViewCell: UICollectionViewCell {
         return label
     }()
     
-// MARK: - init()
+    lazy var likeButton: LikeButton = {
+        let button = LikeButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    // MARK: - init()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -49,6 +55,7 @@ extension FoodViewCell {
         addSubview(foodCellImage)
         addSubview(foodIndicatorImage)
         addSubview(foodNameLabel)
+        addSubview(likeButton)
     }
 }
 
@@ -61,7 +68,7 @@ extension FoodViewCell {
             foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: -16),
             foodCellImage.widthAnchor.constraint(equalToConstant: 32),
             foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
-                
+            
             
             foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: 22),
             foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: 22),
@@ -69,7 +76,12 @@ extension FoodViewCell {
             foodIndicatorImage.widthAnchor.constraint(equalToConstant: 10),
             
             foodNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            foodNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            foodNameLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: -16),
+            
+            likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            likeButton.heightAnchor.constraint(equalToConstant: 24),
+            likeButton.widthAnchor.constraint(equalToConstant: 24)
         ])
-        }
+    }
 }
