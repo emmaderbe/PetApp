@@ -3,9 +3,9 @@ import UIKit
 // MARK: - Properties
 class OnboardingVC: UIViewController {
     
-    private lazy var firstView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelFirstView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelFirstView", comment: ""), image: UIImage(named: "heart-icon-fill"))
-    private lazy var secondView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelSecondView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelSecondView", comment: ""), image: UIImage(named: "heart-icon-fill"))
-    private lazy var  thirdView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelThirdView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelThirdView", comment: ""), image: UIImage(named: "heart-icon-fill"))
+    private lazy var firstView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelFirstView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelFirstView", comment: ""), image: UIImage(named: ImageConstants.iconOnboardingFirst))
+    private lazy var secondView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelSecondView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelSecondView", comment: ""), image: UIImage(named: ImageConstants.iconOnboardingSecond))
+    private lazy var  thirdView = generateOnboardingView(titleLabel: NSLocalizedString("onboardingTitleLabelThirdView", comment: ""), descriprionLabel: NSLocalizedString("onboardingDescriptionLabelThirdView", comment: ""), image: UIImage(named: ImageConstants.iconOnboardingThird))
     
     lazy var views = [firstView, secondView, thirdView]
     

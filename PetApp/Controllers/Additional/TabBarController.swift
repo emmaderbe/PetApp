@@ -14,10 +14,10 @@ extension TabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(viewController: MainVC(),
-                       image: UIImage(named: StringConstants.iconMainVCTabBarSystemName),
+                       image: UIImage(named: ImageConstants.iconMainVCTabBar),
                        title: StringConstants.titleMainVCTabBarSystemName),
             generateVC(viewController: FavouritesVC(),
-                       image: UIImage(named: StringConstants.iconFavouritesVCTabBarSystemName),
+                       image: UIImage(named: ImageConstants.iconFavouritesVCTabBar),
                        title: StringConstants.titleFavoriteVCTabBarSystemName)
         ]
     }

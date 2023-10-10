@@ -37,6 +37,7 @@
 		C5AF6F1B2A604FEF001A0844 /* DogProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */; };
 		C5AF6F1D2A605213001A0844 /* DogProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */; };
 		C5C0D7112A605DF600E21FDD /* dogProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F192A600ACB001A0844 /* dogProducts.json */; };
+		C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */; };
 		C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */; };
 		C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A442A7D7BDD00F3466F /* LikeButton.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
 		C5AF6F1A2A604FEF001A0844 /* DogProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProduct.swift; sourceTree = "<group>"; };
 		C5AF6F1C2A605213001A0844 /* DogProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductStorage.swift; sourceTree = "<group>"; };
+		C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
 		C5F76A442A7D7BDD00F3466F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 			children = (
 				C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */,
 				C50BAD8A2A40EF6E0082FE4E /* CellConstants.swift */,
+				C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */,
 				C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
+				C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */,
 				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 				C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */,
 			);
