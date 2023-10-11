@@ -68,21 +68,21 @@ extension MainVC {
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTrailing),
             
-            categoryLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8  ),
-            categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            categoryLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTop),
+            categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading * 2),
             
-            categoryCollectionView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 13),
+            categoryCollectionView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            categoryCollectionView.heightAnchor.constraint(equalToConstant: 95),
+            categoryCollectionView.heightAnchor.constraint(equalToConstant: VcConstraintsConstants.MainVcConstraints.collectionHeight),
             
-            allFoodLabel.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 32),
-            allFoodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            allFoodLabel.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTop * 4),
+            allFoodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading * 2),
             
-            foodCollectionView.topAnchor.constraint(equalTo: allFoodLabel.bottomAnchor, constant: 13),
+            foodCollectionView.topAnchor.constraint(equalTo: allFoodLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
             foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
