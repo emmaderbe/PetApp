@@ -19,8 +19,8 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         layout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = 0
-        contentInset = UIEdgeInsets(top: 0, left: CellConstants.leftDestination, bottom: 0, right: CellConstants.rightDestination)
+        layout.minimumLineSpacing = VcConstraintsConstants.FoodCellConstraints.lineSpacing
+        contentInset = UIEdgeInsets(top: 0, left: VcConstraintsConstants.FoodCellConstraints.leftDestination, bottom: 0, right: VcConstraintsConstants.FoodCellConstraints.rightDestination)
         
         backgroundColor = .accentBackground
         delegate = self
@@ -68,7 +68,7 @@ extension FoodCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let insets = collectionView.contentInset
         _ = collectionView.frame.width - insets.left - insets.right
-        return  CGSize(width: 390, height: 56)
+        return  CGSize(width: VcConstraintsConstants.FoodCellConstraints.cellWidth, height: VcConstraintsConstants.FoodCellConstraints.cellHeight)
     }
 }
 

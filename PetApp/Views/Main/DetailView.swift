@@ -81,26 +81,26 @@ extension DetailView {
 extension DetailView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 19),
-            mainImage.heightAnchor.constraint(equalToConstant: 189),
-            mainImage.widthAnchor.constraint(equalToConstant: 352),
+            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.imageTop),
+            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.imageLeading),
+            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.imageHeight),
+            mainImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.imageWidth),
 
-            descriptionTitleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 83),
-            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            descriptionTitleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.labelTop),
+            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
-            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 22),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 358),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.labelWight),
             
-            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 22),
-            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
-            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: 22),
-            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            restrictionsLabel.widthAnchor.constraint(equalToConstant: 358),
+            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            restrictionsLabel.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.labelWight),
         ])
     }
 }

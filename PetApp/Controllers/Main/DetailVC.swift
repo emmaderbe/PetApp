@@ -40,11 +40,11 @@ extension DetailVC {
             detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            foodMarkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 229),
+            foodMarkView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: VcConstraintsConstants.DetailVcConstraints.collectionTop),
             foodMarkView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodMarkView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            foodMarkView.heightAnchor.constraint(equalToConstant: 31),
-            foodMarkView.widthAnchor.constraint(equalToConstant: 96),
+            foodMarkView.heightAnchor.constraint(equalToConstant: VcConstraintsConstants.DetailVcConstraints.collectionHeight),
+            foodMarkView.widthAnchor.constraint(equalToConstant: VcConstraintsConstants.DetailVcConstraints.collectionWidth),
         ])
     }
 }

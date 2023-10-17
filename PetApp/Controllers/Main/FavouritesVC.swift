@@ -36,10 +36,10 @@ extension FavouritesVC {
 extension FavouritesVC {
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            foodCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            foodCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             foodCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

@@ -14,10 +14,10 @@ extension TabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(viewController: MainVC(),
-                       image: UIImage(named: StringConstants.iconMainVCTabBarSystemName),
+                       image: UIImage(named: ImageConstants.iconMainVCTabBar),
                        title: StringConstants.titleMainVCTabBarSystemName),
             generateVC(viewController: FavouritesVC(),
-                       image: UIImage(named: StringConstants.iconFavouritesVCTabBarSystemName),
+                       image: UIImage(named: ImageConstants.iconFavouritesVCTabBar),
                        title: StringConstants.titleFavoriteVCTabBarSystemName)
         ]
     }
@@ -28,8 +28,11 @@ extension TabBarController {
     private func generateVC(viewController: UIViewController,
                             image: UIImage?,
                             title: String) -> UINavigationController {
+        // setup tabBar
         viewController.tabBarItem.image = image
         viewController.tabBarItem.title = title
+        
+        // add navigationVC
         let navVC = UINavigationController(rootViewController: viewController)
         navVC.navigationBar.tintColor = .accentOrange
         viewController.navigationItem.title = title
@@ -40,11 +43,19 @@ extension TabBarController {
 // MARK: - setTabBarAppearance()
 extension TabBarController {
     private func setTabBarAppearance() {
+        // tabBar color
         tabBar.backgroundColor = .accentBackground
-        tabBar.itemPositioning = .centered
         tabBar.tintColor = .accentOrange
-        tabBar.barStyle = .default
         tabBar.unselectedItemTintColor = .accentGrey
+        
+        // tabBar style
+        tabBar.itemPositioning = .centered
+        tabBar.barStyle = .default
+        
+        // add line
+        tabBar.layer.borderWidth = 0.30
+        tabBar.layer.borderColor = UIColor.accentGrey.cgColor
+        tabBar.clipsToBounds = true
     }
 }
 

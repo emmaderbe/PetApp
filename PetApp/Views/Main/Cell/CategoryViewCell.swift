@@ -63,10 +63,10 @@ extension CategoryViewCell {
             stackCell.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackCell.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            categoryCellImage.widthAnchor.constraint(equalToConstant: 72),
-            categoryCellImage.heightAnchor.constraint(equalToConstant: 72),
+            categoryCellImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.imageWidth),
+            categoryCellImage.heightAnchor.constraint(equalTo: categoryCellImage.widthAnchor),
             
-            categoryCellLabel.heightAnchor.constraint(equalToConstant: 15),
+            categoryCellLabel.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.labelHeight),
         ])
     }
 }

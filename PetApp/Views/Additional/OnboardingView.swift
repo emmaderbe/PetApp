@@ -54,19 +54,19 @@ extension OnboardingView {
 extension OnboardingView {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: topAnchor, constant: 132),
+            mainImage.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.imageTop),
             mainImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainImage.heightAnchor.constraint(equalToConstant: 300),
-            mainImage.widthAnchor.constraint(equalToConstant: 300),
+            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.OnboardingViewConstraints.imageHeight),
+            mainImage.widthAnchor.constraint(equalTo: mainImage.heightAnchor),
 
-            titleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 80),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            titleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.labelTop),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.generalLeading),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.generalTrailing),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.87692308)
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.generalTop),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.generalTrailing),
+            descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: ViewConstraintsConstants.OnboardingViewConstraints.labelWight)
         ])
     }
 }

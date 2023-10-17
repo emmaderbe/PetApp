@@ -13,8 +13,8 @@ class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = 16
-        contentInset = UIEdgeInsets(top: 0, left: CellConstants.leftDestination, bottom: 0, right: CellConstants.rightDestination)
+        layout.minimumLineSpacing = VcConstraintsConstants.FoodMarkCellConstraints.lineSpacing
+        contentInset = UIEdgeInsets(top: 0, left: VcConstraintsConstants.FoodMarkCellConstraints.leftDestination, bottom: 0, right: VcConstraintsConstants.FoodMarkCellConstraints.rightDestination)
         
         backgroundColor = .accentBackground
         delegate = self
@@ -44,7 +44,7 @@ class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
 //MARK: - sizeForItem
 extension FoodMarkCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  CGSize(width: 96, height: 31)
+        return  CGSize(width: VcConstraintsConstants.FoodMarkCellConstraints.cellWidth, height: VcConstraintsConstants.FoodMarkCellConstraints.cellHeight)
     }
 }
 

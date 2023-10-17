@@ -26,8 +26,8 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = 24
-        contentInset = UIEdgeInsets(top: 0, left: CellConstants.leftDestination, bottom: 0, right: CellConstants.rightDestination)
+        layout.minimumLineSpacing = VcConstraintsConstants.CategoryCellConstraints.lineSpacing
+        contentInset = UIEdgeInsets(top: 0, left: VcConstraintsConstants.CategoryCellConstraints.leftDestination, bottom: 0, right: VcConstraintsConstants.CategoryCellConstraints.rightDestination)
         
         backgroundColor = .accentBackground
         delegate = self
@@ -58,6 +58,6 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
 //MARK: - sizeForItem
 extension CategoryCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  CGSize(width: 72, height: 95)
+        return  CGSize(width: VcConstraintsConstants.CategoryCellConstraints.cellWidth, height: VcConstraintsConstants.CategoryCellConstraints.cellHeight)
     }
 }
