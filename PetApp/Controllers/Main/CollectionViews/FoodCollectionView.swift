@@ -133,6 +133,7 @@ extension FoodCollectionView {
     }
 }
 
+//MARK: - filterProducts()
 extension FoodCollectionView {
     func filterProducts(by searchText: String) {
         filteredProducts = dogProduct.filter { product in

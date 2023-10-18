@@ -14,8 +14,7 @@ class DogProductDataManager {
 // MARK: - loadProducts()
 extension DogProductDataManager {
     func loadProducts() {
-        let products = storage.load() ?? []
-        dogProduct = products
+        dogProduct = storage.load() ?? []
     }
 }
 
@@ -33,15 +32,6 @@ extension DogProductDataManager {
     }
 
 }
-
-//// MARK: - filterProducts()
-//extension DogProductDataManager {
-//    func filterProducts(by searchText: String) -> [DogProduct] {
-//        return dogProduct.filter { product in
-//            return product.product.lowercased().contains(searchText.lowercased())
-//        }
-//    }
-//}
 
 
 

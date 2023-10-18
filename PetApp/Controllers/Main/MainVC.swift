@@ -98,6 +98,7 @@ extension MainVC {
     }
 }
 
+// MARK: - setupSearchController()
 extension MainVC {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -108,12 +109,14 @@ extension MainVC {
     }
 }
 
+// MARK: - updateSearchResults()
 extension MainVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
 }
 
+// MARK: - filterContentForSearchText()
 extension MainVC {
     private func filterContentForSearchText(_ searchText: String) {
         foodCollectionView.filterProducts(by: searchText)
