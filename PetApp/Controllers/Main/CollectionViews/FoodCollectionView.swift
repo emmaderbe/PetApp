@@ -4,14 +4,24 @@ import UIKit
 class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var showFavouritesOnly: Bool = false {
-            didSet {
-                reloadData()
-            }
+        didSet {
+            reloadData()
         }
-
-    private var dogProduct: [DogProduct] = []
-
+    }
+    
+    var isFiltering: Bool = false {
+        didSet {
+            if !isFiltering {
+                filteredProducts = dogProduct
+            }
+            reloadData()
+        }
+    }
+    
     private var navigationController: UINavigationController?
+    
+    var dogProduct: [DogProduct] = []
+    var filteredProducts: [DogProduct] = []
     
     // MARK: - init
     init(navigationController: UINavigationController?) {
@@ -36,16 +46,24 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-                
+    
     // MARK: - numberOFItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredProducts.count
+        }
         return dogProduct.count
     }
     
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
-        let product = dogProduct[indexPath.row]
+        var product: DogProduct
+        if isFiltering {
+            product = filteredProducts[indexPath.row]
+        } else {
+            product = dogProduct[indexPath.row]
+        }
         cell.foodCellImage.image = UIImage(named: product.photo)
         cell.foodIndicatorImage.image = UIImage(named: product.indicator)
         cell.foodNameLabel.text = product.product
@@ -76,25 +94,50 @@ extension FoodCollectionView: UICollectionViewDelegateFlowLayout {
 extension FoodCollectionView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailVC()
-        detailVC.title = dogProduct[indexPath.row].product
-        detailVC.product = dogProduct[indexPath.row]
+        let product: DogProduct
+        if isFiltering {
+            product = filteredProducts[indexPath.row]
+        } else {
+            product = dogProduct[indexPath.row]
+        }
+        detailVC.title = product.product
+        detailVC.product = product
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+//MARK: - setProducts()
+extension FoodCollectionView {
+    func setProducts(products: [DogProduct]) {
+        self.dogProduct = products
     }
 }
 
 //MARK: - loadProducts()
 extension FoodCollectionView {
     func loadProducts() {
-            let storage = DogProductStorage()
-            let products = storage.load() ?? []
-            dogProduct = showFavouritesOnly ? products.filter { FavouritesManager.shared.isFavourite(product: $0) } : products
+        if showFavouritesOnly {
+            dogProduct = DogProductDataManager.shared.getFavouriteProducts()
+        } else {
+            dogProduct = DogProductDataManager.shared.getAllProducts()
         }
+    }
 }
+
 
 //MARK: - reloadData()
 extension FoodCollectionView {
     override func reloadData() {
         loadProducts()
         super.reloadData()
+    }
+}
+
+extension FoodCollectionView {
+    func filterProducts(by searchText: String) {
+        filteredProducts = dogProduct.filter { product in
+            return product.product.lowercased().contains(searchText.lowercased())
+        }
+        isFiltering = !filteredProducts.isEmpty
     }
 }

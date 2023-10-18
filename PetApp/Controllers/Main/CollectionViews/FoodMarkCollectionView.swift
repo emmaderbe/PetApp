@@ -3,8 +3,7 @@ import UIKit
 class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
      lazy var dogProduct: [DogProduct] = {
-        let storage = DogProductStorage()
-        return storage.load() ?? []
+         return DogProductDataManager.shared.getAllProducts()
     }()
 
     // MARK: - init

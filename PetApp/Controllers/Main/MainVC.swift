@@ -3,14 +3,18 @@ import UIKit
 // MARK: - Properties
 class MainVC: UIViewController {
     
-    private let searchBar: UISearchBar = {
-        let search = UISearchBar()
-        search.searchBarStyle = .minimal
-        search.placeholder = NSLocalizedString("searchBarMainVC", comment: "")
-        search.translatesAutoresizingMaskIntoConstraints = false
-        search.returnKeyType = .go
-        return search
-    }()
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private let products = DogProductDataManager.shared.getAllProducts()
+    
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else {return false}
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
     private let categoryLabel: UILabel = {
         let label = UILabel()
@@ -38,6 +42,14 @@ class MainVC: UIViewController {
     
     private var foodCollectionView: FoodCollectionView!
     
+    // MARK: - viewWillAppear()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        foodCollectionView.setProducts(products: products)
+        foodCollectionView.reloadData()
+    }
+
+    
 // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,24 +66,20 @@ extension MainVC {
         navigationItem.backBarButtonItem = backButton
         
         view.backgroundColor = .accentBackground
-        view.addSubview(searchBar)
         view.addSubview(categoryLabel)
         view.addSubview(categoryCollectionView)
         view.addSubview(allFoodLabel)
         view.addSubview(foodCollectionView)
+        setupSearchController()
+
     }
 }
 
 // MARK: - setupConstraints()
 extension MainVC {
     func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTrailing),
-            
-            categoryLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTop),
+            categoryLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTop),
             categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading * 2),
             
             categoryCollectionView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
@@ -89,4 +97,27 @@ extension MainVC {
         ])        
     }
 }
+
+extension MainVC {
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("searchBarMainVC", comment: "")
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+}
+
+extension MainVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
+extension MainVC {
+    private func filterContentForSearchText(_ searchText: String) {
+        foodCollectionView.filterProducts(by: searchText)
+    }
+}
+
 

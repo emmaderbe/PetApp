@@ -8,7 +8,9 @@ class FavouritesVC: UIViewController {
     // MARK: - viewWillAppear()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        foodCollectionView.reloadData()
+        let favouriteProducts = DogProductDataManager.shared.getFavouriteProducts()
+            foodCollectionView.setProducts(products: favouriteProducts)
+            foodCollectionView.reloadData()
     }
     
     // MARK: - viewDidLoad()
