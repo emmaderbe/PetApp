@@ -2,19 +2,8 @@ import UIKit
 
 class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private lazy var uniqueDogProductTypes: [DogProduct] = {
-        let products = DogProductDataManager.shared.getAllProducts()
-        var uniqueTypes: [DogProduct] = []
-        var existingTypes: Set<String> = []
-        
-        for product in products {
-            if !existingTypes.contains(product.type) {
-                existingTypes.insert(product.type)
-                uniqueTypes.append(product)
-            }
-        }
-        
-        return uniqueTypes
+    private let dogProductTypes: [DogProductModel] = {
+        return DogProductDataManager.shared.getAllProductsTypes()
     }()
     
     
@@ -41,14 +30,15 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     
     // MARK: - numberOFItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return uniqueDogProductTypes.count
+        return dogProductTypes.count
     }
     
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdCategoryViewCell, for: indexPath) as! CategoryViewCell
-        cell.categoryCellImage.image = UIImage(named: uniqueDogProductTypes[indexPath.row].photo)
-        cell.categoryCellLabel.text = uniqueDogProductTypes[indexPath.row].type
+        let type = dogProductTypes[indexPath.row]
+        cell.categoryCellImage.image = UIImage(named: type.photo)
+        cell.categoryCellLabel.text = type.type
         return cell
     }
 }

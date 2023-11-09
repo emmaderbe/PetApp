@@ -4,7 +4,7 @@ import UIKit
 final class LikeButton: UIButton {
     var isLiked = false {
         didSet {
-            let image = isLiked ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+            let image = isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
             setImage(image, for: .normal)
         }
     }
@@ -25,7 +25,7 @@ final class LikeButton: UIButton {
 // MARK: - configure()
 extension LikeButton {
     private func configure() {
-        setImage(UIImage(systemName: "star"), for: .normal)
+        setImage(UIImage(systemName: "heart"), for: .normal)
         tintColor = UIColor.accentOrange
     }
 }

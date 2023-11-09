@@ -45,12 +45,12 @@ class MainVC: UIViewController {
     // MARK: - viewWillAppear()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        foodCollectionView.setProducts(products: products)
+        foodCollectionView.chooseTypeOfProductArray(typeOfProducts: products)
         foodCollectionView.reloadData()
     }
-
     
-// MARK: - viewDidLoad()
+    
+    // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -71,7 +71,7 @@ extension MainVC {
         view.addSubview(allFoodLabel)
         view.addSubview(foodCollectionView)
         setupSearchController()
-
+        
     }
 }
 
@@ -94,7 +94,7 @@ extension MainVC {
             foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])        
+        ])
     }
 }
 
@@ -112,7 +112,9 @@ extension MainVC {
 // MARK: - updateSearchResults()
 extension MainVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        if let searchText = searchController.searchBar.text {
+            filterContentForSearchText(searchText)
+        }
     }
 }
 

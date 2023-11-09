@@ -6,6 +6,6 @@ struct ImageConstants {
     static let iconOnboardingThird = "onboardingVC3"
     
     static let iconMainVCTabBar = "mainVC"
-    static let iconFavouritesVCTabBar = "favouritesVC"
+    static let iconFavouritesVCTabBar = "heart"
     static let iconSettingVCTabBar = "settingVC"
 }

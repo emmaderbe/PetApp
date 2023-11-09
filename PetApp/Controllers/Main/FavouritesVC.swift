@@ -4,13 +4,13 @@ import UIKit
 class FavouritesVC: UIViewController {
     
     private var foodCollectionView: FoodCollectionView!
+    private let favouriteProducts = DogProductDataManager.shared.getFavouriteProducts()
     
     // MARK: - viewWillAppear()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let favouriteProducts = DogProductDataManager.shared.getFavouriteProducts()
-            foodCollectionView.setProducts(products: favouriteProducts)
-            foodCollectionView.reloadData()
+        foodCollectionView.chooseTypeOfProductArray(typeOfProducts: favouriteProducts)
+        foodCollectionView.reloadData()
     }
     
     // MARK: - viewDidLoad()
