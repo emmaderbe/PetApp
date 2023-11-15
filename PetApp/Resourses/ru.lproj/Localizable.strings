@@ -3,7 +3,7 @@
 
 //first view
 "onboardingTitleLabelFirstView" = "Привет, друг!";
-"onboardingDescriptionLabelFirstView" = "Наше приложение поможет разобраться, какие продукты безопасны  для вашего питомца от собак до кроликов";
+"onboardingDescriptionLabelFirstView" = "Наше приложение поможет разобраться, какие продукты безопасны  для вашего питомца";
 
 //second view
 "onboardingTitleLabelSecondView" = "Удобное пользование";
@@ -25,4 +25,5 @@
 "categoryLabelMainVC" = "Категории";
 "allFoodLabelMainVC" = "Все продукты";
 
-
+////MARK: - ProductContentUnavailableView
+"descriptionProductContentUnavailableView" = "Предложите новый продукт для списка";

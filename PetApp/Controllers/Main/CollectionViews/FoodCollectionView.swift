@@ -9,7 +9,7 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     private var inSearchMode: Bool = false
     
     private var basicDogProductList: [DogProductModel] = []
-    private var filteredProductsList: [DogProductModel] = []
+     var filteredProductsList: [DogProductModel] = []
     private var dogProductList: [DogProductModel] {
         return self.inSearchMode ? filteredProductsList : basicDogProductList
     }
@@ -46,7 +46,7 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
-        let product = self.dogProductList[indexPath.row]
+        let product = dogProductList[indexPath.row]
         cell.foodCellImage.image = UIImage(named: product.photo)
         cell.foodIndicatorImage.image = UIImage(named: product.indicator)
         cell.foodNameLabel.text = product.product
@@ -113,9 +113,15 @@ extension FoodCollectionView {
 //MARK: - filterProducts()
 extension FoodCollectionView {
     func filterProducts(by searchText: String) {
-        filteredProductsList = basicDogProductList.filter { product in
-            return product.product.lowercased().contains(searchText.lowercased())
+        if searchText.isEmpty {
+            filteredProductsList = basicDogProductList
+            inSearchMode = false
+        } else {
+            filteredProductsList = basicDogProductList.filter { product in
+                return product.product.lowercased().contains(searchText.lowercased())
+            }
+            inSearchMode = true
         }
-        inSearchMode = !searchText.isEmpty
+        reloadData()
     }
 }

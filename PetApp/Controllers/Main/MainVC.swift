@@ -3,9 +3,11 @@ import UIKit
 // MARK: - Properties
 class MainVC: UIViewController {
     
-    private let searchController = UISearchController(searchResultsController: nil)
-    
+    // data
     private let products = DogProductDataManager.shared.getAllProducts()
+    
+    // search
+    private let searchController = UISearchController(searchResultsController: nil)
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {return false}
@@ -16,6 +18,7 @@ class MainVC: UIViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
+    // ui
     private let categoryLabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("categoryLabelMainVC", comment: "")
@@ -42,13 +45,14 @@ class MainVC: UIViewController {
     
     private var foodCollectionView: FoodCollectionView!
     
+    private let productContentUnavailableView = ProductContentUnavailableView(product: "")
+    
     // MARK: - viewWillAppear()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         foodCollectionView.chooseTypeOfProductArray(typeOfProducts: products)
         foodCollectionView.reloadData()
     }
-    
     
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
@@ -61,17 +65,22 @@ class MainVC: UIViewController {
 // MARK: - setupView()
 extension MainVC {
     func setupView() {
+        // add collection view and navigation bar
         foodCollectionView = FoodCollectionView(navigationController: navigationController)
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
         
+        // add subviews
         view.backgroundColor = .accentBackground
         view.addSubview(categoryLabel)
         view.addSubview(categoryCollectionView)
         view.addSubview(allFoodLabel)
         view.addSubview(foodCollectionView)
-        setupSearchController()
+        view.addSubview(productContentUnavailableView)
         
+        //additional ui function
+        setupSearchController()
+        setupContentUnavailableView()
     }
 }
 
@@ -93,7 +102,15 @@ extension MainVC {
             foodCollectionView.topAnchor.constraint(equalTo: allFoodLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
             foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            // if we cant find product
+            productContentUnavailableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            productContentUnavailableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            productContentUnavailableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            productContentUnavailableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            
         ])
     }
 }
@@ -109,13 +126,25 @@ extension MainVC {
     }
 }
 
+extension MainVC {
+    func setupContentUnavailableView() {
+        productContentUnavailableView.translatesAutoresizingMaskIntoConstraints = false
+        productContentUnavailableView.isHidden = true
+    }
+}
+
 // MARK: - updateSearchResults()
 extension MainVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            filterContentForSearchText(searchText)
+            if let searchText = searchController.searchBar.text {
+                filterContentForSearchText(searchText)
+                let productsFound = !foodCollectionView.filteredProductsList.isEmpty
+                productContentUnavailableView.isHidden = productsFound
+                if !productsFound {
+                    productContentUnavailableView.updateProduct(product: searchText)
+                }
+            }
         }
-    }
 }
 
 // MARK: - filterContentForSearchText()
