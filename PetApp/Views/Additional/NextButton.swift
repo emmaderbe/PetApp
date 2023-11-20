@@ -1,15 +1,13 @@
 import UIKit
 
+protocol NextButtonDelegate: AnyObject {
+    func nextButtonDidTap()
+}
+
 // MARK: - Properties and init()
-final class LikeButton: UIButton {
-    var isLiked = false {
-        didSet {
-            let image = isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-            setImage(image, for: .normal)
-        }
-    }
+final class NextButton: UIButton {
     
-    var onTap: ((Bool) -> Void)?
+    weak var delegate: NextButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,25 +21,23 @@ final class LikeButton: UIButton {
 }
 
 // MARK: - configure()
-extension LikeButton {
+extension NextButton {
     private func configure() {
-        setImage(UIImage(systemName: "heart"), for: .normal)
-        tintColor = UIColor.accentOrange
+        setTitle("Продолжить", for: .normal)
+        setTitleColor(.accentOrange, for: .normal)
     }
 }
 
 // MARK: - btnPressed()
-extension LikeButton {
+extension NextButton {
     private func btnPressed() {
         addTarget(self, action: #selector(handleTap), for: .touchUpInside)
     }
 }
 
 // MARK: - handleTap()
-extension LikeButton {
+extension NextButton {
     @objc private func handleTap() {
-        isLiked.toggle()
-        onTap?(isLiked)
+        delegate?.nextButtonDidTap()
     }
 }
-

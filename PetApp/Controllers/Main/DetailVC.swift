@@ -2,19 +2,16 @@ import UIKit
 
 // MARK: - Properties
 class DetailVC: UIViewController {
-    private var detailView = DetailView()
-    private var foodMarkView = FoodMarkCollectionView()
+    private let detailView = DetailView()
+    private let foodMarkView = FoodMarkCollectionView()
     
-    var product: DogProduct? {
-            didSet {
-                detailView.mainImage.image = UIImage(named: product!.photo)
-                detailView.descriptionLabel.text = product?.descriptions
-                detailView.restrictionsLabel.text = product?.restriction        
-                foodMarkView.dogProduct = [product].compactMap { $0 }
-            }
+    var productInfo: DogProductModel? {
+        didSet {
+            updateProductInfo()
         }
-
-// MARK: - viewDidLoad()
+    }
+    
+    // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -46,5 +43,15 @@ extension DetailVC {
             foodMarkView.heightAnchor.constraint(equalToConstant: VcConstraintsConstants.DetailVcConstraints.collectionHeight),
             foodMarkView.widthAnchor.constraint(equalToConstant: VcConstraintsConstants.DetailVcConstraints.collectionWidth),
         ])
+    }
+}
+
+extension DetailVC {
+    private func updateProductInfo() {
+        guard let product = productInfo else {return}
+        detailView.mainImage.image = UIImage(named: product.photo)
+        detailView.descriptionLabel.text = product.descriptions
+        detailView.restrictionsLabel.text = product.restriction
+        foodMarkView.dogProductList = [product]
     }
 }

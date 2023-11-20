@@ -3,15 +3,16 @@ import UIKit
 // MARK: - Properties
 class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var showFavouritesOnly: Bool = false {
-            didSet {
-                reloadData()
-            }
-        }
-
-    private var dogProduct: [DogProduct] = []
-
     private var navigationController: UINavigationController?
+    
+    var showFavouritesOnly: Bool = false
+    private var inSearchMode: Bool = false
+    
+    private var basicDogProductList: [DogProductModel] = []
+     var filteredProductsList: [DogProductModel] = []
+    private var dogProductList: [DogProductModel] {
+        return self.inSearchMode ? filteredProductsList : basicDogProductList
+    }
     
     // MARK: - init
     init(navigationController: UINavigationController?) {
@@ -30,22 +31,22 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         
         self.navigationController = navigationController
         
-        loadProducts()
+        loadBasicProductsArray()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-                
+    
     // MARK: - numberOFItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dogProduct.count
+        return self.dogProductList.count
     }
     
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
-        let product = dogProduct[indexPath.row]
+        let product = dogProductList[indexPath.row]
         cell.foodCellImage.image = UIImage(named: product.photo)
         cell.foodIndicatorImage.image = UIImage(named: product.indicator)
         cell.foodNameLabel.text = product.product
@@ -76,25 +77,51 @@ extension FoodCollectionView: UICollectionViewDelegateFlowLayout {
 extension FoodCollectionView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailVC()
-        detailVC.title = dogProduct[indexPath.row].product
-        detailVC.product = dogProduct[indexPath.row]
+        let product = self.dogProductList[indexPath.row]
+        detailVC.title = product.product
+        detailVC.productInfo = product
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+//MARK: - setProducts()
+extension FoodCollectionView {
+    func chooseTypeOfProductArray(typeOfProducts: [DogProductModel]) {
+        self.basicDogProductList = typeOfProducts
     }
 }
 
 //MARK: - loadProducts()
 extension FoodCollectionView {
-    func loadProducts() {
-            let storage = DogProductStorage()
-            let products = storage.load() ?? []
-            dogProduct = showFavouritesOnly ? products.filter { FavouritesManager.shared.isFavourite(product: $0) } : products
+    func loadBasicProductsArray() {
+        if showFavouritesOnly {
+            basicDogProductList = DogProductDataManager.shared.getFavouriteProducts()
+        } else {
+            basicDogProductList = DogProductDataManager.shared.getAllProducts()
         }
+    }
 }
 
 //MARK: - reloadData()
 extension FoodCollectionView {
     override func reloadData() {
-        loadProducts()
+        loadBasicProductsArray()
         super.reloadData()
+    }
+}
+
+//MARK: - filterProducts()
+extension FoodCollectionView {
+    func filterProducts(by searchText: String) {
+        if searchText.isEmpty {
+            filteredProductsList = basicDogProductList
+            inSearchMode = false
+        } else {
+            filteredProductsList = basicDogProductList.filter { product in
+                return product.product.lowercased().contains(searchText.lowercased())
+            }
+            inSearchMode = true
+        }
+        reloadData()
     }
 }

@@ -51,5 +51,19 @@ struct VcConstraintsConstants {
         static let cellHeight: CGFloat = 31
         static let cellWidth: CGFloat = 96
     }
-
+    
+    // custom alert collection view
+    struct CustomAlertConstraints {
+        static let backgroundWeight: CGFloat = 270
+        
+        static let generalLeading: CGFloat = 16
+        static let generalTrailing: CGFloat = -16
+        
+        static let titleTop: CGFloat = 19
+        static let messageTop: CGFloat = 5
+        static let textFieldTop: CGFloat = 12
+        
+        static let stackTop: CGFloat = 18
+        static let stackHeight: CGFloat = 44
+    }
 }
