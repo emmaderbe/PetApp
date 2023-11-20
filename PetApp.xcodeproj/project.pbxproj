@@ -33,6 +33,8 @@
 		C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD942A41DDD30082FE4E /* DetailVC.swift */; };
 		C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */; };
 		C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */; };
+		C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */; };
+		C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */; };
 		C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F182A5EF90E001A0844 /* Localizable.strings */; };
 		C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */; };
 		C5AF6F1D2A605213001A0844 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* NetworkingService.swift */; };
@@ -73,6 +75,8 @@
 		C50BAD942A41DDD30082FE4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkViewCell.swift; sourceTree = "<group>"; };
 		C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionView.swift; sourceTree = "<group>"; };
+		C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomAlertViewController.swift"; sourceTree = "<group>"; };
 		C5AF6F132A5EF8D8001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5AF6F172A5EF90E001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		C5C8AB092A6AF1D2002F6AEF /* Additional */ = {
 			isa = PBXGroup;
 			children = (
+				C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */,
 				C50BAD532A40D9DE0082FE4E /* OnboardingVC.swift */,
 				C50BAD902A40F2630082FE4E /* TabBarController.swift */,
 			);
@@ -254,6 +259,7 @@
 			children = (
 				C50BAD552A40DA160082FE4E /* OnboardingView.swift */,
 				C5F76A442A7D7BDD00F3466F /* LikeButton.swift */,
+				C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */,
 				C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */,
 			);
 			path = Additional;
@@ -370,6 +376,7 @@
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
 				C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */,
 				C50BAD862A40EF5B0082FE4E /* FoodViewCell.swift in Sources */,
+				C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */,
 				C50BAD7F2A40EF430082FE4E /* MainVC.swift in Sources */,
 				C5F3C4F42AFE745400A194E3 /* ProductContentUnavailableView.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
@@ -379,6 +386,7 @@
 				C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
 				C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */,
+				C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */,
 				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 				C5C155E32ADEE8D200E69179 /* DogProductDataManager.swift in Sources */,
 				C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */,

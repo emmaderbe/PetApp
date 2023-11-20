@@ -5,6 +5,10 @@ extension UIFont {
     static func montserratLight16() -> UIFont? {
         return UIFont.init(name: "Montserrat-Light", size: 16)
     }
+    
+    static func montserratRegular13() -> UIFont? {
+        return UIFont.init(name: "Montserrat-Regular", size: 13)
+    }
 
     static func montserratRegular16() -> UIFont? {
         return UIFont.init(name: "Montserrat-Regular", size: 16)

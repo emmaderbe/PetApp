@@ -1,4 +1,5 @@
 import UIKit
+import MessageUI
 
 // MARK: - Properties
 class MainVC: UIViewController {
@@ -44,8 +45,8 @@ class MainVC: UIViewController {
     }()
     
     private var foodCollectionView: FoodCollectionView!
-    
     private let productContentUnavailableView = ProductContentUnavailableView(product: "")
+    private let customAlert = CustomAlertViewController()
     
     // MARK: - viewWillAppear()
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +70,9 @@ extension MainVC {
         foodCollectionView = FoodCollectionView(navigationController: navigationController)
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
+        
+        // delegate
+        productContentUnavailableView.setDelegate(self)
         
         // add subviews
         view.backgroundColor = .accentBackground
@@ -126,6 +130,7 @@ extension MainVC {
     }
 }
 
+// MARK: - setupContentUnavailableView()
 extension MainVC {
     func setupContentUnavailableView() {
         productContentUnavailableView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,4 +159,11 @@ extension MainVC {
     }
 }
 
-
+// MARK: - nextButtonDidTap()
+extension MainVC: NextButtonDelegate {
+    func nextButtonDidTap() {
+        let vc = customAlert
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
+    }
+}

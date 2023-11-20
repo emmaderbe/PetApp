@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: - Properties and init()
 class ProductContentUnavailableView: UIView {
     var product: String
     
@@ -33,9 +34,10 @@ class ProductContentUnavailableView: UIView {
         return image
     }()
     
+    private let button = NextButton()
+    
     init(product: String) {
         self.product = product
-        titleLabel.text = "Продукт \(product) не найден"
         super.init(frame: .zero)
         setUpView()
         setUpConstraints()
@@ -46,22 +48,26 @@ class ProductContentUnavailableView: UIView {
     }
 }
 
+// MARK: - setUpView()
 extension ProductContentUnavailableView {
     func setUpView() {
         backgroundColor = .accentBackground
         addSubview(backgroundView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
+        addSubview(button)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
+// MARK: - setUpConstraints()
 extension ProductContentUnavailableView {
     func setUpConstraints() {
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewTop),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewLeading),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewTrailing),
-            backgroundView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewHeight),
             
             titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.labelTop),
             titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalLeading),
@@ -70,12 +76,24 @@ extension ProductContentUnavailableView {
             
             descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalLeading),
             descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalTrailing),
+            
+            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalTop),
+            button.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            button.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalBottom)
         ])
     }
 }
 
+// MARK: - updateProduct()
 extension ProductContentUnavailableView {
     func updateProduct(product: String) {
         titleLabel.text = "Продукт \(product) не найден"
+    }
+}
+
+// MARK: - setDelegate()
+extension ProductContentUnavailableView {
+    func setDelegate(_ delegate: NextButtonDelegate) {
+        self.button.delegate = delegate
     }
 }

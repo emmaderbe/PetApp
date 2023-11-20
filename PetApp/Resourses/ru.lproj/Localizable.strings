@@ -25,5 +25,11 @@
 "categoryLabelMainVC" = "Категории";
 "allFoodLabelMainVC" = "Все продукты";
 
-////MARK: - ProductContentUnavailableView
+//MARK: - ProductContentUnavailableView
 "descriptionProductContentUnavailableView" = "Предложите новый продукт для списка";
+
+//MARK: - CustomAlertViewController
+"titleLabelOfAletr" = "Предложить продукт";
+"messageLabelOfAletr" = "Напишите название для добавления в список продуктов";
+
+

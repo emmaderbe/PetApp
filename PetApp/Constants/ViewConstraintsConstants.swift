@@ -56,15 +56,16 @@ struct ViewConstraintsConstants {
     
     // product Content Unavailable View
     struct ProductContentUnavailableConstraints {
+        static let generalTop: CGFloat = 24
         static let generalLeading: CGFloat = 19
         static let generalTrailing: CGFloat = -19
+        static let generalBottom: CGFloat = -30
         
         static let viewTop: CGFloat = 20
         static let viewLeading: CGFloat = 16
         static let viewTrailing: CGFloat = -16
         static let viewHeight: CGFloat = 160
 
-        
         static let labelTop: CGFloat = 32
         static let labelBotton: CGFloat = -14
     }
