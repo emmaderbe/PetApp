@@ -7,7 +7,7 @@ class MainVC: UIViewController {
     // data
     private let products = DogProductDataManager.shared.getAllProducts()
     
-    // search
+    // search controller
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var searchBarIsEmpty: Bool {
@@ -18,6 +18,9 @@ class MainVC: UIViewController {
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
+    
+    // category cell search
+    private var currentSelectedCategory: String?
     
     // ui
     private let categoryLabel: UILabel = {
@@ -73,6 +76,7 @@ extension MainVC {
         
         // delegate
         productContentUnavailableView.setDelegate(self)
+        categoryCollectionView.categoryDelegate = self
         
         // add subviews
         view.backgroundColor = .accentBackground
@@ -155,7 +159,7 @@ extension MainVC: UISearchResultsUpdating {
 // MARK: - filterContentForSearchText()
 extension MainVC {
     private func filterContentForSearchText(_ searchText: String) {
-        foodCollectionView.filterProducts(by: searchText)
+        foodCollectionView.filterProductsBySearchBar(by: searchText)
     }
 }
 
@@ -167,3 +171,17 @@ extension MainVC: NextButtonDelegate {
         present(vc, animated: true, completion: nil)
     }
 }
+
+// MARK: - didSelectCategory()
+extension MainVC: CategorySelectionDelegate {
+    func didSelectCategory(_ category: DogProductTypeModel) {
+        if currentSelectedCategory == category.type {
+            currentSelectedCategory = nil
+            foodCollectionView.resetCategorySearchToAllProducts()
+        } else {
+            currentSelectedCategory = category.type
+            foodCollectionView.filterProductsByCategory(byCategory: category.type)
+        }
+    }
+}
+

@@ -9,7 +9,7 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     private var inSearchMode: Bool = false
     
     private var basicDogProductList: [DogProductModel] = []
-     var filteredProductsList: [DogProductModel] = []
+    var filteredProductsList: [DogProductModel] = []
     private var dogProductList: [DogProductModel] {
         return self.inSearchMode ? filteredProductsList : basicDogProductList
     }
@@ -105,14 +105,16 @@ extension FoodCollectionView {
 //MARK: - reloadData()
 extension FoodCollectionView {
     override func reloadData() {
-        loadBasicProductsArray()
+        if !inSearchMode {
+            loadBasicProductsArray()
+        }
         super.reloadData()
     }
 }
 
-//MARK: - filterProducts()
+//MARK: - filterProductsBySearchBar()
 extension FoodCollectionView {
-    func filterProducts(by searchText: String) {
+    func filterProductsBySearchBar(by searchText: String) {
         if searchText.isEmpty {
             filteredProductsList = basicDogProductList
             inSearchMode = false
@@ -122,6 +124,27 @@ extension FoodCollectionView {
             }
             inSearchMode = true
         }
+        reloadData()
+    }
+}
+
+//MARK: - filterProductsByCategory()
+extension FoodCollectionView {
+    func filterProductsByCategory(byCategory category: String) {
+        if category.isEmpty {
+            filteredProductsList = basicDogProductList
+        } else {
+            filteredProductsList = basicDogProductList.filter { $0.type == category }
+        }
+        inSearchMode = !category.isEmpty
+        reloadData()
+    }
+}
+
+//MARK: - resetCategorySearchToAllProducts
+extension FoodCollectionView {
+    func resetCategorySearchToAllProducts() {
+        inSearchMode = false
         reloadData()
     }
 }
