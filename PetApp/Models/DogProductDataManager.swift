@@ -4,7 +4,8 @@ import Foundation
 class DogProductDataManager {
     static let shared = DogProductDataManager()
     private var dogProduct: [DogProductModel] = []
-    private var dogProductType: [DogProductModel] = []
+    private var dogProductType: [DogProductTypeModel] = []
+//    private var dogProductType: [String] = []
     private let storage = NetworkingService()
     
     private init() {
@@ -34,15 +35,15 @@ extension DogProductDataManager {
 }
 
 extension DogProductDataManager {
-    func getAllProductsTypes() -> [DogProductModel] {
+    func getAllProductsTypes() -> [DogProductTypeModel] {
         let allProducts = getAllProducts()
-        var uniqueTypes: [DogProductModel] = []
+        var uniqueTypes: [DogProductTypeModel] = []
         var existingTypes: Set<String> = []
         
         for product in allProducts {
             if !existingTypes.contains(product.type) {
                 existingTypes.insert(product.type)
-                uniqueTypes.append(product)
+                uniqueTypes.append(DogProductTypeModel(type: product.type, photo: product.photo))
             }
         }
         self.dogProductType = uniqueTypes
@@ -50,5 +51,15 @@ extension DogProductDataManager {
     }
 }
 
-
-
+//extension DogProductDataManager {
+//    func getAllProductTypes() -> [String] {
+//        let allProducts = getAllProducts()
+//        var uniqueTypes: Set<String> = []
+//
+//        for product in allProducts {
+//            uniqueTypes.insert(product.type)
+//        }
+//        
+//        return Array(uniqueTypes)
+//    }
+//}

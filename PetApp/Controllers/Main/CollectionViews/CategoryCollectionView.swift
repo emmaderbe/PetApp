@@ -1,11 +1,15 @@
 import UIKit
 
+protocol CategorySelectionDelegate: AnyObject {
+    func didSelectCategory(_ category: DogProductTypeModel)
+}
+
 class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private let dogProductTypes: [DogProductModel] = {
+    private let dogProductTypes: [DogProductTypeModel] = {
         return DogProductDataManager.shared.getAllProductsTypes()
     }()
-    
+    weak var categoryDelegate: CategorySelectionDelegate?
     
     // MARK: - init
     init() {
@@ -47,5 +51,13 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
 extension CategoryCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return  CGSize(width: VcConstraintsConstants.CategoryCellConstraints.cellWidth, height: VcConstraintsConstants.CategoryCellConstraints.cellHeight)
+    }
+}
+
+//MARK: - didSelectItemAt
+extension CategoryCollectionView {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedType = dogProductTypes[indexPath.row]
+        categoryDelegate?.didSelectCategory(selectedType)
     }
 }
