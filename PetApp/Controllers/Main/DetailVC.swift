@@ -4,6 +4,7 @@ import UIKit
 class DetailVC: UIViewController {
     private let detailView = DetailView()
     private let foodMarkView = FoodMarkCollectionView()
+    private let likeButton = LikeButton()
     
     var productInfo: DogProductModel? {
         didSet {
@@ -16,6 +17,7 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        setupNavigationBar()
     }
 }
 
@@ -51,7 +53,25 @@ extension DetailVC {
         guard let product = productInfo else {return}
         detailView.mainImage.image = UIImage(named: product.photo)
         detailView.descriptionLabel.text = product.descriptions
-        detailView.restrictionsLabel.text = product.restriction
+        if product.restriction.trimmingCharacters(in: .whitespaces).isEmpty {
+            detailView.restrictionsTitleLabel.isHidden = true
+        } else {
+            detailView.restrictionsLabel.text = product.restriction
+            detailView.restrictionsTitleLabel.isHidden = false
+        }
         foodMarkView.dogProductList = [product]
+    }
+}
+
+extension DetailVC {
+    private func setupNavigationBar() {
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        let likeButtonItem = UIBarButtonItem(customView: likeButton)
+        navigationItem.rightBarButtonItem = likeButtonItem
+    }
+    
+    @objc private func likeButtonTapped() {
+        guard let product = productInfo else { return }
+        FavouritesManager.shared.updateFavourite(product: product)
     }
 }
