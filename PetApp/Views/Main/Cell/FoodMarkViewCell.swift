@@ -7,7 +7,6 @@ class FoodMarkViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.layer.cornerRadius = 16
         image.clipsToBounds = true
-        image.backgroundColor = .accentGrey
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -15,7 +14,7 @@ class FoodMarkViewCell: UICollectionViewCell {
     lazy var categoryCellLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratSemiBold16()
-        label.textColor = .accentText
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

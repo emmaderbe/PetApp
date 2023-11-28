@@ -51,7 +51,7 @@ extension DetailVC {
 extension DetailVC {
     private func updateProductInfo() {
         guard let product = productInfo else {return}
-        detailView.mainImage.image = UIImage(named: product.photo)
+        detailView.mainImage.image = UIImage(named: product.detailPhoto)
         detailView.descriptionLabel.text = product.descriptions
         if product.restriction.trimmingCharacters(in: .whitespaces).isEmpty {
             detailView.restrictionsTitleLabel.isHidden = true
@@ -59,7 +59,12 @@ extension DetailVC {
             detailView.restrictionsLabel.text = product.restriction
             detailView.restrictionsTitleLabel.isHidden = false
         }
-        foodMarkView.dogProductList = [product]
+        foodMarkView.dogProductListType = product.type.enumerated().map { index, type in
+            let photo = index < product.photo.count ? product.photo[index] : ""
+            let backgroundType = index < product.backgroundType.count ? product.backgroundType[index] : ""
+            return DogProductTypeModel(type: type, photo: photo, backgroundType: backgroundType)
+        }
+        foodMarkView.reloadData()
     }
 }
 
