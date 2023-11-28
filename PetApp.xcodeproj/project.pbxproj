@@ -43,6 +43,11 @@
 		C5C155E12AD6FE8D00E69179 /* VcConstraintsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C155E02AD6FE8D00E69179 /* VcConstraintsConstants.swift */; };
 		C5C155E32ADEE8D200E69179 /* DogProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */; };
 		C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */; };
+		C5F2522B2B165C61009239FC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2522A2B165C61009239FC /* SettingsView.swift */; };
+		C5F2522E2B165D63009239FC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2522D2B165D63009239FC /* SettingsViewController.swift */; };
+		C5F252302B16706C009239FC /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F2522F2B16706C009239FC /* OrangeButton.swift */; };
+		C5F252332B1677AB009239FC /* AboutProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F252322B1677AB009239FC /* AboutProjectView.swift */; };
+		C5F252352B167D28009239FC /* AboutProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F252342B167D28009239FC /* AboutProjectViewController.swift */; };
 		C5F3C4F42AFE745400A194E3 /* ProductContentUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */; };
 		C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */; };
 		C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A442A7D7BDD00F3466F /* LikeButton.swift */; };
@@ -87,6 +92,11 @@
 		C5C155E02AD6FE8D00E69179 /* VcConstraintsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcConstraintsConstants.swift; sourceTree = "<group>"; };
 		C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductDataManager.swift; sourceTree = "<group>"; };
 		C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
+		C5F2522A2B165C61009239FC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C5F2522D2B165D63009239FC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C5F2522F2B16706C009239FC /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		C5F252322B1677AB009239FC /* AboutProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProjectView.swift; sourceTree = "<group>"; };
+		C5F252342B167D28009239FC /* AboutProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProjectViewController.swift; sourceTree = "<group>"; };
 		C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContentUnavailableView.swift; sourceTree = "<group>"; };
 		C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
 		C5F76A442A7D7BDD00F3466F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
@@ -233,6 +243,7 @@
 				C50BAD7E2A40EF430082FE4E /* MainVC.swift */,
 				C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */,
 				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
+				C5F2522C2B165D45009239FC /* AboutProject */,
 				C5C8AB0C2A6AF24A002F6AEF /* CollectionViews */,
 			);
 			path = Main;
@@ -252,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
+				C5F252312B16778A009239FC /* AboutProject */,
 				C50BAD812A40EF5A0082FE4E /* Cell */,
 			);
 			path = Main;
@@ -264,6 +276,7 @@
 				C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */,
 				C5F76A442A7D7BDD00F3466F /* LikeButton.swift */,
 				C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */,
+				C5F2522F2B16706C009239FC /* OrangeButton.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -276,6 +289,24 @@
 				C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */,
 			);
 			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		C5F2522C2B165D45009239FC /* AboutProject */ = {
+			isa = PBXGroup;
+			children = (
+				C5F2522D2B165D63009239FC /* SettingsViewController.swift */,
+				C5F252342B167D28009239FC /* AboutProjectViewController.swift */,
+			);
+			path = AboutProject;
+			sourceTree = "<group>";
+		};
+		C5F252312B16778A009239FC /* AboutProject */ = {
+			isa = PBXGroup;
+			children = (
+				C5F2522A2B165C61009239FC /* SettingsView.swift */,
+				C5F252322B1677AB009239FC /* AboutProjectView.swift */,
+			);
+			path = AboutProject;
 			sourceTree = "<group>";
 		};
 		C5F3C4F22AFD3FF400A194E3 /* Networking */ = {
@@ -372,8 +403,10 @@
 				C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */,
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
 				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
+				C5F2522E2B165D63009239FC /* SettingsViewController.swift in Sources */,
 				C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */,
 				C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */,
+				C5F252352B167D28009239FC /* AboutProjectViewController.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
@@ -386,13 +419,16 @@
 				C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */,
 				C50FB70F2B0D187400D45C65 /* DogProductTypeModel.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,
+				C5F252332B1677AB009239FC /* AboutProjectView.swift in Sources */,
 				C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */,
 				C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
 				C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */,
 				C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */,
+				C5F252302B16706C009239FC /* OrangeButton.swift in Sources */,
 				C50BAD562A40DA160082FE4E /* OnboardingView.swift in Sources */,
 				C5C155E32ADEE8D200E69179 /* DogProductDataManager.swift in Sources */,
+				C5F2522B2B165C61009239FC /* SettingsView.swift in Sources */,
 				C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

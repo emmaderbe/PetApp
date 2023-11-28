@@ -41,7 +41,6 @@ class CategoryCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdCategoryViewCell, for: indexPath) as! CategoryViewCell
         let type = dogProductTypes[indexPath.row]
-        print(dogProductTypes)
         cell.categoryCellImage.image = UIImage(named: type.photo)
         cell.categoryCellLabel.text = type.type
         return cell

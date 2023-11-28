@@ -7,5 +7,5 @@ struct StringConstants {
     
     static let titleMainVCTabBarSystemName = "Продукты"
     static let titleFavoriteVCTabBarSystemName = "Избранное"
-    static let titleSettingVCTabBarSystemName = "Найстройки"
+    static let titleSettingVCTabBarSystemName = "О проекте"
 }

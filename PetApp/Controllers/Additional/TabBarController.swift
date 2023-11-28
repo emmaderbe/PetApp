@@ -18,7 +18,10 @@ extension TabBarController {
                        title: StringConstants.titleMainVCTabBarSystemName),
             generateVC(viewController: FavouritesVC(),
                        image: UIImage(systemName: ImageConstants.iconFavouritesVCTabBar),
-                       title: StringConstants.titleFavoriteVCTabBarSystemName)
+                       title: StringConstants.titleFavoriteVCTabBarSystemName),
+            generateVC(viewController: SettingsViewController(),
+                       image: UIImage(named: ImageConstants.iconSettingVCTabBar),
+                       title: StringConstants.titleSettingVCTabBarSystemName)
         ]
     }
 }
