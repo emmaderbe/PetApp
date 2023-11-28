@@ -2,8 +2,8 @@ import UIKit
 
 class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-     lazy var dogProductList: [DogProductModel] = {
-         return DogProductDataManager.shared.getAllProducts()
+     lazy var dogProductListType: [DogProductTypeModel] = {
+         return DogProductDataManager.shared.getAllProductsTypes()
     }()
 
     // MARK: - init
@@ -29,13 +29,15 @@ class FoodMarkCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     
     // MARK: - numberOFItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dogProductList.count
+        return dogProductListType.count
     }
     
     // MARK: - cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodMarkViewCell, for: indexPath) as! FoodMarkViewCell
-        cell.categoryCellLabel.text = dogProductList[indexPath.row].type
+        let category = dogProductListType[indexPath.row]
+        cell.categoryCellLabel.text = category.type
+        cell.categoryCellBackground.image = UIImage(named: category.backgroundType)
         return cell
     }
 }

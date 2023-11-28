@@ -5,7 +5,6 @@ class DogProductDataManager {
     static let shared = DogProductDataManager()
     private var dogProduct: [DogProductModel] = []
     private var dogProductType: [DogProductTypeModel] = []
-//    private var dogProductType: [String] = []
     private let storage = NetworkingService()
     
     private init() {
@@ -41,25 +40,21 @@ extension DogProductDataManager {
         var existingTypes: Set<String> = []
         
         for product in allProducts {
-            if !existingTypes.contains(product.type) {
-                existingTypes.insert(product.type)
-                uniqueTypes.append(DogProductTypeModel(type: product.type, photo: product.photo))
+            for (index, type) in product.type.enumerated() {
+                if !existingTypes.contains(type) {
+                    existingTypes.insert(type)
+                    let backgroundType = product.backgroundType[index]
+                    let photo = product.photo[index]
+                    uniqueTypes.append(DogProductTypeModel(type: type, photo: photo, backgroundType: backgroundType))
+                }
             }
         }
+        
+        uniqueTypes.sort {
+            ($0.type == "Можно" || $0.type == "Нельзя") && !($1.type == "Можно" || $1.type == "Нельзя")
+        }
+        
         self.dogProductType = uniqueTypes
         return dogProductType
     }
 }
-
-//extension DogProductDataManager {
-//    func getAllProductTypes() -> [String] {
-//        let allProducts = getAllProducts()
-//        var uniqueTypes: Set<String> = []
-//
-//        for product in allProducts {
-//            uniqueTypes.insert(product.type)
-//        }
-//        
-//        return Array(uniqueTypes)
-//    }
-//}

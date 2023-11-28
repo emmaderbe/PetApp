@@ -25,7 +25,7 @@ class DetailView: UIView {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratRegular16()
-        label.numberOfLines = 10
+        label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .accentText
         label.translatesAutoresizingMaskIntoConstraints = false

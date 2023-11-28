@@ -47,7 +47,7 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
         let product = dogProductList[indexPath.row]
-        cell.foodCellImage.image = UIImage(named: product.photo)
+        cell.foodCellImage.image = UIImage(named: product.photo.first ?? "")
         cell.foodIndicatorImage.image = UIImage(named: product.indicator)
         cell.foodNameLabel.text = product.product
         cell.likeButton.onTap = { [weak self] isLiked in
@@ -134,7 +134,7 @@ extension FoodCollectionView {
         if category.isEmpty {
             filteredProductsList = basicDogProductList
         } else {
-            filteredProductsList = basicDogProductList.filter { $0.type == category }
+            filteredProductsList = basicDogProductList.filter { $0.type.contains(category) }
         }
         inSearchMode = !category.isEmpty
         reloadData()
