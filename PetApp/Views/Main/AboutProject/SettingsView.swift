@@ -5,7 +5,7 @@ class SettingsView: UIView {
     
     private let mainImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "mainPhotoAboutProject")
+        image.image = UIImage(named: ImageConstants.mainImageSettingsView)
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -83,29 +83,29 @@ extension SettingsView {
             mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             mainImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            mainImage.heightAnchor.constraint(equalToConstant: 380),
+            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.imageHeight),
             
-            backgroundView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: -70),
+            backgroundView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.viewTop),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 26),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.labelTop),
             titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 21),
-            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -21),
+            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
             
-            aboutProjectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
-            aboutProjectButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 24),
-            aboutProjectButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -24),
-            aboutProjectButton.heightAnchor.constraint(equalToConstant: 64),
+            aboutProjectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.firstButtonTop),
+            aboutProjectButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
+            aboutProjectButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
+            aboutProjectButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.generalButtonHeight),
             
-            sendMessageButton.topAnchor.constraint(equalTo: aboutProjectButton.bottomAnchor, constant: 16),
-            sendMessageButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 24),
-            sendMessageButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -24),
-            sendMessageButton.heightAnchor.constraint(equalToConstant: 64),
+            sendMessageButton.topAnchor.constraint(equalTo: aboutProjectButton.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.secondButtonTop),
+            sendMessageButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
+            sendMessageButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
+            sendMessageButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.generalButtonHeight),
         ])
     }
 }

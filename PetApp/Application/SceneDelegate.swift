@@ -8,9 +8,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = OnboardingVC()
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light
+        
+        let attrs = [
+            NSAttributedString.Key.font: UIFont(name: "Montserrat-SemiBold", size: 17)!
+        ]
+        UINavigationBar.appearance().titleTextAttributes = attrs
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

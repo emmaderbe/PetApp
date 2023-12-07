@@ -14,7 +14,7 @@ class FoodMarkViewCell: UICollectionViewCell {
     lazy var categoryCellLabel: UILabel = {
         let label = UILabel()
         label.font = .montserratSemiBold16()
-        label.textColor = .white
+        label.textColor = .accentBrown
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

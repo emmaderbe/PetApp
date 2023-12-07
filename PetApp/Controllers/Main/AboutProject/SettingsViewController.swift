@@ -17,6 +17,8 @@ extension SettingsViewController {
     private func setupView() {
         view.backgroundColor = .accentBackground
         view.addSubview(aboutProjectView)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
         
         aboutProjectView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -28,7 +30,7 @@ extension SettingsViewController {
 extension SettingsViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            aboutProjectView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            aboutProjectView.topAnchor.constraint(equalTo: view.topAnchor),
             aboutProjectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             aboutProjectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             aboutProjectView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -51,6 +53,7 @@ extension SettingsViewController {
 extension SettingsViewController {
     private func showAboutProject() {
         let vc = AboutProjectViewController()
+        vc.title = "О проекте"
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }

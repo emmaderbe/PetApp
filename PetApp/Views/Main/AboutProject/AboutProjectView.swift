@@ -1,11 +1,12 @@
 import UIKit
 
+// MARK: - Properties
 class AboutProjectView: UIView {
     private let portraitOfDeveloperImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDeveloperImage")
         image.contentMode = .scaleAspectFit
-        image.clipsToBounds = false
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -14,7 +15,7 @@ class AboutProjectView: UIView {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDesignerImage")
         image.contentMode = .scaleAspectFit
-        image.clipsToBounds = false
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -23,7 +24,7 @@ class AboutProjectView: UIView {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDoctorImage")
         image.contentMode = .scaleAspectFit
-        image.clipsToBounds = false
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -37,6 +38,13 @@ class AboutProjectView: UIView {
         label.textColor = .accentText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
     }()
     
     private let descriptionLabel: UILabel = {
@@ -65,6 +73,7 @@ class AboutProjectView: UIView {
     
 }
 
+// MARK: - setupView()
 extension AboutProjectView {
     private func setupView() {
         backgroundColor = .accentBackground
@@ -72,7 +81,8 @@ extension AboutProjectView {
         addSubview(portraitOfDesignerImage)
         addSubview(portraitOfDoctorImage)
         addSubview(titleLabel)
-        addSubview(descriptionLabel)
+        addSubview(scrollView)
+        scrollView.addSubview(descriptionLabel)
         addSubview(supportTheProjectButton)
         
         supportTheProjectButton.translatesAutoresizingMaskIntoConstraints = false
@@ -83,45 +93,43 @@ extension AboutProjectView {
     }
 }
 
+// MARK: - setupConstraints()
 extension AboutProjectView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            portraitOfDeveloperImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            portraitOfDeveloperImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             portraitOfDeveloperImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            portraitOfDeveloperImage.heightAnchor.constraint(equalToConstant: 160),
-            portraitOfDeveloperImage.widthAnchor.constraint(equalToConstant: 160),
+            portraitOfDeveloperImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.imageHeight),
+            portraitOfDeveloperImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.imageWeight),
             
-            portraitOfDesignerImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: 85),
+            portraitOfDesignerImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTop),
             portraitOfDesignerImage.trailingAnchor.constraint(equalTo: portraitOfDeveloperImage.centerXAnchor),
             portraitOfDesignerImage.heightAnchor.constraint(equalTo: portraitOfDeveloperImage.heightAnchor),
             portraitOfDesignerImage.widthAnchor.constraint(equalTo: portraitOfDeveloperImage.widthAnchor),
             
-            portraitOfDoctorImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: 85),
+            portraitOfDoctorImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTop),
             portraitOfDoctorImage.leadingAnchor.constraint(equalTo: portraitOfDeveloperImage.centerXAnchor),
             portraitOfDoctorImage.heightAnchor.constraint(equalTo: portraitOfDeveloperImage.heightAnchor),
             portraitOfDoctorImage.widthAnchor.constraint(equalTo: portraitOfDeveloperImage.widthAnchor),
             
-            //            portraitOfDesignerImage.topAnchor.constraint(equalTo: portraitOfDeveloperImage.topAnchor, constant: 109),
-            //            portraitOfDesignerImage.leadingAnchor.constraint(equalTo: portraitOfDeveloperImage.leadingAnchor, constant: 94), // Смещение влево от центра
-            //            portraitOfDesignerImage.heightAnchor.constraint(equalToConstant: 115), // Высота
-            //            portraitOfDesignerImage.widthAnchor.constraint(equalToConstant: 160),
-            //
-            //            portraitOfDoctorImage.topAnchor.constraint(equalTo: portraitOfDeveloperImage.topAnchor, constant: 109), // Смещение вниз от центрального изображения
-            //            portraitOfDoctorImage.trailingAnchor.constraint(equalTo: portraitOfDeveloperImage.trailingAnchor, constant: -94), // Смещение вправо от центра
-            //            portraitOfDoctorImage.heightAnchor.constraint(equalToConstant: 115), // Высота
-            //            portraitOfDoctorImage.widthAnchor.constraint(equalToConstant: 160),
-            
-            titleLabel.topAnchor.constraint(equalTo: portraitOfDoctorImage.bottomAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: portraitOfDoctorImage.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.labelTop),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.scrollTop),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalLeading),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTrailing),
+            scrollView.bottomAnchor.constraint(equalTo: supportTheProjectButton.topAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalButton),
             
-            supportTheProjectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            supportTheProjectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            supportTheProjectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            supportTheProjectButton.heightAnchor.constraint(equalToConstant: 64),
+            descriptionLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            descriptionLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            supportTheProjectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalButton),
+            supportTheProjectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalLeading * 2),
+            supportTheProjectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTrailing * 2),
+            supportTheProjectButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.buttonHeight),
         ])
     }
 }

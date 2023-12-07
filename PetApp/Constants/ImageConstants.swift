@@ -8,4 +8,6 @@ struct ImageConstants {
     static let iconMainVCTabBar = "mainVC"
     static let iconFavouritesVCTabBar = "heart"
     static let iconSettingVCTabBar = "settingVC"
+    
+    static let mainImageSettingsView = "mainPhotoAboutProject"
 }
