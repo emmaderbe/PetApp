@@ -30,6 +30,7 @@ MVP, подготовка к выгрузке в AppStore
 
 
 При отсуствии продукта в базе пользователю предоставляется возможность отправить его на рассмотрение разработчику
+
 ![Search-notfound (1)](https://github.com/emmaderbe/PetApp/assets/106523371/cc805ed9-2123-471a-a773-5765c96b23e3)
 ![Search-notfound (2)](https://github.com/emmaderbe/PetApp/assets/106523371/bb0cadeb-22a4-424f-9d8c-975e1d79300c)
 
