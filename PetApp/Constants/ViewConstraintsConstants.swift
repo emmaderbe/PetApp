@@ -70,5 +70,38 @@ struct ViewConstraintsConstants {
         static let labelBotton: CGFloat = -14
     }
     
+    // settings View
+    struct SettingsViewConstraints {
+        static let imageHeight: CGFloat = 380
+        
+        static let viewTop: CGFloat = -70
+        
+        static let labelTop: CGFloat = 26
+        
+        static let generalLeading: CGFloat = 21
+        static let generalTrailing: CGFloat = -21
+        static let generalButtonHeight: CGFloat = 64
+        
+        static let firstButtonTop: CGFloat = 30
+        static let secondButtonTop: CGFloat = 16
+
+    }
+    
+    // about Project View
+    struct AboutProjectView {
+        static let imageHeight: CGFloat = 160
+        static let imageWeight: CGFloat = 160
+        
+        static let generalTop: CGFloat = 85
+        static let generalLeading: CGFloat = 16
+        static let generalTrailing: CGFloat = -16
+        static let generalButton: CGFloat = -20
+        
+        static let labelTop: CGFloat = 16
+        static let scrollTop: CGFloat = 16
+        
+        static let buttonHeight: CGFloat = 64
+    }
+    
 }
 

@@ -25,6 +25,9 @@ extension UIFont {
     static func montserratSemiBold17() -> UIFont? {
         return UIFont.init(name: "Montserrat-SemiBold", size: 17)
     }
+    static func montserratSemiBold20() -> UIFont? {
+        return UIFont.init(name: "Montserrat-SemiBold", size: 20)
+    }
     
     static func montserratSemiBold24() -> UIFont? {
         return UIFont.init(name: "Montserrat-SemiBold", size: 24)
