@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - Properties
 class AboutProjectView: UIView {
-    private let portraitOfDeveloperImage: UIImageView = {
+    let portraitOfDeveloperImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDeveloperImage")
         image.contentMode = .scaleAspectFit
@@ -11,7 +11,7 @@ class AboutProjectView: UIView {
         return image
     }()
     
-    private let portraitOfDesignerImage: UIImageView = {
+    let portraitOfDesignerImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDesignerImage")
         image.contentMode = .scaleAspectFit
@@ -20,7 +20,7 @@ class AboutProjectView: UIView {
         return image
     }()
     
-    private let portraitOfDoctorImage: UIImageView = {
+    let portraitOfDoctorImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "portraitOfDoctorImage")
         image.contentMode = .scaleAspectFit
@@ -132,4 +132,21 @@ extension AboutProjectView {
             supportTheProjectButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.buttonHeight),
         ])
     }
+}
+
+extension AboutProjectView {
+    func addDeveloperGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+            portraitOfDeveloperImage.addGestureRecognizer(gestureRecognizer)
+            portraitOfDeveloperImage.isUserInteractionEnabled = true
+        }
+        
+        func addDesignerGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+            portraitOfDesignerImage.addGestureRecognizer(gestureRecognizer)
+            portraitOfDesignerImage.isUserInteractionEnabled = true
+        }
+        
+        func addDoctorGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+            portraitOfDoctorImage.addGestureRecognizer(gestureRecognizer)
+            portraitOfDoctorImage.isUserInteractionEnabled = true
+        }
 }

@@ -51,6 +51,8 @@
 		C5F3C4F42AFE745400A194E3 /* ProductContentUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */; };
 		C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */; };
 		C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F76A442A7D7BDD00F3466F /* LikeButton.swift */; };
+		C5FCE7652B22699400EF1124 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FCE7642B22699300EF1124 /* CardView.swift */; };
+		C5FCE7672B234E2700EF1124 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FCE7662B234E2700EF1124 /* CardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductContentUnavailableView.swift; sourceTree = "<group>"; };
 		C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
 		C5F76A442A7D7BDD00F3466F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		C5FCE7642B22699300EF1124 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C5FCE7662B234E2700EF1124 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 			children = (
 				C5F2522D2B165D63009239FC /* SettingsViewController.swift */,
 				C5F252342B167D28009239FC /* AboutProjectViewController.swift */,
+				C5FCE7662B234E2700EF1124 /* CardViewController.swift */,
 			);
 			path = AboutProject;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			children = (
 				C5F2522A2B165C61009239FC /* SettingsView.swift */,
 				C5F252322B1677AB009239FC /* AboutProjectView.swift */,
+				C5FCE7642B22699300EF1124 /* CardView.swift */,
 			);
 			path = AboutProject;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
 				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
 				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
+				C5FCE7652B22699400EF1124 /* CardView.swift in Sources */,
 				C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */,
 				C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */,
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
@@ -415,6 +422,7 @@
 				C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */,
 				C50BAD7F2A40EF430082FE4E /* MainVC.swift in Sources */,
 				C5F3C4F42AFE745400A194E3 /* ProductContentUnavailableView.swift in Sources */,
+				C5FCE7672B234E2700EF1124 /* CardViewController.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
 				C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */,
 				C50FB70F2B0D187400D45C65 /* DogProductTypeModel.swift in Sources */,

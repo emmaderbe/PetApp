@@ -9,6 +9,7 @@ class AboutProjectViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        setupGestureRecognizers()
     }
 }
 
@@ -16,8 +17,10 @@ class AboutProjectViewController: UIViewController {
 extension AboutProjectViewController {
     private func setupView() {
         view.backgroundColor = .accentBackground
-        view.addSubview(aboutProjectView)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
         
+        view.addSubview(aboutProjectView)
         aboutProjectView.translatesAutoresizingMaskIntoConstraints = false
         
         editButton()
@@ -47,7 +50,32 @@ extension AboutProjectViewController {
 // MARK: - showSendMessage()
 extension AboutProjectViewController {
     private func showSupportTheProjectButton() {
-        let vc = MainVC()
+        print("support")
+    }
+}
+
+extension AboutProjectViewController {
+    private func setupGestureRecognizers() {
+        let developerTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        aboutProjectView.addDeveloperGestureRecognizer(developerTapGesture)
+        
+        let designerTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        aboutProjectView.addDesignerGestureRecognizer(designerTapGesture)
+        
+        let doctorTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        aboutProjectView.addDoctorGestureRecognizer(doctorTapGesture)
+    }
+    
+    @objc private func imageTapped(_ gesture: UITapGestureRecognizer) {
+        let vc = CardViewController()
+        if gesture.view === aboutProjectView.portraitOfDeveloperImage {
+                vc.initialCardName = "Developer"
+            } else if gesture.view === aboutProjectView.portraitOfDesignerImage {
+                vc.initialCardName = "Designer"
+            } else if gesture.view === aboutProjectView.portraitOfDoctorImage {
+                vc.initialCardName = "Doctor"
+            }
+        vc.title = "О проекте"
         navigationController?.pushViewController(vc, animated: true)
     }
 }
