@@ -23,11 +23,11 @@ extension AboutProjectViewController {
         view.addSubview(aboutProjectView)
         aboutProjectView.translatesAutoresizingMaskIntoConstraints = false
         
-        editButton()
+        aboutProjectView.supportTheProjectButton.addTarget(self, action: #selector(showSupportTheProjectButton), for: .touchUpInside)
     }
 }
 
-// MARK: - setupView()
+// MARK: - setupConstraints()
 extension AboutProjectViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -39,43 +39,50 @@ extension AboutProjectViewController {
     }
 }
 
+// MARK: - showSupportTheProjectButton()
 extension AboutProjectViewController {
-    private func editButton() {
-        aboutProjectView.supportTheProjectButton.onTap = { [weak self] in
-            self?.showSupportTheProjectButton()
+    @objc private func showSupportTheProjectButton() {
+            print("support")
+        }
+}
+
+// MARK: - setupGestureRecognizers()
+extension AboutProjectViewController {
+    private func setupGestureRecognizers() {
+        let imageViewsToIdentifiers: [(imageView: UIImageView, identifier: String)] = [
+            (aboutProjectView.portraitOfDeveloperImage, "Developer"),
+            (aboutProjectView.portraitOfDesignerImage, "Designer"),
+            (aboutProjectView.portraitOfDoctorImage, "Doctor")
+        ]
+
+        for (imageView, _) in imageViewsToIdentifiers {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+            imageView.addGestureRecognizer(tapGesture)
+            imageView.isUserInteractionEnabled = true
         }
     }
 }
 
-// MARK: - showSendMessage()
+// MARK: - imageTapped()
 extension AboutProjectViewController {
-    private func showSupportTheProjectButton() {
-        print("support")
-    }
-}
-
-extension AboutProjectViewController {
-    private func setupGestureRecognizers() {
-        let developerTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        aboutProjectView.addDeveloperGestureRecognizer(developerTapGesture)
-        
-        let designerTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        aboutProjectView.addDesignerGestureRecognizer(designerTapGesture)
-        
-        let doctorTapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        aboutProjectView.addDoctorGestureRecognizer(doctorTapGesture)
-    }
-    
     @objc private func imageTapped(_ gesture: UITapGestureRecognizer) {
+        guard let tappedImageView = gesture.view as? UIImageView else { return }
+        
+        let identifier: String
+        switch tappedImageView {
+        case aboutProjectView.portraitOfDeveloperImage:
+            identifier = "Developer"
+        case aboutProjectView.portraitOfDesignerImage:
+            identifier = "Designer"
+        case aboutProjectView.portraitOfDoctorImage:
+            identifier = "Doctor"
+        default:
+            return
+        }
+
         let vc = CardViewController()
-        if gesture.view === aboutProjectView.portraitOfDeveloperImage {
-                vc.initialCardName = "Developer"
-            } else if gesture.view === aboutProjectView.portraitOfDesignerImage {
-                vc.initialCardName = "Designer"
-            } else if gesture.view === aboutProjectView.portraitOfDoctorImage {
-                vc.initialCardName = "Doctor"
-            }
-        vc.title = "О проекте"
+        vc.initialCardName = identifier
+        vc.title = "Команда проекта"
         navigationController?.pushViewController(vc, animated: true)
     }
 }

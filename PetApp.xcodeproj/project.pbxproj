@@ -40,6 +40,7 @@
 		C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */; };
 		C5AF6F1D2A605213001A0844 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* NetworkingService.swift */; };
 		C5C0D7112A605DF600E21FDD /* dogProducts.json in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F192A600ACB001A0844 /* dogProducts.json */; };
+		C5C111DA2B85267500791EE7 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C111D92B85267500791EE7 /* CardModel.swift */; };
 		C5C155E12AD6FE8D00E69179 /* VcConstraintsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C155E02AD6FE8D00E69179 /* VcConstraintsConstants.swift */; };
 		C5C155E32ADEE8D200E69179 /* DogProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */; };
 		C5D1553D2AD5ACD0004636FB /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */; };
@@ -91,6 +92,7 @@
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
 		C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductModel.swift; sourceTree = "<group>"; };
 		C5AF6F1C2A605213001A0844 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		C5C111D92B85267500791EE7 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		C5C155E02AD6FE8D00E69179 /* VcConstraintsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcConstraintsConstants.swift; sourceTree = "<group>"; };
 		C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductDataManager.swift; sourceTree = "<group>"; };
 		C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
@@ -171,10 +173,8 @@
 		C50BAD482A40D1990082FE4E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */,
-				C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */,
-				C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */,
-				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
+				C5C111D82B85265100791EE7 /* Additional */,
+				C5C111D72B85263800791EE7 /* Main */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,6 +239,25 @@
 				C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C5C111D72B85263800791EE7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */,
+				C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */,
+				C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */,
+				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C5C111D82B85265100791EE7 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				C5C111D92B85267500791EE7 /* CardModel.swift */,
+			);
+			path = Additional;
 			sourceTree = "<group>";
 		};
 		C5C8AB082A6AF1AA002F6AEF /* Main */ = {
@@ -405,6 +424,7 @@
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
 				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
 				C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */,
+				C5C111DA2B85267500791EE7 /* CardModel.swift in Sources */,
 				C5FCE7652B22699400EF1124 /* CardView.swift in Sources */,
 				C5F76A452A7D7BDD00F3466F /* LikeButton.swift in Sources */,
 				C50BAD932A41CAC80082FE4E /* DetailView.swift in Sources */,
