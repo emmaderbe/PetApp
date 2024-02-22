@@ -48,6 +48,7 @@ extension DetailVC {
     }
 }
 
+// MARK: - updateProductInfo()
 extension DetailVC {
     private func updateProductInfo() {
         guard let product = productInfo else {return}
@@ -68,15 +69,26 @@ extension DetailVC {
     }
 }
 
+// MARK: - setupNavigationBar()
 extension DetailVC {
     private func setupNavigationBar() {
-        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        likeButton.onTap = { [weak self] isLiked in
+            guard let self = self, let product = self.productInfo else { return }
+            FavouritesManager.shared.updateFavourite(product: product)
+            self.updateLikeButtonState()
+        }
         let likeButtonItem = UIBarButtonItem(customView: likeButton)
         navigationItem.rightBarButtonItem = likeButtonItem
-    }
-    
-    @objc private func likeButtonTapped() {
-        guard let product = productInfo else { return }
-        FavouritesManager.shared.updateFavourite(product: product)
+        updateLikeButtonState()
     }
 }
+
+// MARK: - updateLikeButtonState()
+extension DetailVC {
+    func updateLikeButtonState() {
+        guard let product = productInfo else { return }
+        let isFavourite = FavouritesManager.shared.isFavourite(product: product)
+        likeButton.isLiked = isFavourite
+    }
+}
+

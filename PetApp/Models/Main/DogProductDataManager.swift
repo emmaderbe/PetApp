@@ -33,6 +33,7 @@ extension DogProductDataManager {
     }
 }
 
+// MARK: - getAllProductsTypes()
 extension DogProductDataManager {
     func getAllProductsTypes() -> [DogProductTypeModel] {
         let allProducts = getAllProducts()

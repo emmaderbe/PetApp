@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FavouriteProduct" representedClassName="FavouriteProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundType" optional="YES" attributeType="Transformable"/>
+        <attribute name="descriptions" optional="YES" attributeType="String"/>
+        <attribute name="detailPhoto" optional="YES" attributeType="String"/>
+        <attribute name="indicator" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Transformable"/>
+        <attribute name="product" optional="YES" attributeType="String"/>
+        <attribute name="restriction" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Transformable"/>
+    </entity>
+</model>

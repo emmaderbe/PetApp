@@ -36,6 +36,7 @@
 		C50FB70F2B0D187400D45C65 /* DogProductTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */; };
 		C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */; };
 		C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */; };
+		C59E50562B8696C000E645A7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */; };
 		C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F182A5EF90E001A0844 /* Localizable.strings */; };
 		C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */; };
 		C5AF6F1D2A605213001A0844 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* NetworkingService.swift */; };
@@ -87,6 +88,7 @@
 		C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductTypeModel.swift; sourceTree = "<group>"; };
 		C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomAlertViewController.swift"; sourceTree = "<group>"; };
+		C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C5AF6F132A5EF8D8001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5AF6F172A5EF90E001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C111D92B85267500791EE7 /* CardModel.swift */,
+				C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				C5F2522E2B165D63009239FC /* SettingsViewController.swift in Sources */,
 				C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */,
 				C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */,
+				C59E50562B8696C000E645A7 /* CoreDataModel.xcdatamodeld in Sources */,
 				C5F252352B167D28009239FC /* AboutProjectViewController.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
@@ -683,6 +687,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C50BAD272A40D0900082FE4E /* Project object */;
 }
