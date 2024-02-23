@@ -32,13 +32,6 @@ extension FavouritesManager {
     func addFavourite(product: DogProductModel) {
         let entity = FavouriteProduct(context: context)
         entity.product = product.product
-        entity.backgroundType = product.backgroundType as NSObject
-        entity.descriptions = product.descriptions
-        entity.detailPhoto = product.detailPhoto
-        entity.type = product.type as NSObject
-        entity.restriction = product.restriction
-        entity.photo = product.photo as NSObject
-        entity.indicator = product.indicator
         
         do {
             try context.save()
