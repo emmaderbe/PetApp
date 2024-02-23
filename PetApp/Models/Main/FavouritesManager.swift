@@ -1,23 +1,42 @@
 import UIKit
+import CoreData
 
-// MARK: - Properties for functional of likeBotton
+// MARK: - Properties
 class FavouritesManager {
     static let shared = FavouritesManager()
-    var favourites: [DogProductModel] = []
+
+    private var context: NSManagedObjectContext {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    }
 }
 
 // MARK: - isFavourite()
 extension FavouritesManager {
     func isFavourite(product: DogProductModel) -> Bool {
-        return favourites.contains(where: { $0.product == product.product })
+        let fetchRequest: NSFetchRequest<FavouriteProduct> = FavouriteProduct.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "product == %@", product.product)
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            return count > 0
+        } catch {
+            print("Error fetching data \(error)")
+            return false
+        }
     }
+
 }
 
 // MARK: - addFavourite()
 extension FavouritesManager {
     func addFavourite(product: DogProductModel) {
-        if !isFavourite(product: product) {
-            favourites.append(product)
+        let entity = FavouriteProduct(context: context)
+        entity.product = product.product
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save favourite: \(error)")
         }
     }
 }
@@ -25,10 +44,20 @@ extension FavouritesManager {
 // MARK: - removeFavourite()
 extension FavouritesManager {
     func removeFavourite(product: DogProductModel) {
-        if let index = favourites.firstIndex(of: product) {
-            favourites.remove(at: index)
+        let fetchRequest: NSFetchRequest<FavouriteProduct> = FavouriteProduct.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "product == %@", product.product)
+
+        do {
+            let products = try context.fetch(fetchRequest)
+            for product in products {
+                context.delete(product)
+            }
+            try context.save()
+        } catch {
+            print("Error fetching data \(error)")
         }
     }
+
 }
 
 // MARK: - updateFavourite()
