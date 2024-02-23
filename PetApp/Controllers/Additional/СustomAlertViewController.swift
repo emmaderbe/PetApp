@@ -1,7 +1,9 @@
 import UIKit
+import MessageUI
+import SafariServices
 
 // MARK: - Properties
-class CustomAlertViewController: UIViewController {
+class CustomAlertViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     private let backgroundView = {
         let view = UIView()
@@ -46,7 +48,6 @@ class CustomAlertViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Отправить", for: .normal)
         button.setTitleColor(.accentOrange, for: .normal)
-        button.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderColor = UIColor.accentGrey.withAlphaComponent(0.3).cgColor
         button.layer.borderWidth = 1
@@ -57,7 +58,6 @@ class CustomAlertViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Отмена", for: .normal)
         button.setTitleColor(.accentOrange, for: .normal)
-        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderColor = UIColor.accentGrey.withAlphaComponent(0.3).cgColor
         button.layer.borderWidth = 1
@@ -82,6 +82,7 @@ class CustomAlertViewController: UIViewController {
     }
 }
 
+// MARK: - setupView()
 extension CustomAlertViewController {
     private func setupView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
@@ -97,6 +98,7 @@ extension CustomAlertViewController {
     }
 }
 
+// MARK: - setupView()
 extension CustomAlertViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -126,6 +128,7 @@ extension CustomAlertViewController {
     }
 }
 
+// MARK: - setupButtonTargets()
 extension CustomAlertViewController {
     private func setupButtonTargets() {
         sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
@@ -133,13 +136,49 @@ extension CustomAlertViewController {
     }
 }
 
+// MARK: - sendButtonTapped()
 extension CustomAlertViewController {
     @objc private func sendButtonTapped() {
-        dismiss(animated: true) {}
+        if textField.hasText {
+            sendMail()
+        }
+        }
     }
 
+// MARK: - cancelButtonTapped()
+extension CustomAlertViewController {
     @objc private func cancelButtonTapped() {
         dismiss(animated: true) {}
     }
 }
 
+// MARK: - sendMail()
+extension CustomAlertViewController {
+    private func sendMail() {
+        if MFMailComposeViewController.canSendMail() {
+            let dogProduct: String = textField.text ?? ""
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["emmaderbejoss@gmail.com"])
+            mail.setSubject("Новый продукт")
+            mail.setMessageBody("<p>Предлагаю добавить следующий продукт в список – \(dogProduct)</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            openFeedbackForm()
+        }
+    }
+}
+
+// MARK: - openFeedbackForm()
+extension CustomAlertViewController {
+    private func openFeedbackForm() {
+        let feedbackURL = "https://forms.gle/eectpNoQJymGaciE6"
+        if let url = URL(string: feedbackURL) {
+            let safariVC = SFSafariViewController(url: url)
+            present(safariVC, animated: true, completion: nil)
+        } else {
+            print("Invalid URL")
+        }
+    }
+}

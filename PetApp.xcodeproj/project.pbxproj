@@ -175,8 +175,8 @@
 		C50BAD482A40D1990082FE4E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C5C111D82B85265100791EE7 /* Additional */,
-				C5C111D72B85263800791EE7 /* Main */,
+				C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */,
+				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,26 +243,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		C5C111D72B85263800791EE7 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */,
-				C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */,
-				C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */,
-				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		C5C111D82B85265100791EE7 /* Additional */ = {
-			isa = PBXGroup;
-			children = (
-				C5C111D92B85267500791EE7 /* CardModel.swift */,
-				C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */,
-			);
-			path = Additional;
-			sourceTree = "<group>";
-		};
 		C5C8AB082A6AF1AA002F6AEF /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +297,17 @@
 			path = CollectionViews;
 			sourceTree = "<group>";
 		};
+		C5E0E1F42B890F4C00732FD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */,
+				C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */,
+				C5C111D92B85267500791EE7 /* CardModel.swift */,
+				C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C5F2522C2B165D45009239FC /* AboutProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +331,7 @@
 		C5F3C4F22AFD3FF400A194E3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C5E0E1F42B890F4C00732FD0 /* Models */,
 				C5AF6F1C2A605213001A0844 /* NetworkingService.swift */,
 			);
 			path = Networking;
@@ -613,6 +605,7 @@
 				DEVELOPMENT_TEAM = 45GX59UTNT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetApp/Resourses/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PetDiet;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -628,6 +621,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -644,6 +638,7 @@
 				DEVELOPMENT_TEAM = 45GX59UTNT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PetApp/Resourses/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PetDiet;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -659,6 +654,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

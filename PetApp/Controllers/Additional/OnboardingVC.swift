@@ -117,11 +117,19 @@ extension OnboardingVC {
         if Int(pageIndex) < views.count - 1 {
             scrollView.scrollTo(horizotalPage: Int(pageIndex) + 1, animated: true)
         } else {
+            didFinishOnboarding()
             let tabBarController = TabBarController()
             tabBarController.modalPresentationStyle = .fullScreen
             tabBarController.modalTransitionStyle = .crossDissolve
             present(tabBarController, animated: true)
         }
+    }
+}
+
+// MARK: - didFinishOnboarding()
+extension OnboardingVC {
+    func didFinishOnboarding() {
+        UserDefaults.standard.set(true, forKey: "hasViewedOnboarding")
     }
 }
 

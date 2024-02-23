@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 // MARK: - Properties and viewDidLoad()
 class AboutProjectViewController: UIViewController {
@@ -23,7 +24,7 @@ extension AboutProjectViewController {
         view.addSubview(aboutProjectView)
         aboutProjectView.translatesAutoresizingMaskIntoConstraints = false
         
-        aboutProjectView.supportTheProjectButton.addTarget(self, action: #selector(showSupportTheProjectButton), for: .touchUpInside)
+        aboutProjectView.supportTheProjectButton.addTarget(self, action: #selector(openSupportForm), for: .touchUpInside)
     }
 }
 
@@ -41,8 +42,14 @@ extension AboutProjectViewController {
 
 // MARK: - showSupportTheProjectButton()
 extension AboutProjectViewController {
-    @objc private func showSupportTheProjectButton() {
-            print("support")
+    @objc private func openSupportForm() {
+        let feedbackURL = "https://forms.gle/eectpNoQJymGaciE6"
+            if let url = URL(string: feedbackURL) {
+                let safariVC = SFSafariViewController(url: url)
+                present(safariVC, animated: true, completion: nil)
+            } else {
+                print("Invalid URL")
+            }
         }
 }
 
