@@ -2,6 +2,7 @@ import UIKit
 
 class CardView: UIView {
     var identifier: String?
+    var profileURL: String = ""
     
     private let imageView: UIImageView = {
         let image = UIImageView()
@@ -28,7 +29,7 @@ class CardView: UIView {
         return label
     }()
     
-    var profileBitton = OrangeButton(title: "Мой профиль")
+    var profileButton = OrangeButton(title: "Мой профиль")
     
     // MARK: - init()
     override init(frame: CGRect) {
@@ -46,14 +47,13 @@ class CardView: UIView {
 extension CardView {
     private func setupView() {
         backgroundColor = .accentBackground
-//        backgroundColor = .accentGrey.withAlphaComponent(0.5)
         
         addSubview(imageView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
-        addSubview(profileBitton)
+        addSubview(profileButton)
         
-        profileBitton.translatesAutoresizingMaskIntoConstraints = false
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
@@ -73,10 +73,10 @@ extension CardView {
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            profileBitton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            profileBitton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            profileBitton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            profileBitton.heightAnchor.constraint(equalToConstant: 64),
+            profileButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            profileButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            profileButton.heightAnchor.constraint(equalToConstant: 64),
         ])
     }
 }

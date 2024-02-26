@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 // MARK: - Properties and viewDidLoad()
 class CardViewController: UIViewController {
@@ -18,29 +19,31 @@ class CardViewController: UIViewController {
 extension CardViewController {
     private func initializeCardData() {
         cardData = [
-                CardModel(identifier: "Developer", title: "Эмма", description: "Все началось с  идеи сделать мир лучше для четвероногих друзей, начиная с их питания. Каждый шаг в разработке и реализации PetDiet был результатом моего усердия и преданности делу. Сейчас я в поиске новых возможностей и открыта к сотрудничеству. Если вам нужен талантливый разработчик с креативным подходом и страстью к своему делу, свяжитесь со мной! Вместе мы сможем создать что-то удивительное."),
-                CardModel(identifier: "Doctor", title: "Доктор", description: "Все началось с  идеи сделать мир лучше для четвероногих друзей, начиная с их питания. Каждый шаг в разработке и реализации PetDiet был результатом моего усердия и преданности делу. Сейчас я в поиске новых возможностей и открыта к сотрудничеству. Если вам нужен талантливый разработчик с креативным подходом и страстью к своему делу, свяжитесь со мной! Вместе мы сможем создать что-то удивительное."),
-                CardModel(identifier: "Designer", title: "Анастасия", description: "Эмма пришла ко мне с идеей, и я приступила к созданию дизайна. У нас впереди много работы — в  планах добавить питание для кроликов и морских свинок. Я открыта к сотрудничеству и буду рада поработать над новым продуктом :) "),
-            ]
-            
-            if let initialCardName = initialCardName, let index = cardData.firstIndex(where: { $0.identifier == initialCardName }) {
-                let initialCard = cardData.remove(at: index)
-                cardData.append(initialCard)
-            }
+            CardModel(identifier: StringConstants.idDevCardData, title: StringConstants.titleDevCardData, description: StringConstants.descriptionDevCardData, profileURL: StringConstants.profileURLDev),
+            CardModel(identifier: StringConstants.idDocCardData, title: StringConstants.titleDocCardData, description: StringConstants.descriptionDocCardData, profileURL: StringConstants.profileURLDoc),
+            CardModel(identifier: StringConstants.idDesCardData, title: StringConstants.titleDesCardData, description: StringConstants.descriptionDesCardData, profileURL: StringConstants.profileURLDes),
+        ]
+        
+        if let initialCardName = initialCardName, let index = cardData.firstIndex(where: { $0.identifier == initialCardName }) {
+            let initialCard = cardData.remove(at: index)
+            cardData.append(initialCard)
         }
+    }
 }
 
 // MARK: - setupCards()
 extension CardViewController {
     private func setupCards() {
         for card in cardData {
-                    let cardView = CardView()
-            cardView.configure(with: UIImage(named: card.title) ?? UIImage(), title: card.title, description: card.description)
-                    cardViews.append(cardView)
-                    view.addSubview(cardView)
-                    setupCardConstraints(cardView)
-                    addSwipeGesture(to: cardView)
-                }
+            let cardView = CardView()
+            cardView.configure(with: UIImage(named: card.identifier) ?? UIImage(), title: card.title, description: card.description)
+            cardView.profileButton.addTarget(self, action: #selector(cardButtonTapped(_:)), for: .touchUpInside)
+            cardView.profileButton.tag = cardViews.count
+            cardViews.append(cardView)
+            view.addSubview(cardView)
+            setupCardConstraints(cardView)
+            addSwipeGesture(to: cardView)
+        }
         editCardPositions()
     }
 }
@@ -139,5 +142,25 @@ extension CardViewController {
         cardViews.forEach { $0.removeFromSuperview() }
         cardViews.removeAll()
         setupCards()
+    }
+}
+
+// MARK: - cardButtonTapped()
+extension CardViewController {
+    @objc func cardButtonTapped(_ sender: UIButton) {
+        let cardURL = cardData[sender.tag].profileURL
+        openURL(cardURL: cardURL)
+    }
+}
+
+// MARK: - openURL()
+extension CardViewController {
+    @objc private func openURL(cardURL: String) {
+        if let url = URL(string: cardURL) {
+            let safariVC = SFSafariViewController(url: url)
+            present(safariVC, animated: true, completion: nil)
+        } else {
+            print("Invalid URL")
+        }
     }
 }
