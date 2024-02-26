@@ -1,7 +1,9 @@
 import UIKit
+import MessageUI
+import SafariServices
 
 // MARK: - Properties and viewDidLoad()
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     private let aboutProjectView = SettingsView()
     
@@ -38,13 +40,14 @@ extension SettingsViewController {
     }
 }
 
+// MARK: - editButton()
 extension SettingsViewController {
     private func editButton() {
         aboutProjectView.aboutProjectButton.onTap = { [weak self] in
             self?.showAboutProject()
         }
         aboutProjectView.sendMessageButton.onTap = { [weak self] in
-            self?.showSendMessage()
+            self?.sendFeedbackForm()
         }
     }
 }
@@ -59,10 +62,39 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - showSendMessage()
+// MARK: - sendFeedbackForm()
 extension SettingsViewController {
-    private func showSendMessage() {
-        let vc = MainVC()
-        navigationController?.pushViewController(vc, animated: true)
+    private func sendFeedbackForm() {
+        sendMailByMessageUI()
+    }
+}
+
+// MARK: - sendMailByMessageUI()
+extension SettingsViewController {
+    private func sendMailByMessageUI() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["emmaderbejoss@gmail.com"])
+            mail.setSubject("Обратная связь")
+            mail.setMessageBody("<p>Напишите здесь свою обратную связь. Спасибо! </p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            openWebForm()
+        }
+    }
+}
+
+// MARK: - openWebForm()
+extension SettingsViewController {
+    private func openWebForm() {
+        let feedbackURL = StringConstants.feedbackFormURL
+        if let url = URL(string: feedbackURL) {
+            let safariVC = SFSafariViewController(url: url)
+            present(safariVC, animated: true, completion: nil)
+        } else {
+            print("Invalid URL")
+        }
     }
 }
