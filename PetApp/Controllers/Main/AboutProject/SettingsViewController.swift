@@ -89,7 +89,7 @@ extension SettingsViewController {
 // MARK: - openWebForm()
 extension SettingsViewController {
     private func openWebForm() {
-        let feedbackURL = "https://forms.gle/eectpNoQJymGaciE6"
+        let feedbackURL = StringConstants.feedbackFormURL
         if let url = URL(string: feedbackURL) {
             let safariVC = SFSafariViewController(url: url)
             present(safariVC, animated: true, completion: nil)

@@ -43,7 +43,7 @@ extension AboutProjectViewController {
 // MARK: - showSupportTheProjectButton()
 extension AboutProjectViewController {
     @objc private func openSupportForm() {
-        let feedbackURL = "https://forms.gle/eectpNoQJymGaciE6"
+        let feedbackURL = StringConstants.howHeplURl
             if let url = URL(string: feedbackURL) {
                 let safariVC = SFSafariViewController(url: url)
                 present(safariVC, animated: true, completion: nil)

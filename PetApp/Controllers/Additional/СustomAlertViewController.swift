@@ -173,7 +173,7 @@ extension CustomAlertViewController {
 // MARK: - openFeedbackForm()
 extension CustomAlertViewController {
     private func openFeedbackForm() {
-        let feedbackURL = "https://forms.gle/eectpNoQJymGaciE6"
+        let feedbackURL = StringConstants.newProductOfferURL
         if let url = URL(string: feedbackURL) {
             let safariVC = SFSafariViewController(url: url)
             present(safariVC, animated: true, completion: nil)
