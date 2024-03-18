@@ -365,7 +365,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					C50BAD2E2A40D0900082FE4E = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -379,7 +379,6 @@
 			knownRegions = (
 				en,
 				ru,
-				Base,
 			);
 			mainGroup = C50BAD262A40D0900082FE4E;
 			productRefGroup = C50BAD302A40D0900082FE4E /* Products */;
