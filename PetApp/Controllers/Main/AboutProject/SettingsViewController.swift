@@ -75,7 +75,7 @@ extension SettingsViewController {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["emmaderbejoss@gmail.com"])
+            mail.setToRecipients(["petdietapp@gmail.com"])
             mail.setSubject("Обратная связь")
             mail.setMessageBody("<p>Напишите здесь свою обратную связь. Спасибо! </p>", isHTML: true)
             
