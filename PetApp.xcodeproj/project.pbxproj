@@ -374,10 +374,9 @@
 			};
 			buildConfigurationList = C50BAD2A2A40D0900082FE4E /* Build configuration list for PBXProject "PetApp" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				ru,
 			);
 			mainGroup = C50BAD262A40D0900082FE4E;
