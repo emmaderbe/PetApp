@@ -159,7 +159,7 @@ extension CustomAlertViewController {
             let dogProduct: String = textField.text ?? ""
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["emmaderbejoss@gmail.com"])
+            mail.setToRecipients(["petdietapp@gmail.com"])
             mail.setSubject("Новый продукт")
             mail.setMessageBody("<p>Предлагаю добавить следующий продукт в список – \(dogProduct)</p>", isHTML: true)
             

@@ -11,7 +11,7 @@ struct StringConstants {
     
     static let newProductOfferURL = "https://forms.gle/F8jGf1kWABLMKe387"
     static let feedbackFormURL = "https://forms.gle/2pKoYdYD5pWBPpe79"
-    static let howHeplURl = "http://petdiethowhelp.tilda.ws"
+    static let howHeplURl = "https://petdiet.tilda.ws/howtosupport"
     
     static let idDevCardData = "Developer"
     static let idDocCardData = "Doctor"
