@@ -53,10 +53,13 @@ extension OnboardingView {
 // MARK: - setUpConstraints()
 extension OnboardingView {
     private func setUpConstraints() {
+        let screenHeight = UIScreen.main.bounds.height
+        let heightConstraint = screenHeight * 0.3
+        
         NSLayoutConstraint.activate([
             mainImage.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.imageTop),
             mainImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.OnboardingViewConstraints.imageHeight),
+            mainImage.heightAnchor.constraint(equalToConstant: heightConstraint),
             mainImage.widthAnchor.constraint(equalTo: mainImage.heightAnchor),
 
             titleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.OnboardingViewConstraints.labelTop),

@@ -80,27 +80,29 @@ extension DetailView {
 // MARK: - setupConstraints()
 extension DetailView {
     func setupConstraints() {
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.imageTop),
-            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.imageLeading),
-            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.imageHeight),
-            mainImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.imageWidth),
+            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: screenHeight * ViewConstraintsConstants.DetailViewConstraints.imageTop),
+            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: screenWidth *  ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            mainImage.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.imageWidth),
 
-            descriptionTitleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.labelTop),
-            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            descriptionTitleLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: screenHeight * ViewConstraintsConstants.DetailViewConstraints.labelTop),
+            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
-            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.labelWight),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: screenHeight * ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.labelWight),
             
-            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: screenHeight * ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
-            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
-            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-            restrictionsLabel.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.labelWight),
+            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: screenHeight * ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            restrictionsLabel.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.DetailViewConstraints.labelWight),
         ])
     }
 }
