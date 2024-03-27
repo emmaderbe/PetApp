@@ -62,24 +62,27 @@ extension FoodViewCell {
 //MARK: - setupCellConstraints()
 extension FoodViewCell {
     func setupCellConstraints() {
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        
         NSLayoutConstraint.activate([
-            foodCellImage.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.imageTop),
-            foodCellImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalLeading),
-            foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
-            foodCellImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.imageWigth),
-            foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.imageBottom),
+            foodCellImage.topAnchor.constraint(equalTo: topAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.imageTop),
+            foodCellImage.leftAnchor.constraint(equalTo: leftAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.generalLeading),
+            foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: screenWidth *  ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
+            foodCellImage.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.imageWigth),
+            foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.imageBottom),
             
-            foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.indicatorTop),
-            foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.indicatorLeading),
-            foodIndicatorImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.indicatorHeight),
+            foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.indicatorTop),
+            foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.indicatorLeading),
+            foodIndicatorImage.heightAnchor.constraint(equalToConstant: screenHeight *  ViewConstraintsConstants.FoodViewConstraints.indicatorHeight),
             foodIndicatorImage.widthAnchor.constraint(equalTo: foodIndicatorImage.heightAnchor),
             
             foodNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            foodNameLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
+            foodNameLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
             
             likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
-            likeButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.likeHeight),
+            likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
+            likeButton.heightAnchor.constraint(equalToConstant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.likeHeight),
             likeButton.widthAnchor.constraint(equalTo: likeButton.heightAnchor)
         ])
     }

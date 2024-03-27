@@ -21,7 +21,7 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         super.init(frame: .zero, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
         layout.minimumLineSpacing = VcConstraintsConstants.FoodCellConstraints.lineSpacing
-        contentInset = UIEdgeInsets(top: 0, left: VcConstraintsConstants.FoodCellConstraints.leftDestination, bottom: 0, right: VcConstraintsConstants.FoodCellConstraints.rightDestination)
+        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         backgroundColor = .accentBackground
         delegate = self
@@ -68,10 +68,11 @@ class FoodCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
 extension FoodCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let insets = collectionView.contentInset
-        _ = collectionView.frame.width - insets.left - insets.right
-        return  CGSize(width: VcConstraintsConstants.FoodCellConstraints.cellWidth, height: VcConstraintsConstants.FoodCellConstraints.cellHeight)
+        let width = collectionView.bounds.width - (insets.left + insets.right)
+        return CGSize(width: width, height: VcConstraintsConstants.FoodCellConstraints.cellHeight)
     }
 }
+
 
 //MARK: - didSelectItemAt
 extension FoodCollectionView {

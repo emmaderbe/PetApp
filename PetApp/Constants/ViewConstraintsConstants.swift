@@ -17,34 +17,32 @@ struct ViewConstraintsConstants {
     
     // detail view
     struct DetailViewConstraints {
-        static let generalTop: CGFloat = 22
-        static let generalLeading: CGFloat = 16
-        static let generalTrailing: CGFloat = -16
+        static let generalTop: CGFloat = 0.0261
+        static let generalLeading: CGFloat = 0.0410
+        static let generalTrailing: CGFloat = -0.0410
         
-        static let imageTop: CGFloat = 20
-        static let imageLeading: CGFloat = 19
-        static let imageHeight: CGFloat = 189
-        static let imageWidth: CGFloat = 352
+        static let imageTop: CGFloat = 0.0237
+        static let imageWidth: CGFloat = 0.922
 
-        static let labelTop: CGFloat = 83
-        static let labelWight: CGFloat = 358
+        static let labelTop: CGFloat = 0.0983
+        static let labelWight: CGFloat = 0.9179
     }
     
     // food view cell
     struct FoodViewConstraints {
-        static let generalTop: CGFloat = 22
-        static let generalLeading: CGFloat = 16
-        static let generalTrailing: CGFloat = -16
+        static let generalTop: CGFloat = 0.0261
+        static let generalLeading: CGFloat = 0.0410
+        static let generalTrailing: CGFloat = -0.0410
         
-        static let imageTop: CGFloat = 12
-        static let imageWigth: CGFloat = 32
-        static let imageBottom: CGFloat = -12
+        static let imageTop: CGFloat = 0.0142
+        static let imageWigth: CGFloat = 0.0821
+        static let imageBottom: CGFloat = -0.0142
         
-        static let indicatorTop: CGFloat = 22
-        static let indicatorLeading: CGFloat = 22
-        static let indicatorHeight: CGFloat = 10
+        static let indicatorTop: CGFloat = 0.0261
+        static let indicatorLeading: CGFloat = 0.0564
+        static let indicatorHeight: CGFloat = 0.0118
         
-        static let likeHeight: CGFloat = 24
+        static let likeHeight: CGFloat = 0.0284
     }
     
     // category view cell

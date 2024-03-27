@@ -12,9 +12,16 @@ class TabBarController: UITabBarController {
 // MARK: - generateTabBar()
 extension TabBarController {
     private func generateTabBar() {
+        let mainVCImage: UIImage?
+                if #available(iOS 16, *) {
+                    mainVCImage = UIImage(systemName: ImageConstants.iconMainVCTabBarUp16)
+                } else {
+                    mainVCImage = UIImage(systemName: ImageConstants.iconMainVCTabBarUnder16)
+                }
+        
         viewControllers = [
             generateVC(viewController: MainVC(),
-                       image: UIImage(systemName: ImageConstants.iconMainVCTabBar),
+                       image: mainVCImage,
                        title: StringConstants.titleMainVCTabBarSystemName),
             generateVC(viewController: FavouritesVC(),
                        image: UIImage(systemName: ImageConstants.iconFavouritesVCTabBar),

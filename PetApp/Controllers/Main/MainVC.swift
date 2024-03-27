@@ -108,8 +108,8 @@ extension MainVC {
             allFoodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading * 2),
             
             foodCollectionView.topAnchor.constraint(equalTo: allFoodLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
-            foodCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            foodCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            foodCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            foodCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             // if we cant find product
@@ -145,15 +145,15 @@ extension MainVC {
 // MARK: - updateSearchResults()
 extension MainVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-            if let searchText = searchController.searchBar.text {
-                filterContentForSearchText(searchText)
-                let productsFound = !foodCollectionView.filteredProductsList.isEmpty
-                productContentUnavailableView.isHidden = productsFound
-                if !productsFound {
-                    productContentUnavailableView.updateProduct(product: searchText)
-                }
+        if let searchText = searchController.searchBar.text {
+            filterContentForSearchText(searchText)
+            let productsFound = !foodCollectionView.filteredProductsList.isEmpty
+            productContentUnavailableView.isHidden = productsFound
+            if !productsFound {
+                productContentUnavailableView.updateProduct(product: searchText)
             }
         }
+    }
 }
 
 // MARK: - filterContentForSearchText()
