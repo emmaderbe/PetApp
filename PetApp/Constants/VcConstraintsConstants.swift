@@ -22,7 +22,8 @@ struct VcConstraintsConstants {
     // food collection view
     struct FoodCellConstraints {
         static let lineSpacing: CGFloat = 0
-        static let cellHeight: CGFloat = 56
+//        static let cellHeight: CGFloat = 56
+        static let cellHeight: CGFloat = 0.0664
     }
     
     // category collection view

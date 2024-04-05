@@ -70,6 +70,7 @@ extension FoodViewCell {
             foodCellImage.leftAnchor.constraint(equalTo: leftAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.generalLeading),
             foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: screenWidth *  ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
             foodCellImage.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.imageWigth),
+            foodCellImage.heightAnchor.constraint(equalTo: foodCellImage.widthAnchor),
             foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.imageBottom),
             
             foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.indicatorTop),
