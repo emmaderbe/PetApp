@@ -4,7 +4,10 @@ import UIKit
 final class LikeButton: UIButton {
     var isLiked = false {
         didSet {
-            let image = isLiked ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+            let configuration = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular)
+            let heartFill = UIImage(systemName: "heart.fill", withConfiguration: configuration)
+            let heart = UIImage(systemName: "heart", withConfiguration: configuration)
+            let image = isLiked ? heartFill : heart
             setImage(image, for: .normal)
         }
     }
@@ -25,8 +28,8 @@ final class LikeButton: UIButton {
 // MARK: - configure()
 extension LikeButton {
     private func configure() {
-        setImage(UIImage(systemName: "heart"), for: .normal)
         tintColor = UIColor.accentOrange
+        clipsToBounds = true
     }
 }
 

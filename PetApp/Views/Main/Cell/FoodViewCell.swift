@@ -71,7 +71,6 @@ extension FoodViewCell {
             foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: screenWidth *  ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
             foodCellImage.widthAnchor.constraint(equalToConstant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.imageWigth),
             foodCellImage.heightAnchor.constraint(equalTo: foodCellImage.widthAnchor),
-            foodCellImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.imageBottom),
             
             foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.indicatorTop),
             foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.indicatorLeading),
@@ -84,7 +83,6 @@ extension FoodViewCell {
             likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: screenWidth * ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
             likeButton.heightAnchor.constraint(equalToConstant: screenHeight * ViewConstraintsConstants.FoodViewConstraints.likeHeight),
-            likeButton.widthAnchor.constraint(equalTo: likeButton.heightAnchor)
         ])
     }
 }
