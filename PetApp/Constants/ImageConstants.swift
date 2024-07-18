@@ -1,14 +1,23 @@
 import Foundation
 
-struct ImageConstants {
-    static let iconOnboardingFirst = "onboardingVC1"
-    static let iconOnboardingSecond = "onboardingVC2"
-    static let iconOnboardingThird = "onboardingVC3"
+enum ImageConstants {
+    enum OnboardingView {
+        static let iconOnboardingFirst = "onboardingVC1"
+        static let iconOnboardingSecond = "onboardingVC2"
+        static let iconOnboardingThird = "onboardingVC3"
+    }
     
-    static let iconMainVCTabBarUp16 = "carrot"
-    static let iconMainVCTabBarUnder16 = "house"
-    static let iconFavouritesVCTabBar = "heart"
-    static let iconSettingVCTabBar = "person"
+    enum TabBar {
+        static let iconMainVCTabBarUp16 = "carrot"
+        static let iconMainVCTabBarUnder16 = "house"
+        static let iconFavouritesVCTabBar = "heart"
+        static let iconSettingVCTabBar = "person"
+    }
     
-    static let mainImageSettingsView = "mainPhotoAboutProject"
+    enum AboutProject {
+        static let mainImageSettingsView = "mainPhotoAboutProject"
+        static let devPortret = "portraitOfDeveloperImage"
+        static let desPortret = "portraitOfDesignerImage"
+        static let docPortret = "portraitOfDoctorImage"
+    }
 }

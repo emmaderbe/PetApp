@@ -1,0 +1,57 @@
+import UIKit
+
+// MARK: - Properties
+class CategoryViewCell: UICollectionViewCell {
+
+    private let categoryCellImage = ImageFactory.imageViewAspectFill(cornerRadius: 12)
+    private let categoryCellLabel = LabelFactory.montserratSemiBold12()
+    private let stackCell = StackFactory.stackView(spacing: 8)
+
+// MARK: - init()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupCell()
+        setupCellConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+// MARK: - setupCell()
+private extension CategoryViewCell {
+    func setupCell() {
+        backgroundColor = .accentBackground
+        addSubview(stackCell)
+        stackCell.addArrangedSubview(categoryCellImage)
+        stackCell.addArrangedSubview(categoryCellLabel)
+        
+        stackCell.alignment = .center
+    }
+}
+
+// MARK: - setupCellConstraints()
+private extension CategoryViewCell {
+    func setupCellConstraints() {
+        NSLayoutConstraint.activate([
+            stackCell.topAnchor.constraint(equalTo: topAnchor),
+            stackCell.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackCell.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackCell.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            categoryCellImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.imageWidth),
+            categoryCellImage.heightAnchor.constraint(equalTo: categoryCellImage.widthAnchor),
+            
+            categoryCellLabel.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.labelHeight),
+        ])
+    }
+}
+
+extension CategoryViewCell {
+    func setupCell(image: String, label: String) {
+        categoryCellImage.image = UIImage(named: image)
+        categoryCellLabel.text = label
+    }
+}
