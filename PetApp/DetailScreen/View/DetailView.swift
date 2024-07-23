@@ -46,15 +46,15 @@ private extension DetailView {
             foodMarkView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             foodMarkView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             foodMarkView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-//            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.cellHeight),
-//            
+            //            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.cellHeight),
+            //            
             descriptionTitleLabel.topAnchor.constraint(equalTo: foodMarkView.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
             descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-
+            
             restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
@@ -80,5 +80,9 @@ extension DetailView {
     
     func setupFoodMark(with: FoodMarkCollectionDataSource) {
         foodMarkView.setDataSource(with)
+    }
+    
+    func hideRestrictionsTitle() {
+        restrictionsTitleLabel.isHidden = true
     }
 }

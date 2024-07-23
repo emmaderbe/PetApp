@@ -20,13 +20,3 @@ final class FoodCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//extension FoodCollectionView {
-//    func setDataSource(_ dataSource: FoodCollectionDataSource) {
-//        self.dataSource = dataSource
-//    }
-//    
-//    func setDelegates(_ delegate: FoodCollectionDelegate) {
-//        self.delegate = delegate
-//    }
-//}

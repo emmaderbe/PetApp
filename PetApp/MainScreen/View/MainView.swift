@@ -77,22 +77,25 @@ extension MainView {
 }
 
 extension MainView {
-    func setupCategoryCollectionView(dataSource: CategoryCollectionDataSource, 
+    func reloadCategoryData() {
+        categoryCollectionView.reloadData()
+    }
+    
+    func setupCategoryCollectionView(dataSource: CategoryCollectionDataSource,
                                      delegate: CategoryCollectionDelegate) {
-            categoryCollectionView.dataSource = dataSource
-            categoryCollectionView.delegate = delegate
-        }
+        categoryCollectionView.dataSource = dataSource
+        categoryCollectionView.delegate = delegate
+    }
 }
 
 extension MainView {
-    func reloadData() {
-        categoryCollectionView.reloadData()
+    func reloadFoodData() {
         foodCollectionView.reloadData()
     }
     
-    
-    func setupFoodCollectionView(dataSource: FoodCollectionDataSource, delegate: FoodCollectionDelegate) {
-           foodCollectionView.dataSource = dataSource
-           foodCollectionView.delegate = delegate
-       }
+    func setupFoodCollectionView(dataSource: FoodCollectionDataSource,
+                                 delegate: FoodCollectionDelegate) {
+        foodCollectionView.dataSource = dataSource
+        foodCollectionView.delegate = delegate
+    }
 }

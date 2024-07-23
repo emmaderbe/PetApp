@@ -20,13 +20,3 @@ final class CategoryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//extension CategoryCollectionView {
-//    func setDataSource(_ dataSource: CategoryCollectionDataSource) {
-//        self.dataSource = dataSource
-//    }
-//
-//    func setDelegates(_ delegate: CategoryCollectionDelegate) {
-//        self.delegate = delegate
-//    }
-//}

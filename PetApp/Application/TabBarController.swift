@@ -23,9 +23,9 @@ extension TabBarController {
             generateVC(viewController: MainVC(),
                        image: mainVCImage,
                        title: NSLocalizedString("titleMainVCTabBarSystemName", comment: "")),
-//            generateVC(viewController: FavouritesVC(),
-//                       image: UIImage(systemName: ImageConstants.TabBar.iconFavouritesVCTabBar),
-//                       title: NSLocalizedString("titleFavoriteVCTabBarSystemName", comment: "")),
+            generateVC(viewController: FavouritesVC(),
+                       image: UIImage(systemName: ImageConstants.TabBar.iconFavouritesVCTabBar),
+                       title: NSLocalizedString("titleFavoriteVCTabBarSystemName", comment: "")),
             generateVC(viewController: SettingsViewController(),
                        image: UIImage(systemName: ImageConstants.TabBar.iconSettingVCTabBar),
                        title: NSLocalizedString("titleSettingVCTabBarSystemName", comment: ""))

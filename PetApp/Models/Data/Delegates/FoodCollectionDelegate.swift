@@ -17,6 +17,10 @@ extension FoodCollectionDelegate {
 
 extension FoodCollectionDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.item < products.count else {
+            print("Index out of range")
+            return
+        }
         let selectedProduct = products[indexPath.item]
         delegate?.foodSelected(selectedProduct)
     }

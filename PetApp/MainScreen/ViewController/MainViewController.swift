@@ -44,14 +44,16 @@ class MainVC: UIViewController {
 }
 
 private extension MainVC {
-    func loadProducts() {
+    func loadProducts() {        
+        productDataManager.getAllProductsTypes { [weak self] productTypes in
+        self?.categoryDataSource.updateTypes(productTypes)
+        self?.categoryDelegate.updateTypes(productTypes)
+        self?.mainView.reloadCategoryData()
+    }
         productDataManager.getAllProducts { [weak self] products in
             self?.foodDataSource.updateProducts(products)
-            self?.mainView.reloadData()
-        }
-        productDataManager.getAllProductsTypes { [weak self] productTypes in
-            self?.categoryDataSource.updateTypes(productTypes)
-            self?.mainView.reloadData()
+            self?.foodDelegate.updateProducts(products)
+            self?.mainView.reloadFoodData()
         }
     }
 }
@@ -77,11 +79,15 @@ private extension MainVC {
     }
     
     func setupCategoryCollection() {
-        mainView.setupCategoryCollectionView(dataSource: categoryDataSource, delegate: categoryDelegate)
+        mainView.setupCategoryCollectionView(dataSource: categoryDataSource,
+                                             delegate: categoryDelegate)
+        categoryDelegate.delegate = self
     }
     
     func setupFoodCollection() {
-        mainView.setupFoodCollectionView(dataSource: foodDataSource, delegate: foodDelegate)
+        mainView.setupFoodCollectionView(dataSource: foodDataSource,
+                                         delegate: foodDelegate)
+        foodDelegate.delegate = self
     }
     
     func setupSearchBar() {
@@ -125,7 +131,7 @@ extension MainVC: UISearchBarDelegate {
     private func filterContentForSearchText(_ searchText: String) {
         productDataManager.filterProductsBySearchBar(searchText: searchText) { [weak self] filteredProducts in
             self?.foodDataSource.updateProducts(filteredProducts)
-            self?.mainView.reloadData()
+            self?.mainView.reloadFoodData()
             
             let productsFound = !filteredProducts.isEmpty
             self?.productContentUnavailableView.isHidden = productsFound
@@ -145,14 +151,21 @@ extension MainVC: FoodSelectionDelegate {
     }
 }
 
-//// MARK: - CategorySelectionDelegate
-//extension MainVC: CategorySelectionDelegate {
-//    func didSelectCategory(_ category: DogProductTypeModel) {
-//        if currentSelectedCategory == category.type {
-//            currentSelectedCategory = nil
-//        } else {
-//            currentSelectedCategory = category.type
-//        }
-//        filterContentForSearchText(mainView.searchBar.text ?? "")
-//    }
-//}
+// MARK: - CategorySelectionDelegate
+extension MainVC: CategorySelectedDelegate {
+    func categorySelected(_ category: DogProductTypeModelDTO) {
+        if currentSelectedCategory == category.type {
+            currentSelectedCategory = nil
+        } else {
+            currentSelectedCategory = category.type
+        }
+        filterContentForCategory(currentSelectedCategory)
+    }
+    
+    private func filterContentForCategory(_ category: String?) {
+        productDataManager.filterProductsByCategory(category: category ?? "") { [weak self] filteredProducts in
+            self?.foodDataSource.updateProducts(filteredProducts)
+            self?.mainView.reloadFoodData()
+        }
+    }
+}

@@ -10,7 +10,15 @@ final class CategoryCollectionDelegate: NSObject, UICollectionViewDelegate {
 }
 
 extension CategoryCollectionDelegate {
+    func updateTypes(_ types: [DogProductTypeModelDTO]) {
+        self.dogCategory = types
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.item < dogCategory.count else {
+            print("Index out of range")
+            return
+        }
         let selectedCategory = dogCategory[indexPath.item]
         delegate?.categorySelected(selectedCategory)
     }

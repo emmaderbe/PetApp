@@ -8,13 +8,14 @@ class DetailVC: UIViewController {
     private let favouriteManager: FavouritesManagerProtocol
     private let likeButton = LikeButton()
     var productInfo: DogProductModelDTO
+    
     init(productInfo: DogProductModelDTO,
          favouriteManager: FavouritesManagerProtocol = FavouritesManager(),
          productManager: DogProductDataManagerProtocol = DogProductDataManager()) {
         self.productInfo = productInfo
         self.productManager = productManager
         self.favouriteManager = favouriteManager
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     @available(*, unavailable)
@@ -35,8 +36,8 @@ class DetailVC: UIViewController {
 }
 
 // MARK: - updateProductInfo()
-extension DetailVC {
-    private func updateProductInfo() {
+private extension DetailVC {
+    func updateProductInfo() {
         let product = productInfo
         
         detailView.setupData(descriptionTitle: NSLocalizedString("descriptionTitleLabelDetailView", comment: ""),
@@ -48,6 +49,9 @@ extension DetailVC {
         detailView.setupFoodMark(with: foodMarkDataSource)
         let productTypes = product.type.enumerated().map { (index, type) in
             DogProductTypeModelDTO(type: type, photo: product.photo[index], backgroundType: product.backgroundType[index])
+        }
+        if product.restriction.isEmpty {
+            detailView.hideRestrictionsTitle()
         }
         foodMarkDataSource.updateType(productTypes)
     }

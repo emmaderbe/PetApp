@@ -23,6 +23,11 @@ extension FoodCollectionDataSource {
 
 extension FoodCollectionDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard indexPath.row < dogProductList.count else {
+            print("Index out of range")
+            return UICollectionViewCell()
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodViewCell.identifier, for: indexPath) as? FoodViewCell
         else {return UICollectionViewCell()}
         
@@ -42,29 +47,3 @@ extension FoodCollectionDataSource {
         
     }
 }
-
-//extension FoodCollectionDataSource: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let insets = collectionView.contentInset
-//        let width = collectionView.bounds.width - (insets.left + insets.right)
-//        return CGSize(width: width, height: VcConstraintsConstants.FoodCellConstraints.cellHeight)
-//    }
-//}
-
-
-//    // MARK: - cellForItemAt
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = dequeueReusableCell(withReuseIdentifier: StringConstants.CellIdentifier.reuseIdFoodViewCell, for: indexPath) as! FoodViewCell
-//        let product = dogProductList[indexPath.row]
-//        cell.setupData(foodImage: product.photo.first ?? "", indicatorImage: product.indicator, name: product.product)
-//        cell.likeButton.onTap = { [weak self] isLiked in
-//            if isLiked {
-//                FavouritesManager.shared.addFavourite(product: product)
-//            } else {
-//                FavouritesManager.shared.removeFavourite(product: product)
-//            }
-//            self?.reloadData()
-//        }
-//        cell.likeButton.isLiked = FavouritesManager.shared.isFavourite(product: product)
-//        return cell
-//    }
