@@ -4,6 +4,8 @@ import UIKit
 class DetailVC: UIViewController {
     private let detailView = DetailView()
     private let foodMarkDataSource = FoodMarkCollectionDataSource()
+    private let foodMarkDelegate = FoodMarkCollectionDelegate()
+    
     private let productManager: DogProductDataManagerProtocol
     private let favouriteManager: FavouritesManagerProtocol
     private let likeButton = LikeButton()
@@ -46,7 +48,7 @@ private extension DetailVC {
                              restriction: product.restriction,
                              image: product.detailPhoto)
         
-        detailView.setupFoodMark(with: foodMarkDataSource)
+        detailView.setupFoodMark(with: foodMarkDataSource, and: foodMarkDelegate)
         let productTypes = product.type.enumerated().map { (index, type) in
             DogProductTypeModelDTO(type: type, photo: product.photo[index], backgroundType: product.backgroundType[index])
         }

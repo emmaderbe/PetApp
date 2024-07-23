@@ -33,14 +33,3 @@ extension FoodCollectionDelegate: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: VcConstraintsConstants.FoodCellConstraints.cellHeight)
     }
 }
-
-////MARK: - didSelectItemAt
-//extension FoodCollectionView {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailVC = DetailVC()
-//        let product = self.dogProductList[indexPath.row]
-//        detailVC.title = product.product
-//        detailVC.productInfo = product
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
-//}

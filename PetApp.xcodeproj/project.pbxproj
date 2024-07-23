@@ -49,6 +49,7 @@
 		C5B0D7FF2C501257002085B2 /* StringArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D7FE2C501257002085B2 /* StringArrayTransformer.swift */; };
 		C5B0D8022C503151002085B2 /* FavouriteProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D8002C503151002085B2 /* FavouriteProduct+CoreDataClass.swift */; };
 		C5B0D8032C503151002085B2 /* FavouriteProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D8012C503151002085B2 /* FavouriteProduct+CoreDataProperties.swift */; };
+		C5B0D8052C503712002085B2 /* FoodMarkCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D8042C503712002085B2 /* FoodMarkCollectionDelegate.swift */; };
 		C5BD4A212BF3A9B9008E0AB2 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A202BF3A9B8008E0AB2 /* LabelFactory.swift */; };
 		C5BD4A232BF3ACE7008E0AB2 /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A222BF3ACE7008E0AB2 /* ImageFactory.swift */; };
 		C5BD4A252BF3ADAC008E0AB2 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A242BF3ADAC008E0AB2 /* ViewFactory.swift */; };
@@ -119,6 +120,7 @@
 		C5B0D7FE2C501257002085B2 /* StringArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayTransformer.swift; sourceTree = "<group>"; };
 		C5B0D8002C503151002085B2 /* FavouriteProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavouriteProduct+CoreDataClass.swift"; path = "../../../FavouriteProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C5B0D8012C503151002085B2 /* FavouriteProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FavouriteProduct+CoreDataProperties.swift"; path = "../../../FavouriteProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C5B0D8042C503712002085B2 /* FoodMarkCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionDelegate.swift; sourceTree = "<group>"; };
 		C5BD4A202BF3A9B8008E0AB2 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		C5BD4A222BF3ACE7008E0AB2 /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
 		C5BD4A242BF3ADAC008E0AB2 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */,
+				C5B0D8042C503712002085B2 /* FoodMarkCollectionDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				C5FCE7672B234E2700EF1124 /* CardViewController.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
 				C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */,
+				C5B0D8052C503712002085B2 /* FoodMarkCollectionDelegate.swift in Sources */,
 				C5BD4A252BF3ADAC008E0AB2 /* ViewFactory.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,
 				C5F252332B1677AB009239FC /* AboutProjectView.swift in Sources */,

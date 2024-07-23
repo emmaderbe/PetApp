@@ -23,7 +23,9 @@ class FoodMarkCollectionView: UICollectionView {
 
 //MARK: - set dataSource and delegate
 extension FoodMarkCollectionView {
-    func setDataSource(_ dataSource: FoodMarkCollectionDataSource) {
+    func setFoodMark(_ dataSource: FoodMarkCollectionDataSource, _ delegate: FoodMarkCollectionDelegate) {
         self.dataSource = dataSource
+        self.delegate = delegate
     }
+    
 }
