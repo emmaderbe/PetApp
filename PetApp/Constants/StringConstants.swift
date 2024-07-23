@@ -1,12 +1,6 @@
 import Foundation
 
 enum StringConstants {    
-    enum CellIdentifier {
-        static let reuseIdCategoryViewCell = "categoryViewCell"
-        static let reuseIdFoodViewCell = "foodViewCell"
-        static let reuseIdFoodMarkViewCell = "foodMarkViewCell"
-    }
-    
     enum URL {
         static let newProductOfferURL = "https://forms.gle/F8jGf1kWABLMKe387"
         static let feedbackFormURL = "https://forms.gle/2pKoYdYD5pWBPpe79"

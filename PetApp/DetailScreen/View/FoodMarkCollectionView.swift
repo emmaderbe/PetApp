@@ -11,19 +11,13 @@ class FoodMarkCollectionView: UICollectionView {
         contentInset = UIEdgeInsets(top: 0, left: VcConstraintsConstants.FoodMarkCellConstraints.leftDestination, bottom: 0, right: VcConstraintsConstants.FoodMarkCellConstraints.rightDestination)
         
         backgroundColor = .accentBackground
-        register(FoodMarkViewCell.self, forCellWithReuseIdentifier: StringConstants.CellIdentifier.reuseIdFoodMarkViewCell)
+        register(FoodMarkViewCell.self, forCellWithReuseIdentifier: FoodMarkViewCell.identifier)
         self.showsHorizontalScrollIndicator = false
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-//MARK: - sizeForItem
-extension FoodMarkCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  CGSize(width: VcConstraintsConstants.FoodMarkCellConstraints.cellWidth, height: VcConstraintsConstants.FoodMarkCellConstraints.cellHeight)
     }
 }
 

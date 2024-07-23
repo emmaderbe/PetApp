@@ -49,3 +49,9 @@ extension FoodMarkViewCell {
         categoryCellLabel.text = label
     }
 }
+
+extension FoodMarkViewCell {
+    static var identifier: String {
+        String(describing: FoodMarkViewCell.self)
+    }
+}

@@ -1,7 +1,7 @@
 import UIKit
 
 // MARK: - Properties
-class FoodViewCell: UICollectionViewCell {
+final class FoodViewCell: UICollectionViewCell {
     private let foodCellImage = ImageFactory.imageViewAspectFill(cornerRadius: 16)
     private let foodIndicatorImage = ImageFactory.imageViewAspectFit(cornerRadius: 5)
     private let foodNameLabel = LabelFactory.montserratRegular16()
@@ -14,6 +14,7 @@ class FoodViewCell: UICollectionViewCell {
         setupCellConstraints()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -61,5 +62,11 @@ extension FoodViewCell {
         foodCellImage.image = UIImage(named: foodImage)
         foodIndicatorImage.image = UIImage(named: indicatorImage)
         foodNameLabel.text = name
+    }
+}
+
+extension FoodViewCell {
+    static var identifier: String {
+        String(describing: FoodViewCell.self)
     }
 }

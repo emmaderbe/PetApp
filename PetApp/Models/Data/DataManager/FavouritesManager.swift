@@ -1,72 +1,82 @@
 import UIKit
 import CoreData
 
-// MARK: - Properties
-class FavouritesManager {
-    static let shared = FavouritesManager()
+protocol FavouritesManagerProtocol {
+    func isFavourite(product: DogProductModelDTO) -> Bool
+    func getFavouriteProducts() -> [DogProductModelDTO]
+    func addFavourite(product: DogProductModelDTO)
+    func removeFavourite(product: DogProductModelDTO)
+    func updateFavourite(product: DogProductModelDTO)
+}
 
-    private var context: NSManagedObjectContext {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+final class FavouritesManager: FavouritesManagerProtocol {
+    
+    private let persistenceService: CoreDataPersistenceServiceProtocol
+    
+    init(persistenceService: CoreDataPersistenceServiceProtocol = CoreDataPersistenceService()) {
+        self.persistenceService = persistenceService
     }
 }
 
-// MARK: - isFavourite()
 extension FavouritesManager {
-    func isFavourite(product: DogProductModel) -> Bool {
+    func isFavourite(product: DogProductModelDTO) -> Bool {
         let fetchRequest: NSFetchRequest<FavouriteProduct> = FavouriteProduct.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "product == %@", product.product)
         
         do {
-            let count = try context.count(for: fetchRequest)
+            let count = try persistenceService.context.count(for: fetchRequest)
             return count > 0
         } catch {
             print("Error fetching data \(error)")
             return false
         }
     }
-
-}
-
-// MARK: - addFavourite()
-extension FavouritesManager {
-    func addFavourite(product: DogProductModel) {
-        let entity = FavouriteProduct(context: context)
-        entity.product = product.product
+    
+    func getFavouriteProducts() -> [DogProductModelDTO] {
+        let fetchRequest: NSFetchRequest<FavouriteProduct> = FavouriteProduct.fetchRequest()
         
         do {
-            try context.save()
+            let favouriteEntities = try persistenceService.context.fetch(fetchRequest)
+            return favouriteEntities.map { DogProductModelDTO(product: $0.product ?? "", type: [], backgroundType: [], descriptions: "", restriction: "", photo: [], indicator: "", detailPhoto: "") }
         } catch {
-            print("Failed to save favourite: \(error)")
+            print("Error fetching data \(error)")
+            return []
         }
     }
 }
 
-// MARK: - removeFavourite()
 extension FavouritesManager {
-    func removeFavourite(product: DogProductModel) {
+    func addFavourite(product: DogProductModelDTO) {
+        let entity = FavouriteProduct(context: persistenceService.context)
+        entity.product = product.product
+        
+        persistenceService.saveContext()
+    }
+    
+    func removeFavourite(product: DogProductModelDTO) {
         let fetchRequest: NSFetchRequest<FavouriteProduct> = FavouriteProduct.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "product == %@", product.product)
 
         do {
-            let products = try context.fetch(fetchRequest)
+            let products = try persistenceService.context.fetch(fetchRequest)
             for product in products {
-                context.delete(product)
+                persistenceService.context.delete(product)
             }
-            try context.save()
+            persistenceService.saveContext()
         } catch {
             print("Error fetching data \(error)")
         }
     }
-
-}
-
-// MARK: - updateFavourite()
-extension FavouritesManager {
-    func updateFavourite(product: DogProductModel) {
+    
+    func updateFavourite(product: DogProductModelDTO) {
         if isFavourite(product: product) {
             removeFavourite(product: product)
         } else {
             addFavourite(product: product)
         }
     }
+}
+
+extension Notification.Name {
+    static let dataDidChange = Notification.Name("dataDidChange")
 }

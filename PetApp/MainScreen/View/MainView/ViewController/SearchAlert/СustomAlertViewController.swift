@@ -3,38 +3,11 @@ import MessageUI
 import SafariServices
 
 // MARK: - Properties
-class CustomAlertViewController: UIViewController, MFMailComposeViewControllerDelegate {
+final class CustomAlertViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    private let backgroundView = {
-        let view = UIView()
-        view.backgroundColor = .white.withAlphaComponent(0.78)
-        view.layer.cornerRadius = 15
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let titleLabel = {
-        let label = UILabel()
-        label.text = NSLocalizedString("titleLabelOfAletr", comment: "")
-        label.font = .montserratSemiBold17()
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.textColor = .accentText
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let messageLabel = {
-        let label = UILabel()
-        label.text = NSLocalizedString("messageLabelOfAletr", comment: "")
-        label.font = .montserratRegular13()
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.lineBreakMode = .byWordWrapping
-        label.textColor = .accentGrey
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let backgroundView = ViewFactory.backgroundView(cornerRadius: 15)
+    private let titleLabel = LabelFactory.montserratSemiBold17()
+    private let messageLabel = LabelFactory.montserratRegular13()
     
     private let textField = {
         let field = UITextField()
@@ -64,27 +37,21 @@ class CustomAlertViewController: UIViewController, MFMailComposeViewControllerDe
         return button
     }()
     
-    private let stackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 0
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
-        return stack
-    }()
+    private let stackView = StackFactory.horizontalStackView(spacing: 0)
     
  // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupText()
         setupConstraints()
         setupButtonTargets()
     }
 }
 
 // MARK: - setupView()
-extension CustomAlertViewController {
-    private func setupView() {
+private extension CustomAlertViewController {
+    func setupView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         
         view.addSubview(backgroundView)
@@ -96,11 +63,16 @@ extension CustomAlertViewController {
         stackView.addArrangedSubview(sendButton)
         stackView.addArrangedSubview(cancelButton)
     }
+    
+    func setupText() {
+        titleLabel.text = NSLocalizedString("titleLabelOfAletr", comment: "")
+        messageLabel.text = NSLocalizedString("messageLabelOfAletr", comment: "")
+    }
 }
 
 // MARK: - setupView()
-extension CustomAlertViewController {
-    private func setupConstraints() {
+private extension CustomAlertViewController {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             backgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -129,16 +101,16 @@ extension CustomAlertViewController {
 }
 
 // MARK: - setupButtonTargets()
-extension CustomAlertViewController {
-    private func setupButtonTargets() {
+private extension CustomAlertViewController {
+    func setupButtonTargets() {
         sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
 }
 
 // MARK: - sendButtonTapped()
-extension CustomAlertViewController {
-    @objc private func sendButtonTapped() {
+private extension CustomAlertViewController {
+    @objc func sendButtonTapped() {
         if textField.hasText {
             sendMail()
         }
@@ -146,15 +118,15 @@ extension CustomAlertViewController {
     }
 
 // MARK: - cancelButtonTapped()
-extension CustomAlertViewController {
-    @objc private func cancelButtonTapped() {
+private extension CustomAlertViewController {
+    @objc func cancelButtonTapped() {
         dismiss(animated: true) {}
     }
 }
 
 // MARK: - sendMail()
-extension CustomAlertViewController {
-    private func sendMail() {
+private extension CustomAlertViewController {
+    func sendMail() {
         if MFMailComposeViewController.canSendMail() {
             let dogProduct: String = textField.text ?? ""
             let mail = MFMailComposeViewController()
@@ -171,8 +143,8 @@ extension CustomAlertViewController {
 }
 
 // MARK: - openFeedbackForm()
-extension CustomAlertViewController {
-    private func openFeedbackForm() {
+private extension CustomAlertViewController {
+    func openFeedbackForm() {
         let feedbackURL = StringConstants.URL.newProductOfferURL
         if let url = URL(string: feedbackURL) {
             let safariVC = SFSafariViewController(url: url)

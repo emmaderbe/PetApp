@@ -1,11 +1,10 @@
 import UIKit
 
 // MARK: - Properties
-class CategoryViewCell: UICollectionViewCell {
-
+final class CategoryViewCell: UICollectionViewCell {
     private let categoryCellImage = ImageFactory.imageViewAspectFill(cornerRadius: 12)
     private let categoryCellLabel = LabelFactory.montserratSemiBold12()
-    private let stackCell = StackFactory.stackView(spacing: 8)
+    private let stackCell = StackFactory.verticalStackView(spacing: 8)
 
 // MARK: - init()
     override init(frame: CGRect) {
@@ -14,10 +13,10 @@ class CategoryViewCell: UICollectionViewCell {
         setupCellConstraints()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 // MARK: - setupCell()
@@ -53,5 +52,11 @@ extension CategoryViewCell {
     func setupCell(image: String, label: String) {
         categoryCellImage.image = UIImage(named: image)
         categoryCellLabel.text = label
+    }
+}
+
+extension CategoryViewCell {
+    static var identifier: String {
+        String(describing: CategoryViewCell.self)
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - JSON properties
-struct DogProductModel: Codable, Hashable {
+struct DogResponse: Codable, Hashable {
     let product: String
     let type: [String]
     let backgroundType: [String]

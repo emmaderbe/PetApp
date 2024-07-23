@@ -33,16 +33,18 @@
 		C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD942A41DDD30082FE4E /* DetailVC.swift */; };
 		C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */; };
 		C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */; };
-		C50FB70F2B0D187400D45C65 /* DogProductTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */; };
 		C511BBA82BF6672600C068F0 /* StackFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511BBA72BF6672600C068F0 /* StackFactory.swift */; };
 		C511BBAA2BF6850300C068F0 /* FoodCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511BBA92BF6850300C068F0 /* FoodCollectionDataSource.swift */; };
 		C511BBB12BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */; };
 		C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */; };
 		C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */; };
-		C59E50562B8696C000E645A7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */; };
+		C5AF50312C4E859B00EF22F4 /* DogProductModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF50302C4E859B00EF22F4 /* DogProductModelDTO.swift */; };
+		C5AF50362C4EE04E00EF22F4 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */; };
 		C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F182A5EF90E001A0844 /* Localizable.strings */; };
-		C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */; };
-		C5AF6F1D2A605213001A0844 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* NetworkingService.swift */; };
+		C5AF6F1B2A604FEF001A0844 /* DogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1A2A604FEF001A0844 /* DogResponse.swift */; };
+		C5AF6F1D2A605213001A0844 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF6F1C2A605213001A0844 /* NetworkService.swift */; };
+		C5B0D7E62C4FF386002085B2 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D7E22C4FF385002085B2 /* CoreDataModel.xcdatamodeld */; };
+		C5B0D7E72C4FF386002085B2 /* CoreDataPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0D7E32C4FF385002085B2 /* CoreDataPersistenceService.swift */; };
 		C5BD4A212BF3A9B9008E0AB2 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A202BF3A9B8008E0AB2 /* LabelFactory.swift */; };
 		C5BD4A232BF3ACE7008E0AB2 /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A222BF3ACE7008E0AB2 /* ImageFactory.swift */; };
 		C5BD4A252BF3ADAC008E0AB2 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD4A242BF3ADAC008E0AB2 /* ViewFactory.swift */; };
@@ -95,18 +97,20 @@
 		C50BAD942A41DDD30082FE4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkViewCell.swift; sourceTree = "<group>"; };
 		C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionView.swift; sourceTree = "<group>"; };
-		C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductTypeModel.swift; sourceTree = "<group>"; };
 		C511BBA72BF6672600C068F0 /* StackFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackFactory.swift; sourceTree = "<group>"; };
 		C511BBA92BF6850300C068F0 /* FoodCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionDataSource.swift; sourceTree = "<group>"; };
 		C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionDataSource.swift; sourceTree = "<group>"; };
 		C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomAlertViewController.swift"; sourceTree = "<group>"; };
-		C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C5AF50302C4E859B00EF22F4 /* DogProductModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductModelDTO.swift; sourceTree = "<group>"; };
+		C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		C5AF6F132A5EF8D8001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5AF6F172A5EF90E001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C5AF6F192A600ACB001A0844 /* dogProducts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dogProducts.json; sourceTree = "<group>"; };
-		C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductModel.swift; sourceTree = "<group>"; };
-		C5AF6F1C2A605213001A0844 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		C5AF6F1A2A604FEF001A0844 /* DogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogResponse.swift; sourceTree = "<group>"; };
+		C5AF6F1C2A605213001A0844 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C5B0D7E32C4FF385002085B2 /* CoreDataPersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPersistenceService.swift; sourceTree = "<group>"; };
+		C5B0D7E52C4FF385002085B2 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C5BD4A202BF3A9B8008E0AB2 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		C5BD4A222BF3ACE7008E0AB2 /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
 		C5BD4A242BF3ADAC008E0AB2 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		C50BAD482A40D1990082FE4E /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				C5AF50302C4E859B00EF22F4 /* DogProductModelDTO.swift */,
 				C5C155E22ADEE8D200E69179 /* DogProductDataManager.swift */,
 				C5F76A422A7D7BBD00F3466F /* FavouritesManager.swift */,
 			);
@@ -253,9 +258,8 @@
 		C511BBAE2BF6887500C068F0 /* DataSourse */ = {
 			isa = PBXGroup;
 			children = (
-				C511BBA92BF6850300C068F0 /* FoodCollectionDataSource.swift */,
-				C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */,
 				C5C9ED5F2BF7B94100FC116F /* CategoryCollectionDataSource.swift */,
+				C511BBA92BF6850300C068F0 /* FoodCollectionDataSource.swift */,
 			);
 			path = DataSourse;
 			sourceTree = "<group>";
@@ -263,8 +267,8 @@
 		C511BBAF2BF6888100C068F0 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				C5C9ED5D2BF7B5CB00FC116F /* FoodCollectionDelegate.swift */,
 				C5C9ED612BF7BA3200FC116F /* CategoryCollectionDelegate.swift */,
+				C5C9ED5D2BF7B5CB00FC116F /* FoodCollectionDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -272,6 +276,7 @@
 		C56B36992C4958E8009388FE /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C5AF50372C4EE05C00EF22F4 /* Model */,
 				C56B369D2C495927009388FE /* View */,
 			);
 			path = MainScreen;
@@ -297,9 +302,9 @@
 		C56B369C2C49591B009388FE /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
-				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
-				C56B36A52C49620C009388FE /* FoodMarkCell */,
+				C5AF50382C4EE1C500EF22F4 /* Model */,
+				C5AF50392C4EE1CE00EF22F4 /* View */,
+				C5AF503A2C4EE1D500EF22F4 /* ViewController */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -308,9 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				C56B36A32C495BB4009388FE /* MainView */,
-				C5C9ED662BF7C0A800FC116F /* CategoryCell */,
-				C5C9ED652BF7C08400FC116F /* FoodCell */,
-				C56B36A42C495BE2009388FE /* SearchAlert */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +338,7 @@
 		C56B36A12C4959AD009388FE /* AboutTeamScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C5C111D92B85267500791EE7 /* CardModel.swift */,
 				C5FCE7662B234E2700EF1124 /* CardViewController.swift */,
 				C5FCE7642B22699300EF1124 /* CardView.swift */,
 			);
@@ -345,8 +348,8 @@
 		C56B36A32C495BB4009388FE /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				C50BAD7E2A40EF430082FE4E /* MainViewController.swift */,
-				C5C9ED632BF7BB2B00FC116F /* MainView.swift */,
+				C5AF503B2C4EE28000EF22F4 /* ViewController */,
+				C5AF503C2C4EE2A400EF22F4 /* View */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -360,21 +363,75 @@
 			path = SearchAlert;
 			sourceTree = "<group>";
 		};
-		C56B36A52C49620C009388FE /* FoodMarkCell */ = {
+		C5AF50372C4EE05C00EF22F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5AF50382C4EE1C500EF22F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5AF50392C4EE1CE00EF22F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD922A41CAC80082FE4E /* DetailView.swift */,
 				C50BAD982A433B860082FE4E /* FoodMarkCollectionView.swift */,
 				C50BAD962A43392E0082FE4E /* FoodMarkViewCell.swift */,
 			);
-			path = FoodMarkCell;
+			path = View;
 			sourceTree = "<group>";
 		};
-		C5BD4A1D2BF39FC3008E0AB2 /* NetworkService */ = {
+		C5AF503A2C4EE1D500EF22F4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C5AF6F1C2A605213001A0844 /* NetworkingService.swift */,
+				C50BAD942A41DDD30082FE4E /* DetailVC.swift */,
 			);
-			path = NetworkService;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5AF503B2C4EE28000EF22F4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C50BAD7E2A40EF430082FE4E /* MainViewController.swift */,
+				C56B36A42C495BE2009388FE /* SearchAlert */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5AF503C2C4EE2A400EF22F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5C9ED632BF7BB2B00FC116F /* MainView.swift */,
+				C5C9ED662BF7C0A800FC116F /* CategoryCell */,
+				C5C9ED652BF7C08400FC116F /* FoodCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5B0D7E42C4FF385002085B2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C5B0D7E22C4FF385002085B2 /* CoreDataModel.xcdatamodeld */,
+				C5B0D7E32C4FF385002085B2 /* CoreDataPersistenceService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C5BD4A1D2BF39FC3008E0AB2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C5AF6F1A2A604FEF001A0844 /* DogResponse.swift */,
+				C5AF6F1C2A605213001A0844 /* NetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C5BD4A1E2BF3A0CC008E0AB2 /* Extensions */ = {
@@ -401,9 +458,9 @@
 		C5C9ED5C2BF7B49E00FC116F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C5E0E1F42B890F4C00732FD0 /* Struct */,
-				C5BD4A1D2BF39FC3008E0AB2 /* NetworkService */,
 				C50BAD482A40D1990082FE4E /* DataManager */,
+				C511BBAE2BF6887500C068F0 /* DataSourse */,
+				C511BBAF2BF6888100C068F0 /* Delegates */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -426,23 +483,12 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
-		C5E0E1F42B890F4C00732FD0 /* Struct */ = {
-			isa = PBXGroup;
-			children = (
-				C5AF6F1A2A604FEF001A0844 /* DogProductModel.swift */,
-				C50FB70E2B0D187400D45C65 /* DogProductTypeModel.swift */,
-				C5C111D92B85267500791EE7 /* CardModel.swift */,
-				C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */,
-			);
-			path = Struct;
-			sourceTree = "<group>";
-		};
 		C5F3C4F22AFD3FF400A194E3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C5B0D7E42C4FF385002085B2 /* CoreData */,
+				C5BD4A1D2BF39FC3008E0AB2 /* Network */,
 				C5C9ED5C2BF7B49E00FC116F /* Data */,
-				C511BBAE2BF6887500C068F0 /* DataSourse */,
-				C511BBAF2BF6888100C068F0 /* Delegates */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -522,7 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5AF6F1D2A605213001A0844 /* NetworkingService.swift in Sources */,
+				C5AF6F1D2A605213001A0844 /* NetworkService.swift in Sources */,
 				C5C155E12AD6FE8D00E69179 /* VcConstraintsConstants.swift in Sources */,
 				C50BAD522A40D9BE0082FE4E /* UIFont + Extensions.swift in Sources */,
 				C50BAD992A433B860082FE4E /* FoodMarkCollectionView.swift in Sources */,
@@ -534,17 +580,18 @@
 				C50BAD502A40D9B50082FE4E /* UIColor + Extensions.swift in Sources */,
 				C50BAD4E2A40D9AD0082FE4E /* UIScrollView + Extension.swift in Sources */,
 				C5F2522E2B165D63009239FC /* SettingsViewController.swift in Sources */,
+				C5AF50362C4EE04E00EF22F4 /* SearchManager.swift in Sources */,
 				C50BAD952A41DDD30082FE4E /* DetailVC.swift in Sources */,
 				C5C9ED642BF7BB2B00FC116F /* MainView.swift in Sources */,
 				C5F76A432A7D7BBD00F3466F /* FavouritesManager.swift in Sources */,
-				C59E50562B8696C000E645A7 /* CoreDataModel.xcdatamodeld in Sources */,
 				C511BBB12BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift in Sources */,
 				C5F252352B167D28009239FC /* AboutProjectViewController.swift in Sources */,
 				C50BAD332A40D0900082FE4E /* AppDelegate.swift in Sources */,
 				C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */,
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
+				C5AF50312C4E859B00EF22F4 /* DogProductModelDTO.swift in Sources */,
 				C511BBA82BF6672600C068F0 /* StackFactory.swift in Sources */,
-				C5AF6F1B2A604FEF001A0844 /* DogProductModel.swift in Sources */,
+				C5AF6F1B2A604FEF001A0844 /* DogResponse.swift in Sources */,
 				C50BAD862A40EF5B0082FE4E /* FoodViewCell.swift in Sources */,
 				C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */,
 				C5C9ED5E2BF7B5CB00FC116F /* FoodCollectionDelegate.swift in Sources */,
@@ -553,13 +600,14 @@
 				C5BD4A212BF3A9B9008E0AB2 /* LabelFactory.swift in Sources */,
 				C5C9ED622BF7BA3200FC116F /* CategoryCollectionDelegate.swift in Sources */,
 				C511BBAA2BF6850300C068F0 /* FoodCollectionDataSource.swift in Sources */,
+				C5B0D7E72C4FF386002085B2 /* CoreDataPersistenceService.swift in Sources */,
 				C5FCE7672B234E2700EF1124 /* CardViewController.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
 				C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */,
 				C5BD4A252BF3ADAC008E0AB2 /* ViewFactory.swift in Sources */,
-				C50FB70F2B0D187400D45C65 /* DogProductTypeModel.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,
 				C5F252332B1677AB009239FC /* AboutProjectView.swift in Sources */,
+				C5B0D7E62C4FF386002085B2 /* CoreDataModel.xcdatamodeld in Sources */,
 				C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */,
 				C50BAD972A43392E0082FE4E /* FoodMarkViewCell.swift in Sources */,
 				C50BAD542A40D9DF0082FE4E /* OnboardingVC.swift in Sources */,
@@ -803,13 +851,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C59E50542B8696C000E645A7 /* CoreDataModel.xcdatamodeld */ = {
+		C5B0D7E22C4FF385002085B2 /* CoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */,
+				C5B0D7E52C4FF385002085B2 /* CoreDataModel.xcdatamodel */,
 			);
-			currentVersion = C59E50552B8696C000E645A7 /* CoreDataModel.xcdatamodel */;
-			path = CoreDataModel.xcdatamodeld;
+			currentVersion = C5B0D7E52C4FF385002085B2 /* CoreDataModel.xcdatamodel */;
+			name = CoreDataModel.xcdatamodeld;
+			path = /Users/emmaderbe/Documents/PetApp/PetApp/Models/CoreData/CoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

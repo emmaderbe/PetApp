@@ -46,8 +46,8 @@ private extension DetailView {
             foodMarkView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             foodMarkView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             foodMarkView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.cellHeight),
-            
+//            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.cellHeight),
+//            
             descriptionTitleLabel.topAnchor.constraint(equalTo: foodMarkView.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
             descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
             
