@@ -56,26 +56,26 @@ private extension AboutProjectView {
         NSLayoutConstraint.activate([
             portraitOfDeveloperImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             portraitOfDeveloperImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            portraitOfDeveloperImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.imageHeight),
-            portraitOfDeveloperImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.imageWeight),
+            portraitOfDeveloperImage.heightAnchor.constraint(equalToConstant: ViewConstants.AboutProjectView.imageHeight),
+            portraitOfDeveloperImage.widthAnchor.constraint(equalToConstant: ViewConstants.AboutProjectView.imageWeight),
             
-            portraitOfDesignerImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTop),
+            portraitOfDesignerImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstants.AboutProjectView.generalTop),
             portraitOfDesignerImage.trailingAnchor.constraint(equalTo: portraitOfDeveloperImage.centerXAnchor),
             portraitOfDesignerImage.heightAnchor.constraint(equalTo: portraitOfDeveloperImage.heightAnchor),
             portraitOfDesignerImage.widthAnchor.constraint(equalTo: portraitOfDeveloperImage.widthAnchor),
             
-            portraitOfDoctorImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTop),
+            portraitOfDoctorImage.centerYAnchor.constraint(equalTo: portraitOfDeveloperImage.centerYAnchor, constant: ViewConstants.AboutProjectView.generalTop),
             portraitOfDoctorImage.leadingAnchor.constraint(equalTo: portraitOfDeveloperImage.centerXAnchor),
             portraitOfDoctorImage.heightAnchor.constraint(equalTo: portraitOfDeveloperImage.heightAnchor),
             portraitOfDoctorImage.widthAnchor.constraint(equalTo: portraitOfDeveloperImage.widthAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: portraitOfDoctorImage.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.labelTop),
+            titleLabel.topAnchor.constraint(equalTo: portraitOfDoctorImage.bottomAnchor, constant: ViewConstants.AboutProjectView.labelTop),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.scrollTop),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalLeading),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTrailing),
-            scrollView.bottomAnchor.constraint(equalTo: supportTheProjectButton.topAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalButton),
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ViewConstants.AboutProjectView.scrollTop),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.AboutProjectView.generalLeading),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.AboutProjectView.generalTrailing),
+            scrollView.bottomAnchor.constraint(equalTo: supportTheProjectButton.topAnchor, constant: ViewConstants.AboutProjectView.generalButton),
             
             descriptionLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -83,10 +83,10 @@ private extension AboutProjectView {
             descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             descriptionLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            supportTheProjectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalButton),
-            supportTheProjectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalLeading * 2),
-            supportTheProjectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.AboutProjectView.generalTrailing * 2),
-            supportTheProjectButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.AboutProjectView.buttonHeight),
+            supportTheProjectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: ViewConstants.AboutProjectView.generalButton),
+            supportTheProjectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.AboutProjectView.generalLeading * 2),
+            supportTheProjectButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.AboutProjectView.generalTrailing * 2),
+            supportTheProjectButton.heightAnchor.constraint(equalToConstant: ViewConstants.AboutProjectView.buttonHeight),
         ])
     }
 }

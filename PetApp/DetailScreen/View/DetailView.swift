@@ -38,29 +38,29 @@ private extension DetailView {
 private extension DetailView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
-            mainImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
-            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.imageHeight),
+            mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
+            mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.DetailViewConstraints.generalLeading),
+            mainImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.DetailViewConstraints.generalTrailing),
+            mainImage.heightAnchor.constraint(equalToConstant: ViewConstants.DetailViewConstraints.imageHeight),
             
-            foodMarkView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
+            foodMarkView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
             foodMarkView.leadingAnchor.constraint(equalTo: leadingAnchor),
             foodMarkView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.DetailViewConstraints.cellHeight),
+            foodMarkView.heightAnchor.constraint(equalToConstant: ViewConstants.DetailViewConstraints.cellHeight),
             
-            descriptionTitleLabel.topAnchor.constraint(equalTo: foodMarkView.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            descriptionTitleLabel.topAnchor.constraint(equalTo: foodMarkView.bottomAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
+            descriptionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.DetailViewConstraints.generalLeading),
             
-            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            descriptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.DetailViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.DetailViewConstraints.generalTrailing),
             
-            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
+            restrictionsTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
+            restrictionsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.DetailViewConstraints.generalLeading),
             
-            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalTop),
-            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.DetailViewConstraints.generalLeading),
-            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  ViewConstraintsConstants.DetailViewConstraints.generalTrailing),
+            restrictionsLabel.topAnchor.constraint(equalTo: restrictionsTitleLabel.bottomAnchor, constant: ViewConstants.DetailViewConstraints.generalTop),
+            restrictionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.DetailViewConstraints.generalLeading),
+            restrictionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  ViewConstants.DetailViewConstraints.generalTrailing),
         ])
     }
 }

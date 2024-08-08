@@ -25,7 +25,7 @@
 		C50BAD872A40EF5B0082FE4E /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD832A40EF5A0082FE4E /* CategoryViewCell.swift */; };
 		C50BAD882A40EF5B0082FE4E /* FoodCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD842A40EF5A0082FE4E /* FoodCollectionView.swift */; };
 		C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */; };
-		C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8A2A40EF6E0082FE4E /* ViewConstraintsConstants.swift */; };
+		C50BAD8B2A40EF6E0082FE4E /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8A2A40EF6E0082FE4E /* ViewConstants.swift */; };
 		C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */; };
 		C50BAD8F2A40F13D0082FE4E /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */; };
 		C50BAD912A40F2630082FE4E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50BAD902A40F2630082FE4E /* TabBarController.swift */; };
@@ -94,7 +94,7 @@
 		C50BAD832A40EF5A0082FE4E /* CategoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
 		C50BAD842A40EF5A0082FE4E /* FoodCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCollectionView.swift; sourceTree = "<group>"; };
 		C50BAD852A40EF5A0082FE4E /* CategoryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
-		C50BAD8A2A40EF6E0082FE4E /* ViewConstraintsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstraintsConstants.swift; sourceTree = "<group>"; };
+		C50BAD8A2A40EF6E0082FE4E /* ViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		C50BAD8E2A40F13D0082FE4E /* FavouritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		C50BAD902A40F2630082FE4E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 			children = (
 				C50BAD8C2A40EF7E0082FE4E /* StringConstants.swift */,
 				C5D1553C2AD5ACD0004636FB /* ImageConstants.swift */,
-				C50BAD8A2A40EF6E0082FE4E /* ViewConstraintsConstants.swift */,
+				C50BAD8A2A40EF6E0082FE4E /* ViewConstants.swift */,
 				C5C155E02AD6FE8D00E69179 /* VcConstraintsConstants.swift */,
 			);
 			path = Constants;
@@ -702,7 +702,7 @@
 				C5B0D7E72C4FF386002085B2 /* CoreDataPersistenceService.swift in Sources */,
 				C5FCE7672B234E2700EF1124 /* CardViewController.swift in Sources */,
 				C50BAD892A40EF5B0082FE4E /* CategoryCollectionView.swift in Sources */,
-				C50BAD8B2A40EF6E0082FE4E /* ViewConstraintsConstants.swift in Sources */,
+				C50BAD8B2A40EF6E0082FE4E /* ViewConstants.swift in Sources */,
 				C5B0D8052C503712002085B2 /* FoodMarkCollectionDelegate.swift in Sources */,
 				C5BD4A252BF3ADAC008E0AB2 /* ViewFactory.swift in Sources */,
 				C50BAD8D2A40EF7E0082FE4E /* StringConstants.swift in Sources */,

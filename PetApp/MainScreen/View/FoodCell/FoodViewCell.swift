@@ -36,23 +36,23 @@ private extension FoodViewCell {
 private extension FoodViewCell {
     func setupCellConstraints() {
         NSLayoutConstraint.activate([
-            foodCellImage.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.imageTop),
-            foodCellImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalLeading),
-            foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
-            foodCellImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.imageWigth),
+            foodCellImage.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstants.FoodViewConstraints.imageTop),
+            foodCellImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.FoodViewConstraints.generalLeading),
+            foodCellImage.trailingAnchor.constraint(equalTo: foodNameLabel.leadingAnchor, constant: ViewConstants.FoodViewConstraints.generalTrailing),
+            foodCellImage.widthAnchor.constraint(equalToConstant: ViewConstants.FoodViewConstraints.imageWigth),
             foodCellImage.heightAnchor.constraint(equalTo: foodCellImage.widthAnchor),
             
-            foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.indicatorSpacing),
-            foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.indicatorSpacing),
-            foodIndicatorImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.indicatorHeight),
+            foodIndicatorImage.topAnchor.constraint(equalTo: foodCellImage.topAnchor, constant: ViewConstants.FoodViewConstraints.indicatorSpacing),
+            foodIndicatorImage.leadingAnchor.constraint(equalTo: foodCellImage.leadingAnchor, constant: ViewConstants.FoodViewConstraints.indicatorSpacing),
+            foodIndicatorImage.heightAnchor.constraint(equalToConstant: ViewConstants.FoodViewConstraints.indicatorHeight),
             foodIndicatorImage.widthAnchor.constraint(equalTo: foodIndicatorImage.heightAnchor),
             
             foodNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            foodNameLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
+            foodNameLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: ViewConstants.FoodViewConstraints.generalTrailing),
             
             likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.FoodViewConstraints.generalTrailing),
-            likeButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.FoodViewConstraints.likeHeight),
+            likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.FoodViewConstraints.generalTrailing),
+            likeButton.heightAnchor.constraint(equalToConstant: ViewConstants.FoodViewConstraints.likeHeight),
         ])
     }
 }

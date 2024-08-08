@@ -1,6 +1,6 @@
 import Foundation
 
-enum ViewConstraintsConstants {
+enum ViewConstants {
     
     // onboarding view
     enum OnboardingViewConstraints {
@@ -95,5 +95,18 @@ enum ViewConstraintsConstants {
         static let buttonHeight: CGFloat = 64
     }
     
+    enum CardView {
+        static let generalLeading: CGFloat = 16
+        static let generalTrailing: CGFloat = -16
+        static let generalBottom: CGFloat = -8
+        
+        static let viewTop: CGFloat = 32
+        static let viewHeight: CGFloat = 206
+        
+        static let titleTop: CGFloat = 17
+        static let labelTop: CGFloat = 10
+        
+        static let buttonHeight: CGFloat = 64
+    }
 }
 

@@ -61,29 +61,29 @@ private extension SettingsView {
             mainImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             mainImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            mainImage.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.imageHeight),
+            mainImage.heightAnchor.constraint(equalToConstant: ViewConstants.SettingsViewConstraints.imageHeight),
             
-            backgroundView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.viewTop),
+            backgroundView.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: ViewConstants.SettingsViewConstraints.viewTop),
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.labelTop),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstants.SettingsViewConstraints.labelTop),
             titleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
-            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstants.SettingsViewConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstants.SettingsViewConstraints.generalTrailing),
             
-            aboutProjectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.firstButtonTop),
-            aboutProjectButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
-            aboutProjectButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
-            aboutProjectButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.generalButtonHeight),
+            aboutProjectButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstants.SettingsViewConstraints.firstButtonTop),
+            aboutProjectButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstants.SettingsViewConstraints.generalLeading),
+            aboutProjectButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstants.SettingsViewConstraints.generalTrailing),
+            aboutProjectButton.heightAnchor.constraint(equalToConstant: ViewConstants.SettingsViewConstraints.generalButtonHeight),
             
-            sendMessageButton.topAnchor.constraint(equalTo: aboutProjectButton.bottomAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.secondButtonTop),
-            sendMessageButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalLeading),
-            sendMessageButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.SettingsViewConstraints.generalTrailing),
-            sendMessageButton.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.SettingsViewConstraints.generalButtonHeight),
+            sendMessageButton.topAnchor.constraint(equalTo: aboutProjectButton.bottomAnchor, constant: ViewConstants.SettingsViewConstraints.secondButtonTop),
+            sendMessageButton.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstants.SettingsViewConstraints.generalLeading),
+            sendMessageButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstants.SettingsViewConstraints.generalTrailing),
+            sendMessageButton.heightAnchor.constraint(equalToConstant: ViewConstants.SettingsViewConstraints.generalButtonHeight),
         ])
     }
 }

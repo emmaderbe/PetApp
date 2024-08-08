@@ -41,21 +41,21 @@ private extension ProductContentUnavailableView {
 private extension ProductContentUnavailableView {
     func setUpConstraints() {
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewTop),
-            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewLeading),
-            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.viewTrailing),
+            backgroundView.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.viewTop),
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.viewLeading),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.viewTrailing),
             
-            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.labelTop),
-            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalLeading),
-            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalTrailing),
-            titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.labelBotton),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.labelTop),
+            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalLeading),
+            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalTrailing),
+            titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.labelBotton),
             
-            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalLeading),
-            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalTrailing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalTrailing),
             
-            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalTop),
+            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalTop),
             button.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: ViewConstraintsConstants.ProductContentUnavailableConstraints.generalBottom)
+            button.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: ViewConstants.ProductContentUnavailableConstraints.generalBottom)
         ])
     }
 }

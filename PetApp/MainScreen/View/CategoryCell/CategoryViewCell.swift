@@ -40,10 +40,10 @@ private extension CategoryViewCell {
             stackCell.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackCell.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            categoryCellImage.widthAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.imageWidth),
+            categoryCellImage.widthAnchor.constraint(equalToConstant: ViewConstants.CategoryViewConstraints.imageWidth),
             categoryCellImage.heightAnchor.constraint(equalTo: categoryCellImage.widthAnchor),
             
-            categoryCellLabel.heightAnchor.constraint(equalToConstant: ViewConstraintsConstants.CategoryViewConstraints.labelHeight),
+            categoryCellLabel.heightAnchor.constraint(equalToConstant: ViewConstants.CategoryViewConstraints.labelHeight),
         ])
     }
 }

@@ -4,30 +4,9 @@ class CardView: UIView {
     var identifier: String?
     var profileURL: String = ""
     
-    private let imageView: UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.clipsToBounds = true
-        image.layer.cornerRadius = 16
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .montserratSemiBold20()
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .montserratRegular16()
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let imageView = ImageFactory.imageViewAspectFill(cornerRadius: 16)
+    private let titleLabel = LabelFactory.montserratSemiBold20()
+    private let descriptionLabel = LabelFactory.montserratRegular16()
     
     var profileButton = OrangeButton(title: "Мой профиль")
     
@@ -61,22 +40,22 @@ extension CardView {
 extension CardView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 32),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            imageView.heightAnchor.constraint(equalToConstant: 206),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ViewConstants.CardView.viewTop),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.CardView.generalLeading),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.CardView.generalTrailing),
+            imageView.heightAnchor.constraint(equalToConstant: ViewConstants.CardView.viewHeight),
             
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 17),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ViewConstants.CardView.titleTop),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ViewConstants.CardView.labelTop),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.CardView.generalLeading),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.CardView.generalTrailing),
             
-            profileButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            profileButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            profileButton.heightAnchor.constraint(equalToConstant: 64),
+            profileButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: ViewConstants.CardView.generalLeading),
+            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: ViewConstants.CardView.generalTrailing),
+            profileButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ViewConstants.CardView.generalBottom),
+            profileButton.heightAnchor.constraint(equalToConstant: ViewConstants.CardView.buttonHeight),
         ])
     }
 }
