@@ -3,7 +3,7 @@ import MessageUI
 import SafariServices
 
 // MARK: - Properties and viewDidLoad()
-class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class SettingsViewController: UIViewController {
     
     private let settingsView = SettingsView()
     
@@ -81,6 +81,12 @@ private extension SettingsViewController {
         } else {
             openWebForm()
         }
+    }
+}
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true) {}
     }
 }
 

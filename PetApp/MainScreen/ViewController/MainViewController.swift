@@ -103,7 +103,6 @@ private extension MainVC {
     
     func setupDelegate() {
         mainView.setupProductUnavailableViewDelegate(delegate: self)
-        //        productContentUnavailableView.setDelegate(self)
     }
 }
 
@@ -144,6 +143,7 @@ private extension MainVC {
     func filterContentForSearchText(_ searchText: String) {
         productDataManager.filterProductsBySearchBar(searchText: searchText) { [weak self] filteredProducts in
             self?.foodDataSource.updateProducts(filteredProducts)
+            self?.foodDelegate.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
             
             let productsFound = !filteredProducts.isEmpty
@@ -170,6 +170,7 @@ extension MainVC: CategorySelectedDelegate {
     private func filterContentForCategory(_ category: String?) {
         productDataManager.filterProductsByCategory(category: category ?? "") { [weak self] filteredProducts in
             self?.foodDataSource.updateProducts(filteredProducts)
+            self?.foodDelegate.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
         }
     }
@@ -191,8 +192,6 @@ extension MainVC: NextButtonDelegate {
         if let searchText = searchController.searchBar.text {
             vc.updateProduct(product: searchText)
         }
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true, completion: nil)
-        
+        vc.presentWithFade(from: self)
     }
 }

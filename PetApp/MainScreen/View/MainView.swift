@@ -119,12 +119,14 @@ extension MainView {
         categoryLabel.isHidden = isSearching
         categoryCollectionView.isHidden = isSearching
         allFoodLabel.isHidden = isSearching
+        
+        NSLayoutConstraint.deactivate(originalConstraints)
+        NSLayoutConstraint.deactivate(searchActiveConstraints)
+        
         if isSearching {
-            NSLayoutConstraint.deactivate(originalConstraints)
             setupSearchActiveConstraints()
             NSLayoutConstraint.activate(searchActiveConstraints)
         } else {
-            NSLayoutConstraint.deactivate(searchActiveConstraints)
             NSLayoutConstraint.activate(originalConstraints)
         }
         

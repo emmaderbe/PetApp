@@ -3,7 +3,7 @@ import MessageUI
 import SafariServices
 
 // MARK: - Properties
-final class CustomAlertViewController: UIViewController, MFMailComposeViewControllerDelegate {
+final class CustomAlertViewController: UIViewController {
     
     private let backgroundView = ViewFactory.backgroundView(cornerRadius: 15)
     private let titleLabel = LabelFactory.montserratSemiBold17()
@@ -106,7 +106,7 @@ private extension CustomAlertViewController {
 // MARK: - cancelButtonTapped()
 private extension CustomAlertViewController {
     @objc func cancelButtonTapped() {
-        dismiss(animated: true) {}
+        dismissWithFade()
     }
 }
 
@@ -127,6 +127,14 @@ private extension CustomAlertViewController {
     }
 }
 
+extension CustomAlertViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true) {
+            self.dismissWithFade()
+        }
+    }
+}
+
 // MARK: - openFeedbackForm()
 private extension CustomAlertViewController {
     func openFeedbackForm() {
@@ -143,5 +151,23 @@ private extension CustomAlertViewController {
 extension CustomAlertViewController {
     func updateProduct(product: String) {
         self.product = product
+    }
+    
+   func presentWithFade(from parentViewController: UIViewController) {
+        self.modalPresentationStyle = .overFullScreen
+        self.view.alpha = 0
+        parentViewController.present(self, animated: false) {
+            UIView.animate(withDuration: 0.5) {
+                self.view.alpha = 1.0
+            }
+        }
+    }
+    
+     private func dismissWithFade() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 0
+        }) { _ in
+            self.dismiss(animated: false)
+        }
     }
 }

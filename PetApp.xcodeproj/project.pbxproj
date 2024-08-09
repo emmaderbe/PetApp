@@ -359,13 +359,13 @@
 			path = AboutTeamScreen;
 			sourceTree = "<group>";
 		};
-		C56B36A42C495BE2009388FE /* CustomAlert */ = {
+		C56B36A42C495BE2009388FE /* CustomControllers */ = {
 			isa = PBXGroup;
 			children = (
 				C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */,
 				C5F3C4F32AFE745400A194E3 /* ProductContentUnavailableView.swift */,
 			);
-			path = CustomAlert;
+			path = CustomControllers;
 			sourceTree = "<group>";
 		};
 		C5AF50372C4EE05C00EF22F4 /* Model */ = {
@@ -406,7 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				C50BAD7E2A40EF430082FE4E /* MainViewController.swift */,
-				C56B36A42C495BE2009388FE /* CustomAlert */,
+				C56B36A42C495BE2009388FE /* CustomControllers */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
