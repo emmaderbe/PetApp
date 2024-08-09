@@ -8,15 +8,8 @@ final class CustomAlertViewController: UIViewController, MFMailComposeViewContro
     private let backgroundView = ViewFactory.backgroundView(cornerRadius: 15)
     private let titleLabel = LabelFactory.montserratSemiBold17()
     private let messageLabel = LabelFactory.montserratRegular13()
-    
-    private let textField = {
-        let field = UITextField()
-        field.placeholder = "..."
-        field.borderStyle = .roundedRect
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
-    }()
-    
+    private var product: String = ""
+
     private let sendButton = {
         let button = UIButton()
         button.setTitle("Отправить", for: .normal)
@@ -57,7 +50,6 @@ private extension CustomAlertViewController {
         view.addSubview(backgroundView)
         backgroundView.addSubview(titleLabel)
         backgroundView.addSubview(messageLabel)
-        backgroundView.addSubview(textField)
         backgroundView.addSubview(stackView)
         
         stackView.addArrangedSubview(sendButton)
@@ -86,11 +78,7 @@ private extension CustomAlertViewController {
             messageLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.generalLeading),
             messageLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.generalTrailing),
             
-            textField.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.textFieldTop),
-            textField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.generalLeading),
-            textField.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.generalTrailing),
-            
-            stackView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.stackTop),
+            stackView.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: VcConstraintsConstants.CustomAlertConstraints.stackTop),
             stackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor),
@@ -111,9 +99,7 @@ private extension CustomAlertViewController {
 // MARK: - sendButtonTapped()
 private extension CustomAlertViewController {
     @objc func sendButtonTapped() {
-        if textField.hasText {
-            sendMail()
-        }
+        sendMail()
         }
     }
 
@@ -128,12 +114,11 @@ private extension CustomAlertViewController {
 private extension CustomAlertViewController {
     func sendMail() {
         if MFMailComposeViewController.canSendMail() {
-            let dogProduct: String = textField.text ?? ""
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["petdietapp@gmail.com"])
             mail.setSubject("Новый продукт")
-            mail.setMessageBody("<p>Предлагаю добавить следующий продукт в список – \(dogProduct)</p>", isHTML: true)
+            mail.setMessageBody("<p>Предлагаю добавить следующий продукт в список – \(self.product)</p>", isHTML: true)
             
             present(mail, animated: true)
         } else {
@@ -152,5 +137,11 @@ private extension CustomAlertViewController {
         } else {
             print("Invalid URL")
         }
+    }
+}
+
+extension CustomAlertViewController {
+    func updateProduct(product: String) {
+        self.product = product
     }
 }

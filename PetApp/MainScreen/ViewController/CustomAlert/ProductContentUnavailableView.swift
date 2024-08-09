@@ -34,6 +34,7 @@ private extension ProductContentUnavailableView {
         descriptionLabel.textAlignment = .center
         backgroundView.backgroundColor = .accentLightGrey
         button.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.text = NSLocalizedString("descriptionProductContentUnavailableView", comment: "")
     }
 }
 

@@ -13,9 +13,11 @@ class MainVC: UIViewController {
     private var foodDataSource = FoodCollectionDataSource()
     private var foodDelegate = FoodCollectionDelegate()
     
-    private var currentSelectedCategory: String?
+    private let searchController = UISearchController(searchResultsController: nil)
     
-    private let productContentUnavailableView = ProductContentUnavailableView(product: "")
+    private var currentSelectedCategory: String?
+    private var isSearching: Bool = false
+    
     private let customAlert = CustomAlertViewController()
     
     init(productDataManager: DogProductDataManagerProtocol = DogProductDataManager(),
@@ -44,12 +46,12 @@ class MainVC: UIViewController {
 }
 
 private extension MainVC {
-    func loadProducts() {        
+    func loadProducts() {
         productDataManager.getAllProductsTypes { [weak self] productTypes in
-        self?.categoryDataSource.updateTypes(productTypes)
-        self?.categoryDelegate.updateTypes(productTypes)
-        self?.mainView.reloadCategoryData()
-    }
+            self?.categoryDataSource.updateTypes(productTypes)
+            self?.categoryDelegate.updateTypes(productTypes)
+            self?.mainView.reloadCategoryData()
+        }
         productDataManager.getAllProducts { [weak self] products in
             self?.foodDataSource.updateProducts(products)
             self?.foodDelegate.updateProducts(products)
@@ -68,14 +70,23 @@ private extension MainVC {
         setupCategoryCollection()
         setupFoodCollection()
         setupSearchBar()
-        
-        setupContentUnavailableView()
+        setupDelegate()
     }
     
     func setupText() {
         mainView.setupText(category: NSLocalizedString("categoryLabelMainVC", comment: ""),
-                           allFood: NSLocalizedString("allFoodLabelMainVC", comment: ""),
-                           search: NSLocalizedString("searchBarMainVC", comment: ""))
+                           allFood: NSLocalizedString("allFoodLabelMainVC", comment: ""))
+    }
+    
+    func setupSearchBar() {
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("searchBarMainVC", comment: "")
+        searchController.searchBar.searchTextField.clearButtonMode = .never
+        searchController.searchBar.searchBarStyle = .minimal
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
     }
     
     func setupCategoryCollection() {
@@ -90,35 +101,19 @@ private extension MainVC {
         foodDelegate.delegate = self
     }
     
-    func setupSearchBar() {
-        mainView.setupSearchBarDelegate(self)
-    }
-    
     func setupDelegate() {
-        productContentUnavailableView.setDelegate(self)
+        mainView.setupProductUnavailableViewDelegate(delegate: self)
+        //        productContentUnavailableView.setDelegate(self)
     }
 }
 
-private extension MainVC {
-    func setupContentUnavailableView() {
-        productContentUnavailableView.translatesAutoresizingMaskIntoConstraints = false
-        productContentUnavailableView.isHidden = true
-        view.addSubview(productContentUnavailableView)
-        NSLayoutConstraint.activate([
-            productContentUnavailableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            productContentUnavailableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            productContentUnavailableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            productContentUnavailableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
-    }
-}
 
-// MARK: - nextButtonDidTap()
-extension MainVC: NextButtonDelegate {
-    func nextButtonDidTap() {
-        let vc = customAlert
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true, completion: nil)
+// MARK: - UISearchResultsUpdating
+extension MainVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContentForSearchText(searchText)
+        }
     }
 }
 
@@ -127,27 +122,37 @@ extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterContentForSearchText(searchText)
     }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+        updateViewForSearchState()
+    }
     
-    private func filterContentForSearchText(_ searchText: String) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, text.isEmpty {
+            isSearching = false
+            updateViewForSearchState()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        updateViewForSearchState()
+    }
+}
+
+private extension MainVC {
+    func filterContentForSearchText(_ searchText: String) {
         productDataManager.filterProductsBySearchBar(searchText: searchText) { [weak self] filteredProducts in
             self?.foodDataSource.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
             
             let productsFound = !filteredProducts.isEmpty
-            self?.productContentUnavailableView.isHidden = productsFound
-            if !productsFound {
-                self?.productContentUnavailableView.updateProduct(product: searchText)
-            }
+            self?.mainView.showProductUnavailableView(!productsFound, product: searchText)
         }
     }
-}
-
-// MARK: - FoodSelectionDelegate
-extension MainVC: FoodSelectionDelegate {
-    func foodSelected(_ product: DogProductModelDTO) {
-        let detailVC = DetailVC(productInfo: product)
-        detailVC.title = product.product
-        navigationController?.pushViewController(detailVC, animated: true)
+    
+    func updateViewForSearchState() {
+        mainView.updateViewForSearchState(isSearching: isSearching)
     }
 }
 
@@ -167,5 +172,27 @@ extension MainVC: CategorySelectedDelegate {
             self?.foodDataSource.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
         }
+    }
+}
+
+// MARK: - FoodSelectionDelegate
+extension MainVC: FoodSelectionDelegate {
+    func foodSelected(_ product: DogProductModelDTO) {
+        let detailVC = DetailVC(productInfo: product)
+        detailVC.title = product.product
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+// MARK: - nextButtonDidTap()
+extension MainVC: NextButtonDelegate {
+    func nextButtonDidTap() {
+        let vc = customAlert
+        if let searchText = searchController.searchBar.text {
+            vc.updateProduct(product: searchText)
+        }
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
+        
     }
 }

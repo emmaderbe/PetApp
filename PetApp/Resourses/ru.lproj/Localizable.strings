@@ -34,8 +34,8 @@
 "descriptionProductContentUnavailableView" = "Предложите новый продукт для списка";
 
 //MARK: - CustomAlertViewController
-"titleLabelOfAletr" = "Предложить продукт";
-"messageLabelOfAletr" = "Напишите название для добавления в список продуктов";
+"titleLabelOfAletr" = "Спасибо за обратную связь!";
+"messageLabelOfAletr" = "Мы ценим ваше стремление сделать наше приложение лучше. \n\nЕсли вы авторизованы в приложении Почта, мы автоматически сформируем письмо с вашим предложением. \n\nВ противном случае вы перейдете на страницу с Google Формой.";
 
 //MARK: - SettingsView
 "titleLabelSettingsView" = "Привет!";

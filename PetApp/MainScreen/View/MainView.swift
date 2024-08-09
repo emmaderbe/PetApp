@@ -1,16 +1,15 @@
 import UIKit
 
 final class MainView: UIView {
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        return searchBar
-    }()
     private let categoryLabel = LabelFactory.montserratBold16()
     private let categoryCollectionView = CategoryCollectionView()
     private let allFoodLabel = LabelFactory.montserratBold16()
     private let foodCollectionView = FoodCollectionView()
+    
+    private let productContentUnavailableView = ProductContentUnavailableView(product: "")
+    
+    private var originalConstraints: [NSLayoutConstraint] = []
+    private var searchActiveConstraints: [NSLayoutConstraint] = []
     
     // MARK: - init()
     override init(frame: CGRect) {
@@ -28,23 +27,22 @@ final class MainView: UIView {
 private extension MainView {
     func setupView() {
         backgroundColor = .accentBackground
-        addSubview(searchBar)
         addSubview(categoryLabel)
         addSubview(categoryCollectionView)
         addSubview(allFoodLabel)
         addSubview(foodCollectionView)
+        
+        addSubview(productContentUnavailableView)
+        productContentUnavailableView.translatesAutoresizingMaskIntoConstraints = false
+        productContentUnavailableView.isHidden = true
     }
 }
 
 // MARK: - setupConstraints()
 private extension MainView {
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTrailing),
-            
-            categoryLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalTop),
+        originalConstraints = [
+            categoryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             categoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: VcConstraintsConstants.MainVcConstraints.generalLeading * 2),
             
             categoryCollectionView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: VcConstraintsConstants.MainVcConstraints.collectionTop),
@@ -59,20 +57,36 @@ private extension MainView {
             foodCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             foodCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             foodCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+        ]
+        NSLayoutConstraint.activate(originalConstraints)
+    }
+    
+    func setupSearchActiveConstraints() {
+        searchActiveConstraints = [
+            foodCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            foodCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            foodCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            foodCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            productContentUnavailableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            productContentUnavailableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            productContentUnavailableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            productContentUnavailableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+    }
+    
+    func updateViewWithAnimation() {
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
     }
 }
 
 extension MainView {
     func setupText(category: String,
-                   allFood: String, search: String) {
+                   allFood: String) {
         categoryLabel.text = category
         allFoodLabel.text = allFood
-        searchBar.placeholder = search
-    }
-    
-    func setupSearchBarDelegate(_ delegate: UISearchBarDelegate) {
-        searchBar.delegate = delegate
     }
 }
 
@@ -97,5 +111,36 @@ extension MainView {
                                  delegate: FoodCollectionDelegate) {
         foodCollectionView.dataSource = dataSource
         foodCollectionView.delegate = delegate
+    }
+}
+
+extension MainView {
+    func updateViewForSearchState(isSearching: Bool) {
+        categoryLabel.isHidden = isSearching
+        categoryCollectionView.isHidden = isSearching
+        allFoodLabel.isHidden = isSearching
+        if isSearching {
+            NSLayoutConstraint.deactivate(originalConstraints)
+            setupSearchActiveConstraints()
+            NSLayoutConstraint.activate(searchActiveConstraints)
+        } else {
+            NSLayoutConstraint.deactivate(searchActiveConstraints)
+            NSLayoutConstraint.activate(originalConstraints)
+        }
+        
+        updateViewWithAnimation()
+    }
+}
+
+extension MainView {
+    func showProductUnavailableView(_ show: Bool, product: String?) {
+        productContentUnavailableView.isHidden = !show
+        productContentUnavailableView.updateProduct(product: product ?? "")
+        
+        updateViewWithAnimation()
+    }
+    
+    func setupProductUnavailableViewDelegate(delegate: NextButtonDelegate) {
+        productContentUnavailableView.setDelegate(delegate)
     }
 }
