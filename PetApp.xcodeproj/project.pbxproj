@@ -38,6 +38,7 @@
 		C511BBB12BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */; };
 		C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */; };
 		C52EBFC02B07EB0100375CC4 /* СustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */; };
+		C57EC95A2C6963BC0058072F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57EC9592C6963BC0058072F /* KeyboardManager.swift */; };
 		C5AF50312C4E859B00EF22F4 /* DogProductModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF50302C4E859B00EF22F4 /* DogProductModelDTO.swift */; };
 		C5AF50362C4EE04E00EF22F4 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */; };
 		C5AF6F162A5EF90E001A0844 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5AF6F182A5EF90E001A0844 /* Localizable.strings */; };
@@ -107,6 +108,7 @@
 		C511BBB02BF68A2B00C068F0 /* FoodMarkCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMarkCollectionDataSource.swift; sourceTree = "<group>"; };
 		C52EBFBD2B07CDCD00375CC4 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		C52EBFBF2B07EB0000375CC4 /* СustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomAlertViewController.swift"; sourceTree = "<group>"; };
+		C57EC9592C6963BC0058072F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		C5AF50302C4E859B00EF22F4 /* DogProductModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProductModelDTO.swift; sourceTree = "<group>"; };
 		C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		C5AF6F132A5EF8D8001A0844 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				C5AF50352C4EE04E00EF22F4 /* SearchManager.swift */,
+				C57EC9592C6963BC0058072F /* KeyboardManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				C50BAD352A40D0900082FE4E /* SceneDelegate.swift in Sources */,
 				C5AF50312C4E859B00EF22F4 /* DogProductModelDTO.swift in Sources */,
 				C511BBA82BF6672600C068F0 /* StackFactory.swift in Sources */,
+				C57EC95A2C6963BC0058072F /* KeyboardManager.swift in Sources */,
 				C5AF6F1B2A604FEF001A0844 /* DogResponse.swift in Sources */,
 				C50BAD862A40EF5B0082FE4E /* FoodViewCell.swift in Sources */,
 				C52EBFBE2B07CDCD00375CC4 /* NextButton.swift in Sources */,

@@ -86,6 +86,7 @@ extension FavouritesManager {
         } catch {
             print("Error fetching data \(error)")
         }
+        NotificationCenter.default.post(name: .favouritesUpdated, object: nil)
     }
     
     func updateFavourite(product: DogProductModelDTO) {

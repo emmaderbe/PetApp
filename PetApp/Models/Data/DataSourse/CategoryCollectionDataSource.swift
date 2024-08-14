@@ -24,9 +24,3 @@ extension CategoryCollectionDataSource {
         return cell
     }
 }
-
-//extension CategoryCollectionDataSource: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return  CGSize(width: VcConstraintsConstants.CategoryCellConstraints.cellWidth, height: VcConstraintsConstants.CategoryCellConstraints.cellHeight)
-//    }
-//}

@@ -60,6 +60,7 @@ private extension FavouritesVC {
             self.foodDataSource.updateProducts(products)
             self.foodDelegate.updateProducts(products)
             self.favouriteView.reloadFoodData()
+            checkProductList()
         }
     }
 }
@@ -69,6 +70,16 @@ private extension FavouritesVC {
         favouriteView.setupFoodCollectionView(dataSource: foodDataSource,
                                               delegate: foodDelegate)
         foodDelegate.delegate = self
+    }
+    
+    func checkProductList() {
+        if foodDataSource.isEmpty() {
+            favouriteView.setupText(with: NSLocalizedString("emptyFavList", comment: ""))
+            favouriteView.showListLabel(isEmpty: true)
+        }
+        else {
+            favouriteView.showListLabel(isEmpty: false)
+        }
     }
 }
 

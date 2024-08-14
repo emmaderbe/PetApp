@@ -42,6 +42,7 @@ enum ViewConstants {
     
     // category view cell
     enum CategoryViewConstraints {
+        static let generalTop: CGFloat = 5
         static let imageWidth: CGFloat = 72
         static let labelHeight: CGFloat = 15
     }

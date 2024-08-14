@@ -1,12 +1,13 @@
 import UIKit
 
 protocol CategorySelectedDelegate: AnyObject {
-    func categorySelected(_ category: DogProductTypeModelDTO)
+    func categorySelected(_ category: DogProductTypeModelDTO?)
 }
 
 final class CategoryCollectionDelegate: NSObject, UICollectionViewDelegate {
     private var dogCategory: [DogProductTypeModelDTO] = []
     weak var delegate: CategorySelectedDelegate?
+    private var selectedIndexPath: IndexPath?
 }
 
 extension CategoryCollectionDelegate {
@@ -19,8 +20,29 @@ extension CategoryCollectionDelegate {
             print("Index out of range")
             return
         }
-        let selectedCategory = dogCategory[indexPath.item]
-        delegate?.categorySelected(selectedCategory)
+        
+        if selectedIndexPath == indexPath {
+            if let previousCell = collectionView.cellForItem(at: indexPath) as? CategoryViewCell {
+                previousCell.selectCategory(isSelected: false)
+            }
+            selectedIndexPath = nil
+            delegate?.categorySelected(nil)
+        } else {
+            if let previousSelectedIndexPath = selectedIndexPath {
+                if let previousCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? CategoryViewCell {
+                    previousCell.selectCategory(isSelected: false)
+                }
+            }
+            
+            selectedIndexPath = indexPath
+            
+            let selectedCategory = dogCategory[indexPath.item]
+            delegate?.categorySelected(selectedCategory)
+            
+            if let cell = collectionView.cellForItem(at: indexPath) as? CategoryViewCell {
+                cell.selectCategory(isSelected: true)
+            }
+        }
     }
 }
 

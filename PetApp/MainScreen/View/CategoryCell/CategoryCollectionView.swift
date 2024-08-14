@@ -20,3 +20,4 @@ final class CategoryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

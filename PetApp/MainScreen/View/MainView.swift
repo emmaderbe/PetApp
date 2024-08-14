@@ -11,6 +11,10 @@ final class MainView: UIView {
     private var originalConstraints: [NSLayoutConstraint] = []
     private var searchActiveConstraints: [NSLayoutConstraint] = []
     
+    var foodCollectionViewForKeyboardHandling: UICollectionView {
+        return foodCollectionView
+    }
+    
     // MARK: - init()
     override init(frame: CGRect) {
         super.init(frame: frame )
@@ -145,4 +149,9 @@ extension MainView {
     func setupProductUnavailableViewDelegate(delegate: NextButtonDelegate) {
         productContentUnavailableView.setDelegate(delegate)
     }
+    
+    func scrollFoodCollectionViewToTop() {
+        foodCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+    }
+    
 }

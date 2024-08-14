@@ -21,31 +21,42 @@
 "titleFavoriteVCTabBarSystemName" = "Избранное";
 "titleSettingVCTabBarSystemName" = "Настройки";
 
-//MARK: - Detail View
-"descriptionTitleLabelDetailView" = "Описание продукта";
-"restrictionsTitleLabelDetailView" = "Ограничения";
+//MARK: - First screen
 
-//MARK: - Main VC
+//main vc
 "searchBarMainVC" = "Поиск";
 "categoryLabelMainVC" = "Категории";
 "allFoodLabelMainVC" = "Все продукты";
 
-//MARK: - ProductContentUnavailableView
+//product Content Unavailable View
 "descriptionProductContentUnavailableView" = "Предложите новый продукт для списка";
 
-//MARK: - CustomAlertViewController
+//custom Alert View Controller
 "titleLabelOfAletr" = "Спасибо за обратную связь!";
 "messageLabelOfAletr" = "Мы ценим ваше стремление сделать наше приложение лучше. \n\nЕсли вы авторизованы в приложении Почта, мы автоматически сформируем письмо с вашим предложением. \n\nВ противном случае вы перейдете на страницу с Google Формой.";
 
-//MARK: - SettingsView
+
+//MARK: - Second screen
+
+//favourite VC
+"emptyFavList" = "Упс! Кажется ваш список пуст. \nДобавьте продукты в избранное :)";
+
+// detail View
+"descriptionTitleLabelDetailView" = "Описание продукта";
+"restrictionsTitleLabelDetailView" = "Ограничения";
+
+
+//MARK: - Third screen
+
+//settingsView
 "titleLabelSettingsView" = "Привет!";
 "descriptionTitleASettingsView" = "Рады видеть тебя в нашем приложении! Если хочешь узнать больше о PetDiet, переходи в раздел «О проекте».";
 
-//MARK: - AboutProjectView
+//about Project View
 "titleLabelAboutProjectView" = "PetDiet";
 "descriptionTitleAAboutProjectView" = "Мы надеемся, что наше приложение станет незаменимым помощником в доме, где живет питомец.\n\nДля этого мы собрали необходимую информацию о том, какими продуктами можно кормить собак, а какими — нет, и оформили всё в удобном и понятном формате.\n\nДелись приложением с другими владельцами и оставляй отзывы в AppStore, чтобы все четвероногие друзья питались правильно!\n\nТакже у тебя есть возможность поддержать наш некоммерческий проект, перейдя по ссылке ниже. Спасибо!";
 
-//MARK: - CardView
+//card View
 "titleDevCardData" = "Эмма";
 "titleDocCardData" = "Полина";
 "titleDesCardData" = "Анастасия";

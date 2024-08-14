@@ -19,6 +19,17 @@ extension FoodCollectionDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dogProductList.count
     }
+    
+    func numberOfItems(in section: Int) -> Int {
+        return dogProductList.count
+    }
+    
+    func isEmpty() -> Bool {
+        if !dogProductList.isEmpty {
+            return false
+        }
+        return true
+    }
 }
 
 extension FoodCollectionDataSource {

@@ -19,6 +19,7 @@ class MainVC: UIViewController {
     private var isSearching: Bool = false
     
     private let customAlert = CustomAlertViewController()
+    private var keyboardManager: KeyboardManager?
     
     init(productDataManager: DogProductDataManagerProtocol = DogProductDataManager(),
          favouritesManager: FavouritesManagerProtocol = FavouritesManager(),
@@ -27,11 +28,17 @@ class MainVC: UIViewController {
         self.favouritesManager = favouritesManager
         self.searchManager = searchManager
         super.init(nibName: nil, bundle: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(favouritesUpdated), name: .favouritesUpdated, object: nil)
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .favouritesUpdated, object: nil)
     }
     
     override func loadView() {
@@ -45,6 +52,7 @@ class MainVC: UIViewController {
     }
 }
 
+// MARK: - load products
 private extension MainVC {
     func loadProducts() {
         productDataManager.getAllProductsTypes { [weak self] productTypes in
@@ -54,17 +62,43 @@ private extension MainVC {
         }
         productDataManager.getAllProducts { [weak self] products in
             self?.foodDataSource.updateProducts(products)
-            self?.foodDelegate.updateProducts(products)
+            self?.applyCurrentCategoryFilter()
+        }
+    }
+    
+    @objc func favouritesUpdated() {
+        applyCurrentCategoryFilter()
+    }
+    
+    func applyCurrentCategoryFilter() {
+        guard let selectedCategory = currentSelectedCategory else {
+            productDataManager.getAllProducts { [weak self] products in
+                self?.foodDataSource.updateProducts(products)
+                self?.mainView.reloadFoodData()
+            }
+            return
+        }
+        
+        productDataManager.filterProductsByCategory(category: selectedCategory) { [weak self] filteredProducts in
+            self?.foodDataSource.updateProducts(filteredProducts)
+            self?.foodDelegate.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
         }
     }
+    
+    func updateFavouriteStatus(for product: DogProductModelDTO) {
+        favouritesManager.updateFavourite(product: product)
+        applyCurrentCategoryFilter()
+    }
 }
 
-// MARK: - setupView()
+// MARK: - setup view
 private extension MainVC {
     func setupView() {
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
+        
+        keyboardManager = KeyboardManager(view: mainView.foodCollectionViewForKeyboardHandling)
         
         setupText()
         setupCategoryCollection()
@@ -116,7 +150,7 @@ extension MainVC: UISearchResultsUpdating {
     }
 }
 
-// MARK: - UISearchBarDelegate
+// MARK: - UISearchBarDelegate, filter products
 extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterContentForSearchText(searchText)
@@ -156,15 +190,16 @@ private extension MainVC {
     }
 }
 
-// MARK: - CategorySelectionDelegate
+// MARK: - CategorySelectionDelegate, choose category
 extension MainVC: CategorySelectedDelegate {
-    func categorySelected(_ category: DogProductTypeModelDTO) {
-        if currentSelectedCategory == category.type {
+    func categorySelected(_ category: DogProductTypeModelDTO?) {
+        if currentSelectedCategory == category?.type {
             currentSelectedCategory = nil
         } else {
-            currentSelectedCategory = category.type
+            currentSelectedCategory = category?.type
         }
         filterContentForCategory(currentSelectedCategory)
+        scrollToTopOfFoodCollectionView()
     }
     
     private func filterContentForCategory(_ category: String?) {
@@ -174,9 +209,14 @@ extension MainVC: CategorySelectedDelegate {
             self?.mainView.reloadFoodData()
         }
     }
+    
+    private func scrollToTopOfFoodCollectionView() {
+        guard foodDataSource.numberOfItems(in: 0) > 0 else { return }
+        mainView.scrollFoodCollectionViewToTop()
+    }
 }
 
-// MARK: - FoodSelectionDelegate
+// MARK: - FoodSelectionDelegate, go to detail view
 extension MainVC: FoodSelectionDelegate {
     func foodSelected(_ product: DogProductModelDTO) {
         let detailVC = DetailVC(productInfo: product)
@@ -185,7 +225,7 @@ extension MainVC: FoodSelectionDelegate {
     }
 }
 
-// MARK: - nextButtonDidTap()
+// MARK: - nextButtonDidTap(), open alert for the email
 extension MainVC: NextButtonDelegate {
     func nextButtonDidTap() {
         let vc = customAlert
@@ -195,3 +235,4 @@ extension MainVC: NextButtonDelegate {
         vc.presentWithFade(from: self)
     }
 }
+
