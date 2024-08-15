@@ -51,3 +51,15 @@ extension CategoryCollectionDelegate: UICollectionViewDelegateFlowLayout {
         return  CGSize(width: VcConstraintsConstants.CategoryCellConstraints.cellWidth, height: VcConstraintsConstants.CategoryCellConstraints.cellHeight)
     }
 }
+
+extension CategoryCollectionDelegate {
+    func resetSelection(in collectionView: UICollectionView) {
+        if let selectedIndexPath = selectedIndexPath {
+            if let cell = collectionView.cellForItem(at: selectedIndexPath) as? CategoryViewCell {
+                cell.selectCategory(isSelected: false)
+            }
+            self.selectedIndexPath = nil
+        }
+    }
+}
+

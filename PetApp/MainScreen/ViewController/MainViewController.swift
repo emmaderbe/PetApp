@@ -155,8 +155,10 @@ extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterContentForSearchText(searchText)
     }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         isSearching = true
+        categoryDelegate.resetSelection(in: mainView.getCategoryCollectionView())
         updateViewForSearchState()
     }
     
@@ -201,8 +203,10 @@ extension MainVC: CategorySelectedDelegate {
         filterContentForCategory(currentSelectedCategory)
         scrollToTopOfFoodCollectionView()
     }
-    
-    private func filterContentForCategory(_ category: String?) {
+}
+
+private extension MainVC {
+    func filterContentForCategory(_ category: String?) {
         productDataManager.filterProductsByCategory(category: category ?? "") { [weak self] filteredProducts in
             self?.foodDataSource.updateProducts(filteredProducts)
             self?.foodDelegate.updateProducts(filteredProducts)
@@ -210,7 +214,7 @@ extension MainVC: CategorySelectedDelegate {
         }
     }
     
-    private func scrollToTopOfFoodCollectionView() {
+    func scrollToTopOfFoodCollectionView() {
         guard foodDataSource.numberOfItems(in: 0) > 0 else { return }
         mainView.scrollFoodCollectionViewToTop()
     }
