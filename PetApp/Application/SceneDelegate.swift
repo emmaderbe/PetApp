@@ -16,28 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light
         
-        let attrs = [
-            NSAttributedString.Key.font: UIFont(name: "Montserrat-SemiBold", size: 17)!
-        ]
-        UINavigationBar.appearance().titleTextAttributes = attrs
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
+        editNavAppearance()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
+    
+    func editNavAppearance() {
+        let attrs = [NSAttributedString.Key.font: UIFont(name: "Montserrat-SemiBold", size: 17)!]
+        UINavigationBar.appearance().titleTextAttributes = attrs
+    }
 
 }
 

@@ -1,9 +1,9 @@
 import Foundation
 
-struct VcConstraintsConstants {
+enum VcConstraintsConstants {
     
     // main vc
-    struct MainVcConstraints {
+    enum MainVcConstraints {
         static let generalTop: CGFloat = 8
         static let generalLeading: CGFloat = 8
         static let generalTrailing: CGFloat = -8
@@ -13,7 +13,7 @@ struct VcConstraintsConstants {
     }
     
     // detail vc
-    struct DetailVcConstraints {
+    enum DetailVcConstraints {
         static let collectionTop: CGFloat = 229
         static let collectionHeight: CGFloat = 31
         static let collectionWidth: CGFloat = 96
@@ -26,7 +26,7 @@ struct VcConstraintsConstants {
     }
     
     // category collection view
-    struct CategoryCellConstraints {
+    enum CategoryCellConstraints {
         static let lineSpacing: CGFloat = 24
         
         static let leftDestination: CGFloat = 16
@@ -37,7 +37,7 @@ struct VcConstraintsConstants {
     }
     
     // food mark collection view
-    struct FoodMarkCellConstraints {
+    enum FoodMarkCellConstraints {
         static let lineSpacing: CGFloat = 16
         
         static let leftDestination: CGFloat = 16
@@ -48,7 +48,7 @@ struct VcConstraintsConstants {
     }
     
     // custom alert collection view
-    struct CustomAlertConstraints {
+    enum CustomAlertConstraints {
         static let backgroundWeight: CGFloat = 270
         
         static let generalLeading: CGFloat = 16
