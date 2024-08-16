@@ -62,12 +62,14 @@ private extension MainVC {
         }
         productDataManager.getAllProducts { [weak self] products in
             self?.foodDataSource.updateProducts(products)
+            self?.foodDelegate.updateProducts(products)
+            self?.mainView.reloadFoodData()
             self?.applyCurrentCategoryFilter()
         }
     }
     
     @objc func favouritesUpdated() {
-        applyCurrentCategoryFilter()
+        mainView.reloadFoodData()
     }
     
     func applyCurrentCategoryFilter() {
@@ -84,11 +86,6 @@ private extension MainVC {
             self?.foodDelegate.updateProducts(filteredProducts)
             self?.mainView.reloadFoodData()
         }
-    }
-    
-    func updateFavouriteStatus(for product: DogProductModelDTO) {
-        favouritesManager.updateFavourite(product: product)
-        applyCurrentCategoryFilter()
     }
 }
 

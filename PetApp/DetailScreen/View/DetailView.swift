@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - Properties
 class DetailView: UIView {
-    private let mainImage = ImageFactory.imageViewAspectFit(cornerRadius: 12)
+    private let mainImage = ImageFactory.imageViewAspectFit(cornerRadius: 0)
     private let foodMarkView = FoodMarkCollectionView()
     private let descriptionTitleLabel = LabelFactory.montserratBold16()
     private let descriptionLabel = LabelFactory.montserratRegular16()
